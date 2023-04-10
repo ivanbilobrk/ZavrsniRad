@@ -1,8 +1,8 @@
 const {Pool} = require('pg');
 const readExcel = require('read-excel-file/node')
-const { login } = require('./helpFunctions/Scrapper')
-const { scrapeQ1CNCIIC } = require('./helpFunctions/Scrapper')
-const { getNameQ1CNCIIC, getTop } = require('./helpFunctions/ReadCSV')
+const { login } = require('../helpFunctions/Scrapper')
+const { scrapeQ1CNCIIC } = require('../helpFunctions/Scrapper')
+const { getNameQ1CNCIIC, getTop } = require('../helpFunctions/ReadCSV')
 require('dotenv').config({ path: __dirname + '/../.env'});
 const env = process.env;
 
@@ -18,7 +18,7 @@ const pool = new Pool({
 const sql_create_award = `CREATE TABLE award (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
     uni text NOT NULL,
-    year int NOT NULL,
+    year  int not null,
     share double precision NOT NULL,
     category text NOT NULL
 )`;
@@ -32,12 +32,9 @@ const sql_create_ranking = `CREATE TABLE ranking (
     ic double precision NOT NULL,
     top double precision,
     award double precision,
-    category text NOT NULL
+    category text NOT NULL,
+    readingYear timestamp default now()
 )`;
-
-
-
-//const sql_insert_users = `INSERT INTO users (username, name, surname, email, pwdhash, role) VALUES ('admin', 'Adminko', 'Administratović', 'null@admin', 'adminpass', 'admin')`
 
 let table_names = [
     "award",
@@ -82,20 +79,20 @@ async function createTables(){
 }
 
 async function seedAward(category){
-    const queries = await getExcelAwardData(__dirname+'/../'+category+'.xlsx', category);
+    await pool.query('delete from award', []);
+    const queries = await getExcelAwardData(__dirname+'/../../'+category+'.xlsx', category);
 
     for(let j in queries){
         try{
             await pool.query(queries[j], []);
         } catch(err){
-            console.log("Error populating table " + table_names[i] + " with data.")
             return console.log(err.message);
         }
     }
 }
 
 //award table seed
-async function seedIndicators(category, dataSelector1, dataSelector2){
+async function seedIndicators(category, dataSelector1, dataSelector2, startYear, endYear){
 
 
     try {
@@ -107,7 +104,7 @@ async function seedIndicators(category, dataSelector1, dataSelector2){
             downloadPath: './IncitesInitCSV',
         })
 
-        for(let j = 2017; j <= new Date().getFullYear()-1; j++){
+        for(let j = startYear; j <= endYear; j++){
             let path = './IncitesInitCSV/Incites Organizations.csv'
 
             await scrapeQ1CNCIIC(page, j-6, j-2, dataSelector1);
@@ -135,14 +132,14 @@ async function seedIndicators(category, dataSelector1, dataSelector2){
             for(let l in unis){
                 const unisAward = new Map();
                 let maxAward = await getMaxAwardForYear(j-2, category, unisAward)
-                console.log(unisAward.get(unis[l].name))
-                await pool.query('insert into ranking (uni, year, q1, cnci, ic, top, category, award) values ($1, $2, $3, $4, $5, $6, $7, $8)', [unis[l].name, j, 
+                await pool.query('insert into ranking (uni, q1, cnci, ic, top, category, award, year) values ($1, $2, $3, $4, $5, $6, $7, $8)', [unis[l].name,
                                 Math.sqrt(unis[l].Q1/maxValues.Q1)*100, 
                                 Math.min(Math.sqrt(unis[l].CNCI/maxCNCI)*100, 100), 
                                 Math.sqrt(unis[l].IC/maxValues.IC)*100, 
                                 Math.sqrt(unis[l].TOP/maxTop)*100, 
                                 category,
-                                Math.sqrt(unisAward.get(unis[l].name)/maxAward)*100])
+                                Math.sqrt(unisAward.get(unis[l].name)/maxAward)*100,
+                                j])
             }
         }
     } catch (err) {
@@ -202,16 +199,19 @@ async function getMaxAwardForYear(year, category, awardData){
     return maxAward
 }
 
-(async()=>{
+/*(async()=>{
     await createTables();
     await seedAward("EEE")
     await seedAward("CSE")
 
     let dataSelector1 = '[aria-label="View more data for EEE1"]'
     let dataSelector2 = '[aria-label="View more data for EEE2"]'
-    await seedIndicators("EEE", dataSelector1, dataSelector2)
+    await seedIndicators("EEE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1)
 
     dataSelector1 = '[aria-label="View more data for CSE1"]'
     dataSelector2 = '[aria-label="View more data for CSE2"]'
-    await seedIndicators("CSE", dataSelector1, dataSelector2)
-})()
+    await seedIndicators("CSE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1)
+
+})()*/
+
+module.exports = {seedAward, seedIndicators, pool}

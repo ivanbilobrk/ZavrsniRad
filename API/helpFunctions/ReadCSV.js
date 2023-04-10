@@ -29,7 +29,7 @@ function getNameQ1CNCIIC(path, unis){
             if((name !== "Nanyang Technological University & National Institute of Education (NIE) Singapore") && (data["Documents in Q1 Journals"] != null) && (data["Documents in Q1 Journals"] != undefined)){
                 let q1 = parseInt(data["Documents in Q1 Journals"]);
                 let cnci = parseFloat(data["Category Normalized Citation Impact"])
-                let ic = parseInt(data["International Collaborations"])
+                let ic = parseInt(data["% International Collaborations"])
     
                 if(maxValues.Q1 < q1){
                     maxValues.Q1 = q1
@@ -92,11 +92,5 @@ function getTop(path, unis){
           });
       });
 }
-
-/*(async()=>{
-    let rows = (await pool.query(`select share, year from award where uni = 'Harvard University' and category = 'EEE'`)).rows
-    console.log(rows)
-
-})();*/
 
 module.exports = { getNameQ1CNCIIC, getTop }
