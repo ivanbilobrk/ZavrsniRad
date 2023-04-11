@@ -10,7 +10,8 @@ const job = new cron.CronJob('* * * * *', async function() {
     await scheduledFunction();
   }, null, false, 'UTC');
   
-app.get('/', require('./routes/getAllTest'))
+app.use('/rankingsYear', require('./routes/getAllTest'))
+app.use('/rankingUni', require('./routes/getRankingForUniAndYear'))
 
 app.use((req, res)=>{
     res.status(404).json({error: 'Not found'});
