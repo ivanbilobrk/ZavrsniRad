@@ -10,7 +10,6 @@ const getRankingForYearUniCategory = async (req, res)=>{
     let index = 0;
 
     for(let i in results){
-        console.log(results[i])
         if(results[i].uni == uni){
             index = i;
             ranking = results[i]
