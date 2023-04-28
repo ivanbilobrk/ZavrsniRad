@@ -7,7 +7,8 @@ exports.getUnisPaginated = async (
     search = '',
     orderid = 'position',
     orderkey = 'true',
-    year 
+    year ,
+    category
 ) => {
     try {
         var paginate = limit * page - 1
@@ -18,9 +19,7 @@ exports.getUnisPaginated = async (
             orderkey = 'false'
         }
 
-        
-
-        let unis = await getAllUnisForYearAndCategory(year, 'CSE', orderid, orderkey)
+        let unis = await getAllUnisForYearAndCategory(year, category, orderid, orderkey)
 
         
         unis = unis.filter((a) =>{

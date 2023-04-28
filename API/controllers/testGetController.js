@@ -3,9 +3,9 @@ const { getUnisPaginated } = require('../db/getUnisPaginated')
 
 const getAllForYearAndCategory = async (req, res)=>{
 
-    const { page, limit, search, orderid, orderkey, year } = req.query
+    const { page, limit, search, orderid, orderkey, year, category } = req.query
 
-    const unis = await getUnisPaginated(page, limit, search, orderid, orderkey, year)
+    const unis = await getUnisPaginated(page, limit, search, orderid, orderkey, year, category)
 
     return res.json(unis)
 }

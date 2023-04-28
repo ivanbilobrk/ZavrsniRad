@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo } from "react"
 import { getData } from "../api/getData"
 import TablePagination from "./TablePagination"
 
-function UniTable() {
+function UniTable(props) {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [pageCount, setPageCount] = useState(0)
@@ -17,13 +17,15 @@ function UniTable() {
                 orderid = order[0].id 
                 orderkey = order[0].desc
             }
+           
             const queryOptions = {
                 page: pageIndex,
                 limit: pageSize,
                 search: search,
                 orderid: orderid == undefined ? null: orderid,
                 orderkey: orderkey == undefined ? null: orderkey,
-                year: year == undefined ? 2021: year
+                year: year == undefined ? 2021 : year,
+                category: props['category']
             }
             
             const items = await getData(queryOptions)
@@ -47,7 +49,8 @@ function UniTable() {
             {
                 Header: "Uni Name",
                 accessor: "uni",
-                Cell: ({ row }) => row.original.uni
+                Cell: ({ row }) => row.original.uni,
+                disableSortBy: true
             },
             {
                 Header: "Q1",
@@ -118,6 +121,7 @@ function UniTable() {
     return (
         <section>
             <TablePagination
+                category={props.category}
                 columns={columns}
                 data={data}
                 fetchData={fetchData}

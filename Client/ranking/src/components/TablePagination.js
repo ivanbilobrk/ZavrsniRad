@@ -21,8 +21,10 @@ import {
     useSortBy,
     useTable,
   } from 'react-table';
+import { Link } from '@mui/material';
   
   function TablePagination({
+    category,
     columns,
     data,
     fetchData,
@@ -179,9 +181,18 @@ import {
                   return (
                     <tr {...row.getRowProps()} style={{lineHeight:'4em'}}>
                       {row.cells.map((cell) => {
-                        return (
-                          <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                        );
+                        //console.log(cell)
+                        if(typeof cell.value === "string"){
+                          
+                          return (
+                            <td {...cell.getCellProps()}><a href={`/rankingUni?uni=${cell.value}&category=${category}`}>{cell.render('Cell')}</a></td>
+                          );
+                        } else {
+                          return (
+                            <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                          );
+                        }
+
                       })}
                     </tr>
                   );

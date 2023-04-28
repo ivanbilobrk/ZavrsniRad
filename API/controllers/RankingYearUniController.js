@@ -5,7 +5,7 @@ const getRankingForYearUniCategory = async (req, res)=>{
     const category = req.query.category
     const uni = req.query.uni
 
-    let results = await getAllUnisForYearAndCategory(year, category)
+    let results = await getAllUnisForYearAndCategory(year, category, 'total', 'false')
     let ranking = {}
     let index = 0;
 
@@ -15,8 +15,6 @@ const getRankingForYearUniCategory = async (req, res)=>{
             ranking = results[i]
         }
     }
-
-    ranking.position = index
 
     return res.json(ranking)
 }

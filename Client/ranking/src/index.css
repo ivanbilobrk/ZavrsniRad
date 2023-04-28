@@ -7,9 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.buttonDiv{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-top: 30;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 /*table {
   height: 80%;

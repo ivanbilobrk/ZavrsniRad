@@ -46,12 +46,6 @@ let tables = [
     sql_create_ranking
 ];
 
-let table_data = [
-   // sql_insert_users
-]
-
-let indexes = [];
-
 async function getExcelAwardData(fileName, category) {
     const data = await readExcel(fileName);
     const queries = [];
@@ -79,7 +73,7 @@ async function createTables(){
 }
 
 async function seedAward(category){
-    await pool.query('delete from award', []);
+   // await pool.query('delete from award', []);
     const queries = await getExcelAwardData(__dirname+'/../../'+category+'.xlsx', category);
 
     for(let j in queries){
@@ -199,11 +193,13 @@ async function getMaxAwardForYear(year, category, awardData){
     return maxAward
 }
 
-/*(async()=>{
+/*
+(async()=>{
     await createTables();
     await seedAward("EEE")
     await seedAward("CSE")
 
+    
     let dataSelector1 = '[aria-label="View more data for EEE1"]'
     let dataSelector2 = '[aria-label="View more data for EEE2"]'
     await seedIndicators("EEE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1)
