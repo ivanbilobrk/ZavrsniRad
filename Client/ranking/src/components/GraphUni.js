@@ -33,6 +33,9 @@ export const options = {
       text: 'Chart.js Line Chart',
     },
   },
+    maintainAspectRatio: false,
+    animation:false
+
 };
 
 export default function GraphUni({ uni, category, factor }) {
@@ -73,5 +76,13 @@ export default function GraphUni({ uni, category, factor }) {
     }));
   }, [data]);
 
-  return <Line options={options} data={graphData} />;
+  return (
+    <>  
+        <div style={{minHeight:'40vh'}}>
+            <Line options={options} data={graphData}/>
+        </div>
+        
+    </>
+   
+  );
 }
