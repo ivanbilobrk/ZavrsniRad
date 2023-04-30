@@ -1,4 +1,3 @@
-import axios from '../api/axios';
 import React from 'react';
 import {
   Chart as ChartJS,
@@ -30,7 +29,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: '',
     },
   },
     maintainAspectRatio: false,
@@ -38,14 +37,14 @@ export const options = {
 
 };
 
-export default function GraphUni({ uni, category, factor }) {
+export default function GraphUni({ uni, factor, dataBit,  labels, dataFetch }) {
   const [data, setData] = React.useState({});
-  const labels = Array.from({ length: 6 }, (_, i) => 2017 + i);
+
   const [graphData, setGraphData] = React.useState({
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
+        label: factor,
         data: labels.map(() => 100),
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
@@ -54,35 +53,30 @@ export default function GraphUni({ uni, category, factor }) {
   });
 
   React.useEffect(() => {
-    (async function getData() {
-      for (let i = 2017; i <= new Date().getFullYear() - 1; i++) {
-        const request = await axios.get(`/rankingUni/?year=${i}&category=${category}&uni=${uni}`, {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
-        });
-        const response = request.data;
-        setData((prevData) => ({ ...prevData, [i]: response[factor] }));
-      }
-    })();
+      dataFetch()
+  }, [factor, uni]);
 
+  React.useEffect(() => {
+    setData((prevData) => ({ ...prevData, ...dataBit }));
     setGraphData((prevData) => ({
       ...prevData,
+      labels,
       datasets: [
         {
           ...prevData.datasets[0],
-          data: labels.map((element) => data[element]),
+          label:factor,
+          data: labels.map((element) => dataBit[element] || prevData.datasets[0].data[element]),
         },
       ],
     }));
-  }, [data]);
+    //console.log(labels)
+  }, [dataBit]);
 
   return (
     <>  
         <div style={{minHeight:'40vh'}}>
             <Line options={options} data={graphData}/>
         </div>
-        
     </>
-   
   );
 }

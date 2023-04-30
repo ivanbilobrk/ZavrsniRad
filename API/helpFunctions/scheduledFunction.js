@@ -1,6 +1,7 @@
-const { seedAward, seedIndicators } = require('../db/seed')
+const { seedAward, seedIndicators, pool } = require('../db/seed')
 
 async function scheduledFunction(){
+    await pool.query('delete from award', []);
     await seedAward("EEE")
     await seedAward("CSE")
     const year = new Date().getFullYear();

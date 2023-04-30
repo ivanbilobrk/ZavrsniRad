@@ -1,11 +1,6 @@
 
 
 import '../dist/output.css'
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import {
     ArrowLongDownIcon,
@@ -21,7 +16,7 @@ import {
     useSortBy,
     useTable,
   } from 'react-table';
-import { Link } from '@mui/material';
+import SelectComponent from './SelectComponent';
   
   function TablePagination({
     category,
@@ -108,11 +103,6 @@ import { Link } from '@mui/material';
     };
 
     const [year, setYear] = React.useState(2021);
-
-    const handleChange = (event) => {
-        console.log(event.target.value)
-        setYear(event.target.value);
-      };
   
     React.useEffect(() => {
       let search = globalFilter === undefined ? '' : globalFilter;
@@ -124,23 +114,7 @@ import { Link } from '@mui/material';
     return (
       <>
 
-            <Box sx={{ minWidth: 120, mt:2}}>
-                <FormControl sx={{minWidth: 100}}>
-                <InputLabel id="demo-simple-select-label">Godina</InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={year}
-                    label="Godina"
-                    onChange={handleChange}
-                >
-                 {years.map(year => (
-                     <MenuItem value={parseInt(year)}>{year}</MenuItem>
-                ))}
-                    
-                </Select>
-                </FormControl>
-            </Box>
+        <SelectComponent value={year} setValue={setYear} values={years} desc='Godina'></SelectComponent>
 
         <GlobalFilter
           preGlobalFilteredRows={totalRow}

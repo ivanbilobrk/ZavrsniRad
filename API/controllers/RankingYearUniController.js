@@ -1,9 +1,8 @@
 const { getAllUnisForYearAndCategory } = require('../db/dbFunctions')
 
 const getRankingForYearUniCategory = async (req, res)=>{
-    const year = req.query.year
-    const category = req.query.category
-    const uni = req.query.uni
+
+    const{ year, category, uni } = req.query
 
     let results = await getAllUnisForYearAndCategory(year, category, 'total', 'false')
     let ranking = {}

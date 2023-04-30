@@ -8,9 +8,10 @@ const cookieParser = require('cookie-parser');
 var cors = require('cors')
 
 
-const job = new cron.CronJob('* * * * *', async function() {
-    await scheduledFunction();
-  }, null, false, 'UTC');
+const job = new cron.CronJob('*/3 * * * *', async function() {
+  await scheduledFunction();
+}, null, false, 'UTC');
+
 
 
 app.use(cors({credentials: true, origin: true}));
@@ -21,6 +22,7 @@ app.use(cookieParser());
   
 app.use('/rankingsYear', require('./routes/getAllTest'))
 app.use('/rankingUni', require('./routes/getRankingForUniAndYear'))
+app.use('/uniCurrentYear', require('./routes/getUniCurrentYear'))
 
 app.use((req, res)=>{
     res.status(404).json({error: 'Not found'});

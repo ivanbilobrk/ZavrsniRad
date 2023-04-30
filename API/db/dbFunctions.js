@@ -58,4 +58,17 @@ async function getAllUnisForYearAndCategory(year, category, orderid, orderkey){
     return rows
 }
 
-module.exports = { getAllUnisForYearAndCategory }
+async function getDataForUniCurrentYear(category, uni){
+    const currentYear = new Date().getFullYear();
+    const query = `SELECT *
+                   FROM ranking
+                   WHERE year = $1 AND uni = $2 AND category = $3
+                   ORDER BY readingyear asc`
+
+    let rows = (await pool.query(query, [currentYear, uni, category])).rows
+
+    return rows
+                       
+}
+
+module.exports = { getAllUnisForYearAndCategory, getDataForUniCurrentYear }

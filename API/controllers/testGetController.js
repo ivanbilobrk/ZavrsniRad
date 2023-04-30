@@ -1,4 +1,3 @@
-const { getAllUnisForYearAndCategory } = require('../db/dbFunctions')
 const { getUnisPaginated } = require('../db/getUnisPaginated')
 
 const getAllForYearAndCategory = async (req, res)=>{
