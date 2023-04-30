@@ -13,6 +13,9 @@ import axios from '../api/axios';
 
 export default function RankingUniPage(){
 
+    const [isAccordion1Expanded, setIsAccordion1Expanded] = React.useState(false);
+    const [isAccordion2Expanded, setIsAccordion2Expanded] = React.useState(false);
+
     const location = useLocation()
     const { category, uni } = queryString.parse(location.search)
     const factors = ['Q1', 'CNCI', 'IC', 'TOP', 'AWARD', 'POSITION']
@@ -56,8 +59,8 @@ export default function RankingUniPage(){
         const tempArray = response.map(item => {
           const date = new Date(item['readingyear']);
           const year = date.getFullYear();
-          const month = date.getMonth() + 1; // add 1 to get the month from 1-12 instead of 0-11
-          const formattedMonth = month.toString().padStart(2, '0'); // ensure that month is always two digits (with leading zero if necessary)
+          const month = date.getMonth() + 1; 
+          const formattedMonth = month.toString().padStart(2, '0'); 
           return `${year} ${formattedMonth}`;
         })
       
@@ -72,41 +75,42 @@ export default function RankingUniPage(){
       
 
 
-    return(
+
+      return (
         <>
-            <div style={{fontSize:'2em'}}>{uni}</div>
-            <div style={{display:'flex', justifyContent:'center', marginTop:'2em'}}>
-                <Accordion sx={{width:'50%'}}>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header">
-                            <Typography>Ranking sveučilišta {uni} kroz godine</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <SelectComponent value={factor} setValue={setFactor} values={factors} desc='Faktor'></SelectComponent>
-                        <GraphUni uni = {uni} factor = {factor} dataBit={yearData} labels = {labels1} dataFetch={getData1}/>
-                    </AccordionDetails>
-                </Accordion>
-            </div>
-
-            <div style={{display:'flex', justifyContent:'center', marginTop:'2em'}}>
-                <Accordion sx={{width:'50%'}}>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header">
-                                <Typography>Ranking sveučilišta {uni} tijekom ove godine</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <SelectComponent value={factor2} setValue={setFactor2} values={factors} desc='Faktor'></SelectComponent>
-                            <GraphUni uni = {uni} factor = {factor2} dataBit={currentYearData} labels = {labels2} dataFetch={getData2}/>
-                        </AccordionDetails>
-                </Accordion>
-            </div>
+          <div style={{fontSize:'2em'}}>{uni}</div>
+          <div style={{display:'flex', justifyContent:'center', marginTop:'2em'}}>
+            <Accordion sx={{width:'50%'}} expanded={isAccordion1Expanded} onChange={() => setIsAccordion1Expanded(!isAccordion1Expanded)}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography>Ranking sveučilišta {uni} kroz godine</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <SelectComponent value={factor} setValue={setFactor} values={factors} desc='Faktor'></SelectComponent>
+                <GraphUni uni={uni} factor={factor} dataBit={yearData} labels={labels1} dataFetch={getData1} isExpanded={isAccordion1Expanded} />
+              </AccordionDetails>
+            </Accordion>
+          </div>
+          <div style={{display:'flex', justifyContent:'center', marginTop:'2em'}}>
+            <Accordion sx={{width:'50%'}} expanded={isAccordion2Expanded} onChange={() => setIsAccordion2Expanded(!isAccordion2Expanded)}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography>Ranking sveučilišta {uni} tijekom ove godine</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <SelectComponent value={factor2} setValue={setFactor2} values={factors} desc='Faktor'></SelectComponent>
+                <GraphUni uni={uni} factor={factor2} dataBit={currentYearData} labels={labels2} dataFetch={getData2} isExpanded={isAccordion2Expanded} />
+              </AccordionDetails>
+            </Accordion>
+          </div>
         </>
-    );
-
-}
+      );
+    }
 
 export { RankingUniPage };
