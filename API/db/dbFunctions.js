@@ -1,4 +1,5 @@
 const { pool } = require('./seed')
+const { getMaxAwardForYear } = require('../db/seed')
 
 async function getAllUnisForYearAndCategory(year, category, orderid, orderkey){
 
@@ -8,6 +9,24 @@ async function getAllUnisForYearAndCategory(year, category, orderid, orderkey){
                    ORDER BY uni, ABS(EXTRACT(epoch FROM (readingyear - NOW())))`
 
     let rows = (await pool.query(query, [year, category])).rows
+
+    const unisAward = new Map();
+    let maxAward = await getMaxAwardForYear(year-2, category, unisAward)
+
+    for(let i in rows){
+        rows[i].position = parseInt(i) + parseInt(1) 
+
+        const aq1 = isNaN(rows[i].q1) ? 0 : rows[i].q1
+        const acnci = isNaN(rows[i].cnci) ? 0 : rows[i].cnci
+        const aic = isNaN(rows[i].ic) ? 0 : rows[i].ic
+        const atop = isNaN(rows[i].top) ? 0 : rows[i].top
+        const aaward = isNaN(rows[i].award) ? 0 : rows[i].award
+
+        rows[i].total = aq1+acnci+aic*0.2+atop+aaward
+        
+        rows[i].award = Math.sqrt(unisAward.get(rows[i].uni)/maxAward)*100;
+    }
+
     
     rows.sort((a, b)=>{
         let result = 0;
@@ -45,15 +64,9 @@ async function getAllUnisForYearAndCategory(year, category, orderid, orderkey){
 
     for(let i in rows){
         rows[i].position = parseInt(i) + parseInt(1) 
-
-        const aq1 = isNaN(rows[i].q1) ? 0 : rows[i].q1
-        const acnci = isNaN(rows[i].cnci) ? 0 : rows[i].cnci
-        const aic = isNaN(rows[i].ic) ? 0 : rows[i].ic
-        const atop = isNaN(rows[i].top) ? 0 : rows[i].top
-        const aaward = isNaN(rows[i].award) ? 0 : rows[i].award
-
-        rows[i].total = aq1+acnci+aic*0.2+atop+aaward
     }
+
+
 
     return rows
 }
@@ -66,6 +79,13 @@ async function getDataForUniCurrentYear(category, uni){
                    ORDER BY readingyear asc`
 
     let rows = (await pool.query(query, [currentYear, uni, category])).rows
+
+    const unisAward = new Map();
+    let maxAward = await getMaxAwardForYear(year-2, category, unisAward)
+
+    for(let i in rows){
+        rows[i].award = Math.sqrt(unisAward.get(rows[i].uni)/maxAward)*100;
+    }
 
     return rows
                        

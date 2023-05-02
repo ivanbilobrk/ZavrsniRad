@@ -31,19 +31,32 @@ const sql_create_ranking = `CREATE TABLE ranking (
     cnci double precision NOT NULL,
     ic double precision NOT NULL,
     top double precision,
-    award double precision,
+    category text NOT NULL,
+    readingYear timestamp default now()
+)`;
+
+const sql_create_ranking_current_year_data = `CREATE TABLE rankingcurrentyeardata (
+    id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+    year int NOT NULL,
+    uni text NOT NULL,
+    q1 double precision NOT NULL,
+    cnci double precision NOT NULL,
+    ic double precision NOT NULL,
+    top double precision,
     category text NOT NULL,
     readingYear timestamp default now()
 )`;
 
 let table_names = [
     "award",
-    "ranking"
+    "ranking",
+    "rankingcurrentyeardata"
 ]
 
 let tables = [
     sql_create_award,
-    sql_create_ranking
+    sql_create_ranking,
+    sql_create_ranking_current_year_data
 ];
 
 async function getExcelAwardData(fileName, category) {
@@ -73,7 +86,6 @@ async function createTables(){
 }
 
 async function seedAward(category){
-   // await pool.query('delete from award', []);
     const queries = await getExcelAwardData(__dirname+'/../../'+category+'.xlsx', category);
 
     for(let j in queries){
@@ -86,7 +98,7 @@ async function seedAward(category){
 }
 
 //award table seed
-async function seedIndicators(category, dataSelector1, dataSelector2, startYear, endYear){
+async function seedIndicators(category, dataSelector1, dataSelector2, startYear, endYear, lBound = 6, uBound = 2, tableName){
 
 
     try {
@@ -101,14 +113,14 @@ async function seedIndicators(category, dataSelector1, dataSelector2, startYear,
         for(let j = startYear; j <= endYear; j++){
             let path = './IncitesInitCSV/Incites Organizations.csv'
 
-            await scrapeQ1CNCIIC(page, j-6, j-2, dataSelector1);
+            await scrapeQ1CNCIIC(page, j-lBound, j-uBound, dataSelector1);
             
             const unis = [];
             const maxValues = await getNameQ1CNCIIC(path, unis);
             let maxCNCI = Math.min(maxValues.CNCIMAX, 2*maxValues.CNCISUM/unis.length);
             console.log(unis)
 
-            await scrapeQ1CNCIIC(page, j-6, j-2, dataSelector2)
+            await scrapeQ1CNCIIC(page, j-lBound, j-uBound, dataSelector2)
 
             const unis2 = [];
             const maxValues2 = await getTop(path, unis2);
@@ -124,15 +136,13 @@ async function seedIndicators(category, dataSelector1, dataSelector2, startYear,
             }
             
             for(let l in unis){
-                const unisAward = new Map();
-                let maxAward = await getMaxAwardForYear(j-2, category, unisAward)
-                await pool.query('insert into ranking (uni, q1, cnci, ic, top, category, award, year) values ($1, $2, $3, $4, $5, $6, $7, $8)', [unis[l].name,
+                await pool.query(`insert into ${tableName} (uni, q1, cnci, ic, top, category, year) values ($1, $2, $3, $4, $5, $6, $7)`, [
+                                unis[l].name,
                                 Math.sqrt(unis[l].Q1/maxValues.Q1)*100, 
                                 Math.min(Math.sqrt(unis[l].CNCI/maxCNCI)*100, 100), 
                                 Math.sqrt(unis[l].IC/maxValues.IC)*100, 
                                 Math.sqrt(unis[l].TOP/maxTop)*100, 
                                 category,
-                                Math.sqrt(unisAward.get(unis[l].name)/maxAward)*100,
                                 j])
             }
         }
@@ -202,12 +212,12 @@ async function getMaxAwardForYear(year, category, awardData){
     
     let dataSelector1 = '[aria-label="View more data for EEE1"]'
     let dataSelector2 = '[aria-label="View more data for EEE2"]'
-    await seedIndicators("EEE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1)
+    await seedIndicators("EEE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')
 
     dataSelector1 = '[aria-label="View more data for CSE1"]'
     dataSelector2 = '[aria-label="View more data for CSE2"]'
-    await seedIndicators("CSE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1)
+    await seedIndicators("CSE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')
 
 })()*/
 
-module.exports = {seedAward, seedIndicators, pool}
+module.exports = {seedAward, seedIndicators, pool, getMaxAwardForYear}

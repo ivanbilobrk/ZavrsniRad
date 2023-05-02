@@ -38,7 +38,7 @@ exports.getUnisPaginated = async (
             totalPage: Math.ceil(countTotal / limit),
         }
     } catch (error) {
-        console.log(`Error on roleDatatable: ${error}`)
+        console.log(`Error in database.`)
         return false
     }
 }

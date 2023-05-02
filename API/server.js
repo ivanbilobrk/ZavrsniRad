@@ -9,7 +9,8 @@ var cors = require('cors')
 
 
 const job = new cron.CronJob('*/3 * * * *', async function() {
-  await scheduledFunction();
+  await scheduledFunction(6, 2, 'ranking');
+  await scheduledFunction(0, 0, 'rankingcurrentyeardata');
 }, null, false, 'UTC');
 
 
