@@ -30,6 +30,7 @@ app.use('/rankingsYear', require('./routes/getAllTest'))
 app.use('/rankingUni', require('./routes/getRankingForUniAndYear'))
 app.use('/uniCurrentYear', require('./routes/getUniCurrentYear'))
 app.use('/rankingReal', require('./routes/getRealRanking'))
+app.use('/difference', require('./routes/getDifference'))
 
 app.use((req, res)=>{
     res.status(404).json({error: 'Not found'});

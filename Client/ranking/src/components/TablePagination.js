@@ -53,7 +53,7 @@ import SelectComponent from './SelectComponent';
         manualGlobalFilter: true,
         manualSortBy: true,
         initialState: {
-          pageIndex: new URLSearchParams(window.location.search).get("page")||0,
+          pageIndex: parseInt(new URLSearchParams(window.location.search).get("page"))||0,
           pageSize: 10,
         }, 
         pageCount: controlledPageCount,
@@ -104,14 +104,9 @@ import SelectComponent from './SelectComponent';
         </div>
       );
     };
-    
-    
-
-    
   
     React.useEffect(() => {
       let search = globalFilter === undefined ? '' : globalFilter;
-      console.log(pageIndex)
       fetchData(pageSize, pageIndex, search, sortBy, year);
     }, [fetchData, pageIndex, pageSize, globalFilter, sortBy, year]);
 
@@ -123,6 +118,18 @@ import SelectComponent from './SelectComponent';
 
       window.history.pushState({ path: newUrl }, "", newUrl);
     },[pageIndex, year])
+
+    React.useEffect(()=>{
+      const currentUrl = new URL(window.location.href);
+      const tempYear = currentUrl.searchParams.get("year")
+      const tempPage = currentUrl.searchParams.get("page")
+
+      if(tempYear && tempPage){
+        setYear(currentUrl.searchParams.get("year"))
+        gotoPage(currentUrl.searchParams.get("page"))
+      }
+
+    },[window.location.href])
 
     const currentYear = new Date().getFullYear();
     const years = Array.from({ length: currentYear - 2017 + 1 }, (_, index) => 2017 + index);
@@ -210,7 +217,7 @@ import SelectComponent from './SelectComponent';
             <span>
               &nbsp;&nbsp;Stranica{' '}
               <strong>
-                {parseInt(pageIndex) + 1} od {pageOptions.length}
+                {parseInt(pageIndex) + parseInt(1)} od {pageOptions.length}
               </strong>{' '}
 
             </span>

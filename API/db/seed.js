@@ -252,6 +252,8 @@ async function getMaxAwardForYear(year, category, awardData){
 
 if (require.main === module) {
     (async()=>{
+
+
         /*await seedRealRanking();
         await createTables();
         await seedAward("EEE")
