@@ -14,7 +14,8 @@ async function getAllUnisForYearAndCategory(year, category, orderid, orderkey){
     let maxAward = await getMaxAwardForYear(year-2, category, unisAward)
 
     for(let i in rows){
-        rows[i].position = parseInt(i) + parseInt(1) 
+        
+        rows[i].award = Math.sqrt(unisAward.get(rows[i].uni)/maxAward)*100;
 
         const aq1 = isNaN(rows[i].q1) ? 0 : rows[i].q1
         const acnci = isNaN(rows[i].cnci) ? 0 : rows[i].cnci
@@ -24,7 +25,7 @@ async function getAllUnisForYearAndCategory(year, category, orderid, orderkey){
 
         rows[i].total = aq1+acnci+aic*0.2+atop+aaward
         
-        rows[i].award = Math.sqrt(unisAward.get(rows[i].uni)/maxAward)*100;
+        
     }
 
     
@@ -86,14 +87,18 @@ async function getDataForUniCurrentYear(category, uni){
     const allUnis = await getAllUnisForYearAndCategory(currentYear, category, 'total', 'false')
     for(let i in rows){
         rows[i].award = Math.sqrt(unisAward.get(rows[i].uni)/maxAward)*100;
-        let position = 0;
+        const aq1 = isNaN(rows[i].q1) ? 0 : rows[i].q1
+        const acnci = isNaN(rows[i].cnci) ? 0 : rows[i].cnci
+        const aic = isNaN(rows[i].ic) ? 0 : rows[i].ic
+        const atop = isNaN(rows[i].top) ? 0 : rows[i].top
+        const aaward = isNaN(rows[i].award) ? 0 : rows[i].award
+        rows[i].total = aq1+acnci+aic*0.2+atop+aaward
         for(let j in allUnis){
             if(allUnis[j].uni == rows[i].uni){
                 rows[i].position = allUnis[j].position
             }
         }
     }
-    console.log(rows)
     return rows
                        
 }

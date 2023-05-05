@@ -53,9 +53,9 @@ import SelectComponent from './SelectComponent';
         manualGlobalFilter: true,
         manualSortBy: true,
         initialState: {
-          pageIndex: 0,
+          pageIndex: new URLSearchParams(window.location.search).get("page")||0,
           pageSize: 10,
-        }, // Pass our hoisted table state
+        }, 
         pageCount: controlledPageCount,
         autoResetSortBy: false,
         autoResetExpanded: false,
@@ -65,6 +65,7 @@ import SelectComponent from './SelectComponent';
       useSortBy,
       usePagination
     );
+    const [year, setYear] = React.useState(new URLSearchParams(window.location.search).get("year")||2021);
   
     const GlobalFilter = ({
       preGlobalFilteredRows,
@@ -79,18 +80,16 @@ import SelectComponent from './SelectComponent';
         setGlobalFilter(value || undefined);
       }, 0);
     
-      // Use a ref to keep track of the input element
       const inputRef = React.useRef(null);
     
       React.useEffect(() => {
-        // Set focus to the input element when it mounts
         inputRef.current.focus();
       }, []);
     
       return (
         <div className="flex flex-row justify-between">
           <input
-            key={`${pageIndex}-${pageSize}`} // Add key prop to force re-mounting
+            key={`${pageIndex}-${pageSize}`} 
             ref={inputRef}
             value={value || ''}
             onChange={(e) => {
@@ -108,12 +107,22 @@ import SelectComponent from './SelectComponent';
     
     
 
-    const [year, setYear] = React.useState(2021);
+    
   
     React.useEffect(() => {
       let search = globalFilter === undefined ? '' : globalFilter;
+      console.log(pageIndex)
       fetchData(pageSize, pageIndex, search, sortBy, year);
     }, [fetchData, pageIndex, pageSize, globalFilter, sortBy, year]);
+
+    React.useEffect(()=>{
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set("year", year);
+      currentUrl.searchParams.set("page", pageIndex);
+      const newUrl = `${currentUrl.pathname}${currentUrl.search}`;
+
+      window.history.pushState({ path: newUrl }, "", newUrl);
+    },[pageIndex, year])
 
     const currentYear = new Date().getFullYear();
     const years = Array.from({ length: currentYear - 2017 + 1 }, (_, index) => 2017 + index);
@@ -201,7 +210,7 @@ import SelectComponent from './SelectComponent';
             <span>
               &nbsp;&nbsp;Stranica{' '}
               <strong>
-                {pageIndex + 1} od {pageOptions.length}
+                {parseInt(pageIndex) + 1} od {pageOptions.length}
               </strong>{' '}
 
             </span>

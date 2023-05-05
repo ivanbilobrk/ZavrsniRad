@@ -39,9 +39,8 @@ export const options = {
 
 };
 
-export default function GraphUni({ uni, factor, dataBit,  labels, dataFetch, isExpanded }) {
+export default function GraphUni({ uni, factor, labels, dataFetch, isExpanded, dataSets }) {
   const[loading, setLoading] = React.useState(false)
-  const [data, setData] = React.useState({});
 
   const [graphData, setGraphData] = React.useState({
     labels,
@@ -64,19 +63,12 @@ export default function GraphUni({ uni, factor, dataBit,  labels, dataFetch, isE
   }, [factor, uni, isExpanded]);
 
   React.useEffect(() => {
-    setData((prevData) => ({ ...prevData, ...dataBit }));
     setGraphData((prevData) => ({
       ...prevData,
       labels,
-      datasets: [
-        {
-          ...prevData.datasets[0],
-          label:factor,
-          data: labels.map((element) => dataBit[element] || prevData.datasets[0].data[element]),
-        },
-      ],
+      datasets: dataSets,
     }));
-  }, [dataBit]);
+  }, [dataSets]);
 
   return (
     <>  
@@ -89,9 +81,36 @@ export default function GraphUni({ uni, factor, dataBit,  labels, dataFetch, isE
               </div>
             </div>
           ) : null}
-        <div style={{minHeight:'40vh'}}>
-            <Line options={options} data={graphData}/>
-        </div>
+        
+        {factor === 'POSITION' && graphData['datasets'].length > 1 ? 
+        (
+          
+          <div style={{display:'flex', justifyContent:'space-around', fontSize:'1.5em', marginTop:'1em'}}>
+              <div>
+                Pozicija Shanghai Ranking:
+                {Array.from({ length: new Date().getFullYear() - 2017 + 1 }, (_, i) => (
+                  <div key={i}>
+                    {i+2017}:
+                    {graphData['datasets'][0]['data'][i] || 'Nema zapisa'}
+                  </div>
+                ))}
+              </div>
+              <div>
+                Pozicija Procjena:
+                {Array.from({ length: new Date().getFullYear() - 2017 + 1 }, (_, i) => (
+                  <div key={i}>
+                    {graphData['datasets'][1]['data'][i]}
+                  </div>
+                ))}
+              </div>
+
+          </div>
+          ) :
+         <div style={{minHeight:'40vh'}}>
+          <Line options={options} data={graphData}/>
+         </div>
+        }
+
     </>
   );
 }
