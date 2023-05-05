@@ -81,14 +81,29 @@ async function getDataForUniCurrentYear(category, uni){
     let rows = (await pool.query(query, [currentYear, uni, category])).rows
 
     const unisAward = new Map();
-    let maxAward = await getMaxAwardForYear(year-2, category, unisAward)
+    let maxAward = await getMaxAwardForYear(currentYear-2, category, unisAward)
 
+    const allUnis = await getAllUnisForYearAndCategory(currentYear, category, 'total', 'false')
     for(let i in rows){
         rows[i].award = Math.sqrt(unisAward.get(rows[i].uni)/maxAward)*100;
+        let position = 0;
+        for(let j in allUnis){
+            if(allUnis[j].uni == rows[i].uni){
+                rows[i].position = allUnis[j].position
+            }
+        }
     }
-
+    console.log(rows)
     return rows
                        
 }
 
-module.exports = { getAllUnisForYearAndCategory, getDataForUniCurrentYear }
+async function getRealRanking(uni, year, category){
+    const query = `select * from rankingReal
+                    where year = $1 and uni = $2 and category = $3`;
+    
+    let rows = (await pool.query(query, [year, uni, category])).rows
+    return rows
+}
+
+module.exports = { getAllUnisForYearAndCategory, getDataForUniCurrentYear, getRealRanking }

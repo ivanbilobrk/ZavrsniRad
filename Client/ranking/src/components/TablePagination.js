@@ -28,7 +28,7 @@ import SelectComponent from './SelectComponent';
     totalRow,
     actions: Actions,
   }) {
-    const {
+    let {
       getTableProps,
       getTableBodyProps,
       headerGroups,
@@ -70,37 +70,43 @@ import SelectComponent from './SelectComponent';
       preGlobalFilteredRows,
       globalFilter,
       setGlobalFilter,
+      pageIndex,
+      pageSize,
     }) => {
       const count = preGlobalFilteredRows;
       const [value, setValue] = React.useState(globalFilter);
       const onChange = useAsyncDebounce((value) => {
         setGlobalFilter(value || undefined);
-      }, 700);
-  
+      }, 0);
+    
+      // Use a ref to keep track of the input element
+      const inputRef = React.useRef(null);
+    
+      React.useEffect(() => {
+        // Set focus to the input element when it mounts
+        inputRef.current.focus();
+      }, []);
+    
       return (
-        <div
-          className={
-            Actions !== undefined
-              ? 'flex flex-row justify-between'
-              : 'flex flex-col'
-          }
-        >
-          {Actions !== undefined ? <Actions /> : null}
+        <div className="flex flex-row justify-between">
           <input
+            key={`${pageIndex}-${pageSize}`} // Add key prop to force re-mounting
+            ref={inputRef}
             value={value || ''}
             onChange={(e) => {
+              gotoPage(0);
               setValue(e.target.value);
               onChange(e.target.value);
             }}
             placeholder={`${count} records...`}
             type="search"
-            className={`input input-bordered input-sm w-full max-w-xs focus:outline-0 mb-2 ${
-              Actions !== undefined ? '' : 'self-end'
-            }`}
+            className="input input-bordered input-sm w-full max-w-xs focus:outline-0 mb-2"
           />
         </div>
       );
     };
+    
+    
 
     const [year, setYear] = React.useState(2021);
   

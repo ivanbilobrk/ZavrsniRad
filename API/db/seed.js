@@ -47,17 +47,64 @@ const sql_create_ranking_current_year_data = `CREATE TABLE rankingcurrentyeardat
     readingYear timestamp default now()
 )`;
 
+const sql_create_ranking_real = `CREATE TABLE rankingReal (
+    id int GENERATED ALWAYS AS IDENTITY, 
+    year int NOT NULL,
+    uni text NOT NULL,
+    q1 double precision NOT NULL,
+    cnci double precision NOT NULL,
+    ic double precision NOT NULL,
+    top double precision,
+    category text NOT NULL,
+    position text NOT NULL,
+    award double precision,
+	primary key (year, uni, category)
+)
+`;
+
 let table_names = [
     "award",
     "ranking",
-    "rankingcurrentyeardata"
+    "rankingcurrentyeardata",
+    "rankingReal"
 ]
 
 let tables = [
     sql_create_award,
     sql_create_ranking,
-    sql_create_ranking_current_year_data
+    sql_create_ranking_current_year_data,
+    sql_create_ranking_real
 ];
+
+async function seedRealRanking(){
+    console.log('tu')
+    const categories = ['CSE', 'EEE']
+    await pool.query('delete from rankingReal', []);
+    for(let k in categories){
+
+        let category = categories[k]
+        
+        for(let i = 2017; i <= new Date().getFullYear()-1; i++){
+            let fileName = __dirname+'/../../'+category+'Real'+ i+'.xlsx';
+    
+            try{
+                const data = await readExcel(fileName);
+    
+                for(let j in data){
+                    const row = data[j]
+                    try{
+                        await pool.query(`insert into rankingReal (year, uni, q1, cnci, ic, top, category, award, position) values($1, $2, $3, $4, $5, $6, $7, $8, $9)`, [i, row[0], row[1], row[2], row[3], row[4], category, row[5], row[6]]);
+                    } catch(exception){
+                        //do nothing
+                    }
+                }
+            } catch(exception){
+                //do nothing
+            }
+        }
+    }
+
+}
 
 async function getExcelAwardData(fileName, category) {
     const data = await readExcel(fileName);
@@ -203,21 +250,23 @@ async function getMaxAwardForYear(year, category, awardData){
     return maxAward
 }
 
-/*
-(async()=>{
-    await createTables();
-    await seedAward("EEE")
-    await seedAward("CSE")
+if (require.main === module) {
+    (async()=>{
+        /*await seedRealRanking();
+        await createTables();
+        await seedAward("EEE")
+        await seedAward("CSE")
 
-    
-    let dataSelector1 = '[aria-label="View more data for EEE1"]'
-    let dataSelector2 = '[aria-label="View more data for EEE2"]'
-    await seedIndicators("EEE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')
+        
+        let dataSelector1 = '[aria-label="View more data for EEE1"]'
+        let dataSelector2 = '[aria-label="View more data for EEE2"]'
+        await seedIndicators("EEE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')
 
-    dataSelector1 = '[aria-label="View more data for CSE1"]'
-    dataSelector2 = '[aria-label="View more data for CSE2"]'
-    await seedIndicators("CSE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')
+        dataSelector1 = '[aria-label="View more data for CSE1"]'
+        dataSelector2 = '[aria-label="View more data for CSE2"]'
+        await seedIndicators("CSE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')*/
 
-})()*/
+    })()
+}
 
-module.exports = {seedAward, seedIndicators, pool, getMaxAwardForYear}
+module.exports = {seedAward, seedIndicators, pool, getMaxAwardForYear, seedRealRanking}
