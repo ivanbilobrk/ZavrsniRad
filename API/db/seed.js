@@ -77,7 +77,6 @@ let tables = [
 ];
 
 async function seedRealRanking(){
-    console.log('tu')
     const categories = ['CSE', 'EEE']
     await pool.query('delete from rankingReal', []);
     for(let k in categories){
@@ -252,13 +251,13 @@ async function getMaxAwardForYear(year, category, awardData){
 
 if (require.main === module) {
     (async()=>{
-
+        await seedRealRanking();
 
         /*await seedRealRanking();
         await createTables();
         await seedAward("EEE")
         await seedAward("CSE")
-
+        await seedRealRanking();
         
         let dataSelector1 = '[aria-label="View more data for EEE1"]'
         let dataSelector2 = '[aria-label="View more data for EEE2"]'

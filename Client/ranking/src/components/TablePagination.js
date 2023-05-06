@@ -1,6 +1,7 @@
 
 
 import '../dist/output.css'
+import axios from "../api/axios"
 
 import {
     ArrowLongDownIcon,
@@ -66,6 +67,7 @@ import SelectComponent from './SelectComponent';
       usePagination
     );
     const [year, setYear] = React.useState(new URLSearchParams(window.location.search).get("year")||2021);
+    const [correct, setCorrect] = React.useState(0)
   
     const GlobalFilter = ({
       preGlobalFilteredRows,
@@ -130,6 +132,19 @@ import SelectComponent from './SelectComponent';
       }
 
     },[window.location.href])
+
+    React.useEffect(()=>{
+      (async()=>{
+        const request = await axios.get(`http://localhost:8080/difference/?year=${year}&category=${category}`,
+        {
+            headers: {'Content-Type':'application/json'},
+            withCredentials: true
+        });
+        const response = request.data
+        setCorrect(response.correct || 0)
+      })()
+
+    },[year])
 
     const currentYear = new Date().getFullYear();
     const years = Array.from({ length: currentYear - 2017 + 1 }, (_, index) => 2017 + index);
@@ -266,6 +281,9 @@ import SelectComponent from './SelectComponent';
               {'>>'}
             </button>&nbsp;&nbsp;&nbsp;{' '}
           </div>
+        </div>
+        <div>
+          Ocjena uspješnosti rankinga: {parseFloat((correct*100).toFixed(2)) || 0}
         </div>
       </>
     );
