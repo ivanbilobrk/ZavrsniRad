@@ -13,13 +13,10 @@ const cookieAcceptSelector = '#onetrust-accept-btn-handler'
 const minInputYearSelector = 'div.cl-range-input__field.cl-range-input__field--min input'
 const maxInputYearSelector = 'div.cl-range-input__field.cl-range-input__field--max input'
 const downloadSelector = '.cl-popover-modal-button.cl-btn.cl-btn--with-icon.cl-btn--text.ic-btn span.cl-icon.cl-icon--download.cl-icon--size-18'
-const downloadButtonSelector = '[type="submit"]'
+const downloadButtonSelector = 'button[type="submit"].cl-btn.cl-btn--primary'
 
-const login = async()=>{
-  const browser = await puppeteer.launch({
-    headless: false,
-    executablePath: executablePath(),
-  });
+const login = async(browser)=>{
+
   const page = await browser.newPage()
   await page.setDefaultTimeout(100000);
 
@@ -27,7 +24,6 @@ const login = async()=>{
   
   await page.waitForSelector(emailSelector)
   await page.waitForTimeout(2000)
-  console.log(env.INCITES_PWD)
   await page.type(emailSelector, env.INCITES_USER)
 
   await page.waitForSelector(passwordSelector)
@@ -84,11 +80,36 @@ const scrapeQ1CNCIIC = async (page, yearStart, yearEnd, dataSelector)=>{
       window.scrollTo(0, 0);
     });
 
-    await page.waitForSelector(downloadSelector)
+   /* await page.waitForSelector(downloadSelector)
     await page.click(downloadSelector)
 
-    await page.click(downloadButtonSelector)
-    await page.waitForTimeout(5000)
+    await page.waitForTimeout(5000)*/
+    /*
+    await page.waitForSelector(downloadButtonSelector)
+    await page.click(downloadButtonSelector)*/
+
+
+   // await page.waitForSelector(downloadButtonSelector)
+
+   await page.waitForSelector('.cl-popover-modal-button.cl-btn.cl-btn--with-icon.cl-btn--text.ic-btn span.cl-icon.cl-icon--download.cl-icon--size-18', { visible: true });
+
+   // Click the download button using page.evaluate()
+   await page.evaluate(() => {
+     const downloadButton = document.querySelector('.cl-popover-modal-button.cl-btn.cl-btn--with-icon.cl-btn--text.ic-btn span.cl-icon.cl-icon--download.cl-icon--size-18');
+     downloadButton.click();
+   });
+ 
+   // Wait for the submit button to appear and be visible
+   await page.waitForSelector('.cl-form__field > .cl-btn', { visible: true });
+ 
+   // Click the submit button using page.evaluate()
+   await page.evaluate(() => {
+     const submitButton = document.querySelector('.cl-form__field > .cl-btn');
+     submitButton.click();
+   });
+   
+
+    await page.waitForTimeout(10000)
 }
 
 module.exports = { login, scrapeQ1CNCIIC }

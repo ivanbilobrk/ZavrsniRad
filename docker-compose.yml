@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  app:
+    restart: on-failure
+    build: .
+    depends_on:
+      - db
+    environment:
+      INCITES_USER: igor.mekterovic@fer.hr
+      INCITES_PWD: 6A8@6@SAEcNHksb
+      PORT: 8080
+    ports:
+      - "8080:8080"
+
+  db:
+    image: postgres:14.7
+    ports:
+      - "4321:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: baze
+      POSTGRES_DB: ShanghaiRanking2
+  
+  client:
+    build: ./Client/ranking
+    command: npm start
+    depends_on:
+      - app
+    ports:
+      - "3000:3000"

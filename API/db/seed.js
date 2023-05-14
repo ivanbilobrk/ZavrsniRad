@@ -5,13 +5,17 @@ const { scrapeQ1CNCIIC } = require('../helpFunctions/Scrapper')
 const { getNameQ1CNCIIC, getTop } = require('../helpFunctions/ReadCSV')
 require('dotenv').config({ path: __dirname + '/../.env'});
 const env = process.env;
+const executablePath = require('puppeteer').executablePath
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+puppeteer.use(StealthPlugin())
 
 const pool = new Pool({
     user: env.DB_USER,
     host: env.DB_HOST,
     database: env.DB_NAME,
-    password: env.DB_PASSWORD,
-    port: parseInt(env.DB_PORT),
+    password: env.DB_PASSWORD
+    //port: parseInt(env.DB_PORT),
 });
 
 
@@ -148,8 +152,24 @@ async function seedIndicators(category, dataSelector1, dataSelector2, startYear,
 
 
     try {
+        
+        const browser = await puppeteer.launch({
+            executablePath: '/usr/bin/google-chrome',
+            headless: true,
+            args: [
+                "--disable-gpu",
+                "--disable-dev-shm-usage",
+                "--disable-setuid-sandbox",
+                "--no-sandbox",
+            ]
+        });
+/*
+        const browser = await puppeteer.launch({
+            headless: false,
+            executablePath: executablePath(),
+          });*/
 
-        let page = await login();
+        let page = await login(browser);
         const client = await page.target().createCDPSession()
         await client.send('Page.setDownloadBehavior', {
             behavior: 'allow',
@@ -159,12 +179,11 @@ async function seedIndicators(category, dataSelector1, dataSelector2, startYear,
         for(let j = startYear; j <= endYear; j++){
             let path = './IncitesInitCSV/Incites Organizations.csv'
 
-            await scrapeQ1CNCIIC(page, j-lBound, j-uBound, dataSelector1);
+           await scrapeQ1CNCIIC(page, j-lBound, j-uBound, dataSelector1);
             
             const unis = [];
             const maxValues = await getNameQ1CNCIIC(path, unis);
             let maxCNCI = Math.min(maxValues.CNCIMAX, 2*maxValues.CNCISUM/unis.length);
-            console.log(unis)
 
             await scrapeQ1CNCIIC(page, j-lBound, j-uBound, dataSelector2)
 
@@ -192,6 +211,7 @@ async function seedIndicators(category, dataSelector1, dataSelector2, startYear,
                                 j])
             }
         }
+        await browser.close();
     } catch (err) {
         console.log(err)
         return console.log(err.message);
@@ -249,25 +269,31 @@ async function getMaxAwardForYear(year, category, awardData){
     return maxAward
 }
 
-if (require.main === module) {
     (async()=>{
-        await seedRealRanking();
 
-        /*await seedRealRanking();
-        await createTables();
-        await seedAward("EEE")
-        await seedAward("CSE")
-        await seedRealRanking();
+        let number = 0;
+        try{
+            let rows = (await pool.query("select count(*) from ranking", [])).rows
+            number = rows[0].count
+        } catch(e){
+
+        }
         
-        let dataSelector1 = '[aria-label="View more data for EEE1"]'
-        let dataSelector2 = '[aria-label="View more data for EEE2"]'
-        await seedIndicators("EEE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')
-
-        dataSelector1 = '[aria-label="View more data for CSE1"]'
-        dataSelector2 = '[aria-label="View more data for CSE2"]'
-        await seedIndicators("CSE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')*/
+        if(number == 0){
+            await createTables();
+            await seedAward("EEE")
+            await seedAward("CSE")
+            await seedRealRanking();
+            
+            let dataSelector1 = '[aria-label="View more data for EEE1"]'
+            let dataSelector2 = '[aria-label="View more data for EEE2"]'
+            await seedIndicators("EEE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')
+    
+            dataSelector1 = '[aria-label="View more data for CSE1"]'
+            dataSelector2 = '[aria-label="View more data for CSE2"]'
+            await seedIndicators("CSE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')
+        }
 
     })()
-}
 
 module.exports = {seedAward, seedIndicators, pool, getMaxAwardForYear, seedRealRanking}

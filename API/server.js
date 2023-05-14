@@ -9,14 +9,16 @@ var cors = require('cors')
 const { seedRealRanking } = require('./db/seed')
 
 
-const job = new cron.CronJob('*/1 * * * *', async function() {
-  /*
+const job = new cron.CronJob('0 0 */14 * *', async function() {
+ 
   await scheduledFunction(6, 2, 'ranking');
-  await scheduledFunction(0, 0, 'rankingcurrentyeardata');*/
+  //await scheduledFunction(0, 0, 'rankingcurrentyeardata');
   await seedRealRanking();
 }, null, false, 'UTC');
 
-//job.start()
+//scheduledFunction(6, 2, 'ranking');
+
+job.start()
 
 
 
