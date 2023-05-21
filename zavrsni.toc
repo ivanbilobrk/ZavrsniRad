@@ -1,0 +1,11 @@
+\babel@toc {croatian}{}\relax 
+\contentsline {chapter}{\numberline {1}Uvod}{1}{}%
+\contentsline {chapter}{\numberline {2}Shanghai Ranking metodologija}{3}{}%
+\contentsline {section}{\numberline {2.1}Izvori za prikupljanje podataka}{3}{}%
+\contentsline {section}{\numberline {2.2}Minimalni broj publikacija}{3}{}%
+\contentsline {section}{\numberline {2.3}Preslikavanje područja istraživanja}{3}{}%
+\contentsline {section}{\numberline {2.4}Indikatori za računanje rankinga}{4}{}%
+\contentsline {section}{\numberline {2.5}Računanje ukupnog rezultata sveučilišta}{6}{}%
+\contentsline {subsection}{\numberline {2.5.1}Primjer izračuna vrijednosti za ranking}{6}{}%
+\contentsline {chapter}{\numberline {3}Zaključak}{8}{}%
+\contentsline {chapter}{Literatura}{9}{}%
