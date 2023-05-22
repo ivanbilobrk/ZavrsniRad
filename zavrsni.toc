@@ -7,5 +7,14 @@
 \contentsline {section}{\numberline {2.4}Indikatori za računanje rankinga}{4}{}%
 \contentsline {section}{\numberline {2.5}Računanje ukupnog rezultata sveučilišta}{6}{}%
 \contentsline {subsection}{\numberline {2.5.1}Primjer izračuna vrijednosti za ranking}{6}{}%
-\contentsline {chapter}{\numberline {3}Zaključak}{8}{}%
-\contentsline {chapter}{Literatura}{9}{}%
+\contentsline {chapter}{\numberline {3}Funkcionalni zahtjevi}{8}{}%
+\contentsline {section}{\numberline {3.1}Funkcionalni zahtjevi}{8}{}%
+\contentsline {section}{\numberline {3.2}Nefunkcionalni zahtjevi}{10}{}%
+\contentsline {chapter}{\numberline {4}Korištene tehnologije}{11}{}%
+\contentsline {section}{\numberline {4.1}Arhitektura sustava}{11}{}%
+\contentsline {subsection}{\numberline {4.1.1}Web korisničko sučelje}{11}{}%
+\contentsline {subsection}{\numberline {4.1.2}Backend poslužitelj}{12}{}%
+\contentsline {subsection}{\numberline {4.1.3}Baza podataka}{13}{}%
+\contentsline {section}{\numberline {4.2}Docker}{14}{}%
+\contentsline {chapter}{\numberline {5}Zaključak}{16}{}%
+\contentsline {chapter}{Literatura}{17}{}%

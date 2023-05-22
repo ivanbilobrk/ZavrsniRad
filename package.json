@@ -3,8 +3,11 @@
     "start": "node ./API/server.js",
     "dev": "nodemon ./API/server.js"
   },
-
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cron": "^2.3.0",
@@ -21,7 +24,7 @@
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "read-excel-file": "^5.6.1"
   },
-      "devDependencies": {
+  "devDependencies": {
     "nodemon": "^2.0.20"
   }
 }

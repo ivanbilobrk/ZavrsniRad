@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.20)  21 MAY 2023 22:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.20)  22 MAY 2023 15:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -273,7 +273,11 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count292
 \l__pdf_internal_box=\box55
-) (./zavrsni.aux)
+) (./zavrsni.aux
+
+LaTeX Warning: Label `fig:korisnik' multiply defined.
+
+)
 \openout1 = `zavrsni.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -471,28 +475,136 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--185
 
 [6] [7]
 Poglavlje 3.
-(./zavrsni.bbl [8
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--192
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--206
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--218
+
+ []
+
+[8
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 223--226
+
+ []
+
+<slika1.png, id=71, 1095.09125pt x 598.235pt>
+File: slika1.png Graphic file (type png)
+<use slika1.png>
+Package pdftex.def Info: slika1.png  used on input line 231.
+(pdftex.def)             Requested size: 438.02873pt x 239.28975pt.
+
+Overfull \hbox (25.46376pt too wide) in paragraph at lines 231--232
+[][] 
+ []
+
+[9 <./slika1.png>] [10]
+Poglavlje 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--283
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--283
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--283
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--283
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--283
+
+ []
+
+[11
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 284--287
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 287--303
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--303
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--303
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--303
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
+
+ []
+
+[13]
+<slika2.png, id=88, 1314.9125pt x 530.98375pt>
+File: slika2.png Graphic file (type png)
+<use slika2.png>
+Package pdftex.def Info: slika2.png  used on input line 320.
+(pdftex.def)             Requested size: 460.22627pt x 185.84709pt.
+
+Overfull \hbox (47.6613pt too wide) in paragraph at lines 320--321
+[][] 
+ []
+
+[14 <./slika2.png>] [15]
+Poglavlje 5.
+(./zavrsni.bbl [16
 
 ]
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [9
+) [17
 
-] [10] (./zavrsni.aux) ) 
+] [18] (./zavrsni.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 8137 strings out of 478287
- 129759 string characters out of 5849289
- 444692 words of memory out of 5000000
- 26199 multiletter control sequences out of 15000+600000
+ 8155 strings out of 478287
+ 130016 string characters out of 5849289
+ 444742 words of memory out of 5000000
+ 26214 multiletter control sequences out of 15000+600000
  521507 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,17n,77p,298b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (14 pages, 163636 bytes).
+Output written on zavrsni.pdf (22 pages, 390188 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 157 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
