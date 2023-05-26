@@ -91,6 +91,8 @@ async function seedRealRanking(){
             let fileName = __dirname+'/../../'+category+'Real'+ i+'.xlsx';
     
             try{
+
+                await pool.query(`delete from rankingReal where year = $1 and category = $2`, [i, category]);
                 const data = await readExcel(fileName);
     
                 for(let j in data){
@@ -114,7 +116,12 @@ async function getExcelAwardData(fileName, category) {
     const queries = [];
     for (let i in data) {
         if(data[i][2] != "-"){
-            queries.push(`insert into award (uni, year, share, category) values ('${data[i][0]}', ${data[i][1]}, ${data[i][2]}, '${category}')`);
+            try{
+                queries.push(`insert into award (uni, year, share, category) values ('${data[i][0]}', ${data[i][1]}, ${data[i][2]}, '${category}')`);
+            }catch(exception){
+                //do nothing
+            }
+            
         } 
        
     }
@@ -130,7 +137,7 @@ async function createTables(){
             await pool.query(tables[i], []);
             console.log("Table " + table_names[i] + " created.");
         } catch(err){
-            console.log(err)
+            //do nothing
         }
     }
 }
@@ -163,7 +170,7 @@ async function seedIndicators(category, dataSelector1, dataSelector2, startYear,
                 "--no-sandbox",
             ]
         });
-/*
+        /*
         const browser = await puppeteer.launch({
             headless: false,
             executablePath: executablePath(),
@@ -243,30 +250,36 @@ function getMapingForAward(year){
 }
 
 async function getMaxAwardForYear(year, category, awardData){
-    let rows = (await pool.query('select share, year, uni from award where category = $1 and year <= $2', [category, year])).rows;
-    let maxAward = 0;
 
-    const maping = getMapingForAward(year);
-    for(let i in rows){
-        let weight = 0;
-        for(const key of maping.keys()){
-            if(rows[i].year >= key){
-                weight = maping.get(key)
-                break;
+    try{
+        let rows = (await pool.query('select share, year, uni from award where category = $1 and year <= $2', [category, year])).rows;
+        let maxAward = 0;
+    
+        const maping = getMapingForAward(year);
+        for(let i in rows){
+            let weight = 0;
+            for(const key of maping.keys()){
+                if(rows[i].year >= key){
+                    weight = maping.get(key)
+                    break;
+                }
             }
+    
+            let currentAward = awardData.get(rows[i].uni);
+    
+            if(currentAward == undefined || currentAward == null)
+                currentAward = 0;
+            
+            currentAward += weight*rows[i].share;
+            if(currentAward > maxAward) maxAward = currentAward;
+            awardData.set(rows[i].uni, currentAward)
+            
         }
+        return maxAward
+    }catch(exception){
 
-        let currentAward = awardData.get(rows[i].uni);
-
-        if(currentAward == undefined || currentAward == null)
-            currentAward = 0;
-        
-        currentAward += weight*rows[i].share;
-        if(currentAward > maxAward) maxAward = currentAward;
-        awardData.set(rows[i].uni, currentAward)
-        
     }
-    return maxAward
+
 }
 
     (async()=>{
@@ -275,7 +288,7 @@ async function getMaxAwardForYear(year, category, awardData){
         try{
             let rows = (await pool.query("select count(*) from ranking", [])).rows
             number = rows[0].count
-        } catch(e){
+        } catch(exception){
 
         }
         

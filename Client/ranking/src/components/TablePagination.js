@@ -192,7 +192,6 @@ import SelectComponent from './SelectComponent';
                   return (
                     <tr {...row.getRowProps()} style={{lineHeight:'4em'}}>
                       {row.cells.map((cell) => {
-                        //console.log(cell)
                         if(typeof cell.value === "string"){
                           
                           return (
