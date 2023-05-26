@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.20)  22 MAY 2023 15:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.20)  26 MAY 2023 23:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -273,11 +273,7 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count292
 \l__pdf_internal_box=\box55
-) (./zavrsni.aux
-
-LaTeX Warning: Label `fig:korisnik' multiply defined.
-
-)
+) (./zavrsni.aux)
 \openout1 = `zavrsni.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -413,198 +409,264 @@ Poglavlje 1.
 
 ] [2]
 Poglavlje 2.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 52.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 53.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 55--57
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--59
+Underfull \hbox (badness 10000) in paragraph at lines 58--60
 
+ []
+
+
+Overfull \hbox (35.49846pt too wide) in paragraph at lines 65--75
+ [][] 
  []
 
 [3
 
 ]
-Overfull \hbox (36.05042pt too wide) in paragraph at lines 64--74
+Overfull \hbox (16.22801pt too wide) in paragraph at lines 83--88
  [][] 
  []
 
 
-Overfull \hbox (17.21153pt too wide) in paragraph at lines 82--87
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 92--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--118
+
  []
 
 [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 130--137
+Underfull \hbox (badness 10000) in paragraph at lines 131--138
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--141
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--185
+Underfull \hbox (badness 10000) in paragraph at lines 160--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--185
+Underfull \hbox (badness 10000) in paragraph at lines 160--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--185
+Underfull \hbox (badness 10000) in paragraph at lines 160--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--185
+Underfull \hbox (badness 10000) in paragraph at lines 160--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--185
+Underfull \hbox (badness 10000) in paragraph at lines 160--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--188
 
  []
 
 [6] [7]
 Poglavlje 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--192
+Underfull \hbox (badness 10000) in paragraph at lines 191--195
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--206
+Underfull \hbox (badness 10000) in paragraph at lines 204--208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--218
+Underfull \hbox (badness 10000) in paragraph at lines 217--220
 
  []
 
 [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 223--226
+Underfull \hbox (badness 10000) in paragraph at lines 225--228
 
  []
 
 <slika1.png, id=71, 1095.09125pt x 598.235pt>
 File: slika1.png Graphic file (type png)
 <use slika1.png>
-Package pdftex.def Info: slika1.png  used on input line 231.
+Package pdftex.def Info: slika1.png  used on input line 233.
 (pdftex.def)             Requested size: 438.02873pt x 239.28975pt.
 
-Overfull \hbox (25.46376pt too wide) in paragraph at lines 231--232
+Overfull \hbox (25.46376pt too wide) in paragraph at lines 233--234
 [][] 
  []
 
 [9 <./slika1.png>] [10]
 Poglavlje 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--283
+Underfull \hbox (badness 10000) in paragraph at lines 258--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--283
+Underfull \hbox (badness 10000) in paragraph at lines 258--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--283
+Underfull \hbox (badness 10000) in paragraph at lines 258--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--283
+Underfull \hbox (badness 10000) in paragraph at lines 258--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--283
+Underfull \hbox (badness 10000) in paragraph at lines 258--285
 
  []
 
 [11
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 284--287
+Underfull \hbox (badness 10000) in paragraph at lines 286--289
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 287--303
+Underfull \hbox (badness 10000) in paragraph at lines 289--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--303
+Underfull \hbox (badness 10000) in paragraph at lines 289--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--303
+Underfull \hbox (badness 10000) in paragraph at lines 289--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--303
+Underfull \hbox (badness 10000) in paragraph at lines 289--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
 
  []
 
 [13]
-<slika2.png, id=88, 1314.9125pt x 530.98375pt>
+<slika2.png, id=89, 1314.9125pt x 530.98375pt>
 File: slika2.png Graphic file (type png)
 <use slika2.png>
-Package pdftex.def Info: slika2.png  used on input line 320.
+Package pdftex.def Info: slika2.png  used on input line 324.
 (pdftex.def)             Requested size: 460.22627pt x 185.84709pt.
 
-Overfull \hbox (47.6613pt too wide) in paragraph at lines 320--321
+Overfull \hbox (47.6613pt too wide) in paragraph at lines 324--325
 [][] 
  []
 
-[14 <./slika2.png>] [15]
+<tehnologije.png, id=90, 1501.61pt x 682.55pt>
+File: tehnologije.png Graphic file (type png)
+<use tehnologije.png>
+Package pdftex.def Info: tehnologije.png  used on input line 335.
+(pdftex.def)             Requested size: 450.48648pt x 204.76657pt.
+
+Overfull \hbox (37.92151pt too wide) in paragraph at lines 335--336
+[][] 
+ []
+
+[14 <./slika2.png>] [15 <./tehnologije.png>]
 Poglavlje 5.
-(./zavrsni.bbl [16
+<homePage.png, id=98, 2565.585pt x 907.39pt>
+File: homePage.png Graphic file (type png)
+<use homePage.png>
+Package pdftex.def Info: homePage.png  used on input line 344.
+(pdftex.def)             Requested size: 513.10793pt x 181.47478pt.
+
+Overfull \hbox (45.91748pt too wide) in paragraph at lines 343--345
+[]|  [] 
+ []
+
+[16
+
+ <./homePage.png>]
+<tablica.png, id=102, 2568.59625pt x 1315.91624pt>
+File: tablica.png Graphic file (type png)
+<use tablica.png>
+Package pdftex.def Info: tablica.png  used on input line 356.
+(pdftex.def)             Requested size: 513.71016pt x 263.17859pt.
+
+Overfull \hbox (46.51971pt too wide) in paragraph at lines 355--357
+[]|  [] 
+ []
+
+<select.png, id=103, 443.6575pt x 482.80376pt>
+File: select.png Graphic file (type png)
+<use select.png>
+Package pdftex.def Info: select.png  used on input line 371.
+(pdftex.def)             Requested size: 106.47997pt x 115.87526pt.
+[17 <./tablica.png>] [18 <./select.png>]
+Poglavlje 6.
+(./zavrsni.bbl [19
 
 ]
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [17
+) [20
 
-] [18] (./zavrsni.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+] [21] (./zavrsni.aux) ) 
 Here is how much of TeX's memory you used:
- 8155 strings out of 478287
- 130016 string characters out of 5849289
- 444742 words of memory out of 5000000
- 26214 multiletter control sequences out of 15000+600000
- 521507 words of font info for 89 fonts, out of 8000000 for 9000
+ 8193 strings out of 478287
+ 130598 string characters out of 5849289
+ 444757 words of memory out of 5000000
+ 26245 multiletter control sequences out of 15000+600000
+ 527123 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,17n,77p,298b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (22 pages, 390188 bytes).
+ 70i,17n,77p,300b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on zavrsni.pdf (25 pages, 776494 bytes).
 PDF statistics:
- 157 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
+ 177 PDF objects out of 1000 (max. 8388607)
+ 108 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

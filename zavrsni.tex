@@ -36,40 +36,41 @@ temelji se na 6 indikatora uspjeha. Rangira više od 2000 sveučilišta, a samo 
 (GRAS) koja rangira sveučilišta u nekom području istraživanja. Ovu rang listu Shanghai Ranking objavljuje od 2009. godine. Zadnji ranking, 2022. godine uključivao je više od 1800 sveučilišta 
 u više od 96 zemalja u 54 područja istraživanja. Fakultet elektrotehnike i računarstva u Zagrebu (FER) dio je Sveučilišta u Zagrebu te su nam rang liste u području 
 računarske znanosti i inženjerstva \engl {Computer Science \& Engineering (CSE)} i elektrotehnike \engl {Electrical \& Electronic Engineering (EEE)} najzanimljivije. Problem tih rang lista 
-na Shanghai Ranking stranici je taj što objavljuju samo prvih 500 najboljih sveučilišta u tim područjima što znači da ranking Sveučilišta u Zagrebu ne možemo provjeriti. 
+na Shanghai Ranking stranici je taj što objavljuju samo prvih 500 najboljih sveučilišta u tim područjima što znači da se ranking Sveučilišta u Zagrebu u kategorijama
+CSE i EEE ne može ni provjeriti. 
 Ovaj završni rad bavi se izradom web aplikacije koja će prikupljati podatke o sveučilištima na isti način kao i Shanghai Ranking, ali uz iznimku da nema ograničenja na 
 broj sveučilišta koja se mogu pojaviti na konačnoj rang listi. Na ovaj način Sveučilište u Zagrebu, a i FER moći će pratiti svoj napredak iz godine u godinu te raditi određene 
 promjene kako bi im se pozicija na rang listi poboljšala. 
 
 \chapter{Shanghai Ranking metodologija}
-Shanghai Ranking Global Ranking of Academic Subjects (GRAS) se objavljuje svake godine i temelji se na podatcima kroz četiri godine.
+Shanghai Ranking Global Ranking of Academic Subjects (GRAS) objavljuje se svake godine i temelji se na podatcima kroz četiri godine.
 Ako  promatramo ranking za neku godinu $x$,
 donja granica godina za podatke je $x-6$, a donja granica je $x-2$. Tako primjerice ako nas zanima ranking za 2022. godinu promatrat ćemo podatke od 2016. do 2020. godine, uključivo.
 
 \section{Izvori za prikupljanje podataka}
 Podatke za izračun vrijednosti svih indikatora osim indikatora Award prikupljamo sa baza InCites i Web of Science (WoS). 
 Podatke za Award indikator prikupljamo sa raznih stranica ovisno o području koje nas zanima.
-Za Computer Science \& Engineering (CSE) to je stranica A.M. Turing Award: \url{https://amturing.acm.org/}, a za Electrical \& Electronic Engineering (EEE) IEEE Awards:
+Za \emph{Computer Science \& Engineering} (CSE) to je stranica A.M. Turing Award: \url{https://amturing.acm.org/}, a za \emph{Electrical \& Electronic Engineering} (EEE) IEEE Awards:
 \url{https://corporate-awards.ieee.org/}
 
-\section{Minimalni broj publikacija} Kako bi sveučilište ušlo na ranking za područja Computer Science \& Engineering (CSE) i Electrical \& Electronic Engineering (EEE) mora imati minimalno 150 publikacija koje su vidljive 
-na bazama Web of Science (WoS) i InCites.
+\section{Minimalni broj publikacija} Kako bi sveučilište ušlo na ranking za područja CSE i EEE mora imati minimalno 150 publikacija koje su vidljive 
+na bazama WoS i InCites.
 \\ \section{Preslikavanje područja istraživanja}Kako bi uspješno prikupili podatke s navedenih baza moramo na tim stranicama odabrati ispravno područje istraživanja jer preslikavanja nisu $1:1$.
 \\\\U sljedećim tablicama možemo vidjeti kako izgledaju preslikavanja za područja CSE i EEE.
 
 \begin{table}[htb]
-    \caption{Preslikavanje za područje Computer Science \& Engineering (CSE)}
+    \caption{Preslikavanje za područje \emph{Computer Science \& Engineering} (CSE)}
     \label{tbl:konstante}
     \centering
     \begin{tabular}{ll} \hline
     Područje na Shanghai Ranking stranici & Područje na InCites i \\ & Web of Science (WoS) bazama\\ \hline
-    Computer Science \& Engineering & Computer Science, Information Systems \\
-    Computer Science \& Engineering & Computer Science, Cybernetics \\
-    Computer Science \& Engineering & Computer Science, Software Engineering \\
-    Computer Science \& Engineering & Computer Science, Artificial Intelligence \\
-    Computer Science \& Engineering & Computer Science, Hardware \& Architecture \\
-    Computer Science \& Engineering & Computer Science, Theory \& Methods \\
-    Computer Science \& Engineering & Computer Science, Interdisciplinary Applications \\
+    \emph{Computer Science \& Engineering} & \emph{Computer Science, Information Systems} \\
+    \emph{Computer Science \& Engineering} & \emph{Computer Science, Cybernetics} \\
+    \emph{Computer Science \& Engineering} & \emph{Computer Science, Software Engineering} \\
+    \emph{Computer Science \& Engineering} & \emph{Computer Science, Artificial Intelligence} \\
+    \emph{Computer Science \& Engineering} & \emph{Computer Science, Hardware \& Architecture} \\
+    \emph{Computer Science \& Engineering} & \emph{Computer Science, Theory \& Methods} \\
+    \emph{Computer Science \& Engineering} & \emph{Computer Science, Interdisciplinary Applications} \\
     \end{tabular}
     \end{table}
     \FloatBarrier
@@ -81,33 +82,33 @@ na bazama Web of Science (WoS) i InCites.
         \centering
         \begin{tabular}{ll} \hline
         Područje na Shanghai Ranking stranici & Područje na InCites i \\ & Web of Science (WoS) bazama\\ \hline
-        Electrical \& Electronic Engineering &  Engineering, Electrical \& Electronic\\
-        Electrical \& Electronic Engineering &  Imaging Science \& Photographic Technology\\
+        \emph{Electrical \& Electronic Engineering} &  \emph{Engineering, Electrical \& Electronic}\\
+        \emph{Electrical \& Electronic Engineering} &  \emph{Imaging Science \& Photographic Technology}\\
         \end{tabular}
         \end{table}    
         \FloatBarrier
 
 \section{Indikatori za računanje rankinga}
 Global Ranking of Academic Subjects (GRAS) se računa na temelju pet indikatora, a to su: Q1, CNCI, IC, Top i Award.
-\\ \textbf{Q1} indikator predstavlja broj publikacija sveučilišta u top $25\%$ časopisa koji su izabrani za neko područje putem ankete ShanghaiRanking’s Academic Excellence Survey
+\\ \\\textbf{Q1} indikator predstavlja broj publikacija sveučilišta u top $25\%$ časopisa koji su izabrani za neko područje putem ankete ShanghaiRanking’s Academic Excellence Survey
 (AES) tijekom relevantnog razdoblja.   
-\\ \textbf{CNCI} indikator (Category Normalized Citation Impact) omjer je citiranosti objavljenih radova i prosječnih citiranosti 
+\\ \\\textbf{CNCI} indikator (\emph{Category Normalized Citation Impact}) omjer je citiranosti objavljenih radova i prosječnih citiranosti 
 radova u istoj kategoriji, iste godine i iste vrste publikacije u časopisu, od strane sveučilišta u određenom području tijekom relevantnog razdoblja.
 CNCI vrijednosti manje od 1 znače da je citiranost sveučilišta manja od prosjeka, vrijednost 1 znači da je citiranost prosječna, a vrijednosti veće od
 1 znače da je citiranost sveučilišta veća od prosjeka.
-\\ \textbf{IC} indikator (International Collaboration) predstavlja koliko međunarodnih suradnja sveučilište u nekom području istraživanja ima.
+\\ \\\textbf{IC} indikator (\emph{International Collaboration}) predstavlja koliko međunarodnih suradnja sveučilište u nekom području istraživanja ima.
 Točna vrijednost indikatora dobije se kao omjer broja publikacija koje su pronađene u najmanje dvije različite zemlje 
 u odnosu na adresu autora prema ukupnom broju publikacija iz odgovarajućeg područja istraživanja za instituciju tijekom relevantnog razdoblja.
-\\ \textbf{Top} indikator predstavlja broj radova koje je sveučilište 
+\\ \\\textbf{Top} indikator predstavlja broj radova koje je sveučilište 
 objavilo u Top časopisima u nekom području istraživanja tijekom relevantnog razdoblja.
 Top časopise biraju profesori sveučilišta isto kao i Q1 časopise kroz anketu ShanghaiRanking’s Academic Excellence Survey (AES). 
-Iznimka ovdje je područje Computer Science \& Engineering (CSE) jer se za to područje uzima broj radova predstavljenih na 31 odabranoj konferenciji, 
-također kroz ShanghaiRanking’s Academic Excellence Survey (AES).
-\\ \textbf{Award} indikator predstavlja broj osoba sveučilišta koje je dobilo značajnu nagradu iz nekog područja istraživanja. Značajne nagrade 
-biraju se putem ShanghaiRanking’s Academic Excellence Survey (AES). Značajna nagrada za područje  Computer Science \& Engineering (CSE) je Turingova 
-nagrada, a za područje Electrical \& Electronic Engineering (EEE) IEEE Medal of Honor.
+Iznimka ovdje je područje CSE jer se za to područje uzima broj radova predstavljenih na 31 odabranoj konferenciji, 
+također kroz AES.
+\\ \\\textbf{Award} indikator predstavlja broj osoba sveučilišta koje je dobilo značajnu nagradu iz nekog područja istraživanja. Značajne nagrade 
+biraju se također putem AES-a. Značajna nagrada za područje CSE je Turingova 
+nagrada, a za područje EEE je IEEE Medal of Honor.
 Kako bi dobitak nagrade išao u korist sveučilištu, osoba koje je dobila nagradu morala je u trenutku dobitka nagrade raditi puno radno vrijeme na 
-tom sveučilištu. Ako  je osoba u trenutku dobitka nagrade bila povezana s više sveučilišta ili drugih institucija, svakoj ustanovi se pridjeljuje
+tom sveučilištu, a ako  je osoba u trenutku dobitka nagrade bila povezana s više sveučilišta ili drugih institucija, svakoj ustanovi se pridjeljuje
 recipročan broj broja sveučilišta. Tako na primjer, ako je osoba bila povezana s 3 ustanove, svakoj od njih se pridjeljuje $1/3$, a ako je bila 
 povezana samo s jednom ustanovom pridjeljuje se toj ustanovi $1$. 
 Vrijeme dobitka nagrade također igra ulogu jer u obzir dolaze nagrade dodijeljene unazad 4 desetljeća od gornje granice godine za koju promatramo podatke.
@@ -127,11 +128,11 @@ Ukupna vrijednost indikatora dobije se zbrajanjem pojedinih vrijednosti za neko 
         \FloatBarrier
 \newpage
 \section{Računanje ukupnog rezultata sveučilišta}
-Jednom kada imamo sve indikatore za neko sveučilište ukupna brojčana vrijednost prema kojoj ćemo rangirati sveučilišta izračuna 
+Uz vrijednosti svih indikatora za neko sveučilište ukupna brojčana vrijednost prema kojoj se sveučilišta rangiraju izračuna 
 se na sljedeći način:
-\\Svaki od indikatora osim CNCI podijelimo s najvećom vrijednosti indikatora od svih sveučilišta, iz tog broja izvadimo 
-drugi korijen te dobiveni broj pomnožimo s težinom tog indikatora.
-Na kraju dobivene vrijednosti sumiramo.
+\\Svaki od indikatora osim CNCI-a podijeli se s najvećom vrijednosti indikatora od svih sveučilišta, iz tog broja izvadi se
+drugi korijen te dobiveni broj pomnoži se s težinom tog indikatora.
+Na kraju dobivene vrijednosti se sumiraju.
 \\
 \\ Izračun vrijednosti koja se pridjeljuje nekom indikatoru: 
 \begin{align}
@@ -144,7 +145,7 @@ Na kraju dobivene vrijednosti sumiramo.
 \\ Ukoliko je vrijednost CNCI indikatora veća od vrijednosti brojnika u izrazu \ref{eq:b} onda se sveučilištu automatski pridjeljuje vrijednost 100.
 
 \begin{table}[htb]
-    \caption{Težine s kojima množimo indikatore}
+    \caption{Težine s kojima se vrijednosti pridružene indikatorima množe}
         \label{tbl:konstante3}
         \centering
         \begin{tabular}{ccccc} \hline
@@ -156,32 +157,34 @@ Na kraju dobivene vrijednosti sumiramo.
 
 
 \subsection{Primjer izračuna vrijednosti za ranking}
-Promatramo izračun vrijednosti za sveučilište University of California, Berkeley koje je 2022. godine bilo prvo na rankingu u području 
-Electrical \& Electronic Engineering (EEE).
+U sljedećem dijelu prikazan je primjer izračuna vrijednosti za ranking za sveučilište University of California, Berkeley koje je 2022. godine bilo prvo na rankingu u području EEE.
+Period tijekom kojeg se uzimaju podatci je 2016. godina - 2020. godina.
 \\
 \\ \underline{Vrijednost Q1:} 
-\\ Pretraživanjem InCites baze vidimo da navedeno sveučilište ima vrijednost indikatora Q1 603. Najveća vrijednost Q1 indikatora u tom razdoblju iznosi 3285.
+\\ Pretraživanjem InCites baze saznaje se da navedeno sveučilište ima vrijednost indikatora Q1 603. Najveća vrijednost Q1 indikatora u tom razdoblju iznosi 3285.
 Vrijednost koja se veže za Q1 indikator iznosi;  \; $\sqrt[\leftroot{-2}]{\frac{603}{3285}} \; * 100 = 42.8$
 \\
 \\ \underline{Vrijednost CNCI:} 
-\\ Pretraživanjem InCites baze vidimo da navedeno sveučilište ima vrijednost indikatora CNCI 1.71. Najveća vrijednost CNCI indikatora u tom razdoblju iznosi 4.13.
-Kako je riječ o indikatoru CNCI u obzir još moramo uzeti i dvostruku prosječnu vrijednost svih CNCI vrijednosti, a to je 2.27.
-Vrijednost koja se veže za Q1 indikator iznosi: \; \\ $\sqrt[\leftroot{-2}]{\frac{1.71}{min(2.27, 4.13)}} \; * 100 = 86.8$
+\\ Pretraživanjem InCites baze saznaje se da navedeno sveučilište ima vrijednost indikatora CNCI 1.71. Najveća vrijednost CNCI indikatora u tom razdoblju iznosi 4.13.
+Kako je riječ o indikatoru CNCI u obzir se još mora uzeti i dvostruka prosječna vrijednost svih CNCI vrijednosti, a to je 2.27.
+Vrijednost koja se veže za CNCI indikator iznosi: \; \\ $\sqrt[\leftroot{-2}]{\frac{1.71}{min(2.27, 4.13)}} \; * 100 = 86.8$
 \\
 \\ \underline{Vrijednost IC:} 
-\\ Pretraživanjem InCites baze vidimo da navedeno sveučilište ima vrijednost indikatora IC 57.18. Najveća vrijednost IC indikatora u tom razdoblju iznosi 97.15.
+\\ Pretraživanjem InCites baze saznaje se da navedeno sveučilište ima vrijednost indikatora IC 57.18. Najveća vrijednost IC indikatora u tom razdoblju iznosi 97.15.
 Vrijednost koja se veže za IC indikator iznosi: \; \\ $\sqrt[\leftroot{-2}]{\frac{57.18}{97.15}} \; * 20 = 15.3$
 \\
 \\ \underline{Vrijednost Top:} 
-\\ Pretraživanjem InCites baze vidimo da navedeno sveučilište ima vrijednost indikatora Top 25. Najveća vrijednost Top indikatora u tom razdoblju iznosi 25.
+\\ Pretraživanjem InCites baze saznaje se da navedeno sveučilište ima vrijednost indikatora Top 25. Najveća vrijednost Top indikatora u tom razdoblju iznosi 25.
 Vrijednost koja se veže za Top indikator iznosi: \; \\ $\sqrt[\leftroot{-2}]{\frac{25}{25}} \; * 100 = 100$
 \\
 \\ \underline{Vrijednost Award:} 
-\\ Pretraživanjem stranice IEEE Awards vidimo da je navedeno sveučilište osvojilo nagradu IEEE Medal of Honor sljedećih godina: 1985., 1995., 1998., 2020. Kako je 
-svake godine nagradu osvojila uvijek jedna osoba koja nije bila vezana za nijednu drugu ustanovu, vrijednost 
-indikatora Award je $1*0.25+1*0.5+1*0.5+1*1 = 2.25$ (u obzir uzimamo težine koje se vežu za godinu osvajanja nagrade). Najveća vrijednost 
+\\ Pretraživanjem stranice IEEE Awards saznaje se da je navedeno sveučilište osvojilo nagradu IEEE Medal of Honor sljedećih godina: 1985., 1995., 1998., 2020. Kako je 
+svake godine nagradu osvojila uvijek jedna osoba koja nije bila vezana za nijednu drugu ustanovu te je u vrijeme dobitka nagrade
+radila puno radno vrijeme na tom sveučilištu, vrijednost 
+indikatora Award je $1*0.25+1*0.5+1*0.5+1*1 = 2.25$ (u obzir se uzimaju težine koje se vežu za godinu osvajanja nagrade). Najveća vrijednost 
 indikatora Award u tom razdoblju iznosi 3. Vrijednost koja se veže za Award indikator iznosi: \; \\ $\sqrt[\leftroot{-2}]{\frac{2.25}{3}} \; * 100 = 86.6$
-\\Ukupan rezultat sveučilišta University of California, Berkeley 2022. godine iznosi: $42.8+86.8+15.3+100+86.6 = 331.5$ 
+\\\\Jednom kada se izračunaju sve vrijednosti koje se vežu za pojedine indikatore,
+ukupan rezultat sveučilišta University of California, Berkeley u 2022. godini dobije se zbrajanjem tih vrijednosti: $42.8+86.8+15.3+100+86.6 = 331.5$.
 
 \chapter{Funkcionalni zahtjevi}
 \section{Funkcionalni zahtjevi}
@@ -190,8 +193,7 @@ Funkcionalni zahtjevi predstavljaju sve usluge koje programski proizvod mora pru
 \\
 \\Korisnici mogu:
 
-a) pregledati bazu procjene rankinga sveučilišta za određenu godinu u područjima Computer Science \& Engineering (CSE) 
-i Electrical \& Electronic Engineering (EEE)
+a) pregledati bazu procjene rankinga sveučilišta za određenu godinu u područjima CSE i EEE
 
 b) pregledati vrijednosti svih indikatora nekog sveučilišta pomoću kojih se računa procjena rankinga za željeno područje i godinu
 
@@ -199,7 +201,7 @@ c) usporediti vrijednosti Shanghai Ranking sustava s procijenjenim vrijednostima
 
 d) pregledati uspješnost procjene rankinga za željeno područje i godinu
 
-e) pregledati grafički prikaz promjene procjene vrijednosti indikatora i pozicije na rankingu sveučilišta u nekom području tijekom svih godina 
+e) pregledati grafički prikaz promjene procjene vrijednosti indikatora i pozicije na rang listi sveučilišta u nekom području tijekom svih godina 
 za koje se računa ranking, kao i pratiti napredak sveučilišta za trenutnu godinu
 \\
 \\React web grafičko sučelje može:
@@ -210,17 +212,17 @@ b) omogućiti korisniku tablični prikaz procjene rankinga sveučilišta sa svim
 
 c) omogućiti korisniku pretragu sveučilišta na rankingu za određeno područje i godinu
 
-d) omogućiti korisniku grafički prikaz procjene promjene vrijednosti indikatora i pozicije nekog sveučilišta za željenu godinu i područje
+d) omogućiti korisniku grafički prikaz  promjene procjene vrijednosti indikatora i pozicije nekog sveučilišta za željenu godinu i područje
 
 e) omogućiti korisniku prikaz uspješnosti procjene rankinga u odnosu na Shanghai Ranking sustav za željeno područje i godinu
 \\
 \\Node.js poslužitelj može:
 
-a) inicijalno napuniti bazu podataka koristeći baze Web of Science (WoS) i InCites s podatcima potrebnim za izračun procjene rankinga sveučilišta
+a) inicijalno napuniti bazu podataka koristeći baze WoS i InCites s podatcima potrebnim za izračun procjene rankinga sveučilišta
 
-b) svakih dva tjedna prikupiti podatke sa baza Web of Science (WoS) i InCites za procjenu rankinga sveučilišta u trenutnoj godini
+b) svakih dva tjedna prikupiti podatke sa baza WoS i InCites za procjenu rankinga sveučilišta u trenutnoj godini
 
-c) Nudi React web grafičkom sučelju krajnje točke potrebne za prikaz podataka korisniku.
+c) nudi React web grafičkom sučelju krajnje točke potrebne za prikaz podataka korisniku.
 \\
 \\PostgreSQL baza podataka može:
 
@@ -234,7 +236,7 @@ a) pohranjivati vrijednosti indikatora za izračun procjene rankinga sveučiliš
     \end{figure}
 \newpage
 \section{Nefunkcionalni zahtjevi}
-Nefunkcionalni zahtjevi opisuju koja svojstva sustav mora imati. Ova web aplikacija mora:
+Nefunkcionalni zahtjevi opisuju koja svojstva sustav mora imati, a ne funkcionalnost koju pruža korisniku. Ova web aplikacija mora:
 
 a) biti robusna, otporna na pogreške i stabilna
 
@@ -246,18 +248,18 @@ c) dati što bolju procjenu rankinga sveučilišta u odnosu na Shanghai Ranking 
 \section{Arhitektura sustava}
 Arhitektura ovog programskog sustava sastoji se kao i mnoge web aplikacije od 3 dijela:
 
-1. Web korisničko sučelje
+1. web korisničko sučelje
 
-2. Backend poslužitelj
+2. \emph{backend} poslužitelj
 
-3. Baza podataka
+3. baza podataka
 
 \subsection{Web korisničko sučelje}
 Web korisničko sučelje ove aplikacije napravljeno je u JavaScript biblioteci React. 
 \\
 \\ \textbf{React} je biblioteka otvorenog koda, razvijena od strane Facebooka,
-prva verzija je objavljena 2013. godine te je danas vrlo raširena i često se koristi za izradu interaktivnih i dinamičkih web korisničkih sučelja. 
-React omogućava jednostavniju izradu web aplikacija uz manje kodiranja i manju složenost u odnosu na izradu web aplikacije u čistom JavaScript-u.
+prva verzija objavljena je 2013. godine te je danas vrlo raširena i često se koristi za izradu interaktivnih i dinamičkih web korisničkih sučelja. 
+React omogućava jednostavniju izradu web aplikacija uz manje programiranja i manju složenost u odnosu na izradu web aplikacije u čistom JavaScriptu.
 Jedna od prednosti React biblioteke je ta što omogućava izradu jednostraničnih web aplikacija \engl{Single Page Application (SPA)} koja radi tako 
 da dinamički surađuje s preglednikom te navigiranje aplikacijom ne uzrokuje odlazak na potpuno drugačiju web stranicu već se trenutna stranica 
 mijenja i prepisuje s podatcima dohvaćenih s web poslužitelja. Ovu funkcionalnost omogućava dodatak react-router-dom koji nudi komponente kao što su Link.
@@ -265,70 +267,124 @@ Navigiranjem po web aplikaciji korištenjem komponente Link mijenja se URL u pre
 React koristi virtualni DOM \engl{Document Object Model} koji prati stanja 
 komponenti web stranice te kada dođe do promjene stanja, u stvarnom preglednikovom DOM-u mijenja samo one elemente koji su se promjenili. Ova 
 funkcionalnost uvelike poboljšava performanse web aplikacije.
-Jedna stranica u React-u sastoji se od više manjih komponenti koje se mogu dijeliti između više stranica i proizvoljno gnijezditi. Ovakvom organizacijom
-postižemo dobru organizaciju koda uz mogućnosti višestrukog korištenja komponenti.
-Kombiniranjem navedenih funkcionalnosti React biblioteke dobivamo fluidno korisničko sučelje bez puno učitavanja stranica \engl{reload}
+Jedna stranica u Reactu sastoji se od više manjih komponenti koje se mogu dijeliti između više stranica i proizvoljno gnijezditi. Ovakvom organizacijom
+postiže se dobra organizacija koda uz mogućnosti višestrukog korištenja komponenti.
+Kombiniranjem navedenih funkcionalnosti React biblioteke dobiva se fluidno korisničko sučelje bez puno ponovnih učitavanja stranica \engl{reload}.
 \\
 \\ \textbf{Axios}
-\\ Axios je biblioteka koja nam omogućava jednostavno stvaranje HTTP zahtjeva na backend poslužitelj i rukovanje odgovorima.
+\\ Axios je biblioteka koja omogućava jednostavno stvaranje HTTP zahtjeva kao što su GET i POST na \emph{backend} poslužitelj i rukovanje odgovorima koje taj poslužitelj vraća.
 \\
 \\ \textbf{Material UI}
-\\ Pisanje vlastitih komponenti u React-u od početka je korisno ako nam treba komponenta nad kojom želimo imati potpunu kontrolu te veliku prilagodljivost, ali
-često nam trebaju komponente s nekom generičkom funkcionalnosti te pisanje takvih komponenti svaki put od nule nije potrebno. 
+\\ Pisanje vlastitih komponenti u Reactu od početka je korisno ako je potrebna potpuna kontrola nad komponentama te velika prilagodljivost, ali
+često se koriste komponente s nekom generičkom funkcionalnosti te pisanje takvih komponenti svaki put od nule nije potrebno. 
 Material UI je biblioteka za React koja nudi veliki broj gotovih komponenti koje se mogu prilagođavati i uređivati prema vlastitim potrebama .
 \\
 \\ \textbf{Tailwind CSS}
 \\ Tailwind CSS je radni okvir \engl{framework} za CSS \engl{Cascading Style Sheets} koji ima niz gotovih CSS razreda koji omogućavaju lagano postizanje 
 željenog izgleda komponenti.
-\\ \subsection{Backend poslužitelj}
+\\ \subsection{\emph{Backend} poslužitelj}
 \textbf{Node.js} 
-\\ Node.js je JavaScript pokretačko okruženje \engl.{runtime environment} namijenjeno izvođenju na poslužiteljskoj strani. Pokreće se na V8 JavaScript engine-u 
+\\ Node.js je JavaScript pokretačko okruženje \engl{runtime environment} namijenjeno izvođenju na poslužiteljskoj strani. Pokreće se na V8 JavaScript \emph{engineu}
 te omogućuje izvršavanje JavaScript koda izvan preglednika. Koristi asinkronu arhitekturu zasnovanu na događajima \engl{asynchronous event-driven architecture}
 te nudi mogućnost izrade skalabilnih web aplikacija.\\\newpage \textbf{Express.js}
-\\ Express.js je radni okvir \engl{framework} Node.js-a te omogućava izradu RESTful API-ja \engl{Application Programming Interface}. Express.js nam nudi
+\\ Express.js je \emph{framework} Node.js-a te omogućava izradu RESTful API-ja \engl{Application Programming Interface}. Express.js nudi
 lagano upravljanje HTTP zahtjevima i izradu krajnjih točaka \engl{endpoint} s kojima će React web aplikacija komunicirati.
 \\ \\ \textbf{Puppeteer}
-\\ Puppeteer je Node.js biblioteka koja nudi bogati API pomoću kojeg možemo kontrolirati Chrome i Chromium preglednike koristeći DevTools protokol.
-DevTools protokol omogućuje alatima upravljanje preglednicima kao što su Chrome i Chromium. Puppeteer koristimo za izradu web scrapper-a (alat koji posjećuje web stranice i 
-na njima obavlja neke radnje bez potrebe za intervencijom čovjeka) za baze InCites i Web of Science. Iako navedene baze nude API pomoću kojeg bi mogli 
+\\ Puppeteer je Node.js biblioteka koja nudi bogati API pomoću kojeg se preglednici Chrome i Chromium mogu kontrolirati koristeći DevTools protokol.
+DevTools protokol omogućuje alatima upravljanje preglednicima kao što su Chrome i Chromium na temelju uputa koje smo dali tim alatima.
+Puppeteer koristimo za izradu \emph{web scrappera} (alat koji posjećuje web stranice i 
+na njima obavlja neke radnje bez potrebe za intervencijom čovjeka) za baze InCites i WoS. Iako navedene baze nude API pomoću kojeg bi mogli 
 dohvatiti sve podatke potrebne za ranking, on se plaća. Puppeteer alatu moramo zadati niz koraka koje treba obaviti na nekoj stranici (upisati tekst u neko polje, kliknuti na gumb, otići na drugu stranicu)
 kako bi postigli željeni rezultat.
 \\ \\ \textbf{Node-postgres} 
-\\ Kako bi naš backend poslužitelj mogao komunicirati s bazom podataka koristimo Node-postgres. To je skup Node.js modula koji nam nude 
-sučelje prema bazi podataka. Pomoću ovog proširenja možemo s backend poslužitelja raditi sve uobičajene radnje s bazom podataka (stvaranje novih tablica, 
+\\ Kako bi \emph{backend} poslužitelj mogao komunicirati s bazom podataka koristi se Node-postgres. To je skup Node.js modula koji nude 
+sučelje prema bazi podataka. Pomoću ovog proširenja s \emph{backend} poslužitelja se mogu raditi sve uobičajene radnje s bazom podataka (stvaranje novih tablica, 
 unos podataka u tablice, dohvaćanje podataka iz tablica, brisanje podataka iz tablica i razne druge radnje).
 \\ \\ \textbf{Node Cron}
-\\ Node Cron je Node.js modul koji nam omogućava obavljanje nekih radnji na backend poslužitelju u nama prikladno vrijeme. Node Cron modul se u ovoj 
-web aplikaciji koristi kako bismo svaka dva tjedna pokrenuli alat Puppeteer koji će prikupiti najnovije podatke za ranking sveučilišta.
-\\ \subsection{Baza podataka}Ova web aplikacija koristi relacijsku bazu podataka PostgreSQL. 
+\\ Node Cron je Node.js modul koji omogućava obavljanje nekih radnji na \emph{backend} poslužitelju u željeno vrijeme. Node Cron modul se u ovoj 
+web aplikaciji koristi kako bi se svaka dva tjedna pokrenuo alat Puppeteer koji će prikupiti najnovije podatke za ranking sveučilišta.
+\\ \subsection{Baza podataka}Ova web aplikacija koristi relacijsku bazu podataka otvorenog koda PostgreSQL. \\PostgreSQL baza podataka ima ACID 
+\engl{Atomicity, Consistency, Isolation, Durability} svojstva koja su bitna kako bi se osigurala robusnost i stabilnost web aplikacije.
 \\ \section{Docker}
-Kako bi ovu web aplikaciju mogli lako postaviti \engl{deploy} na neki poslužitelj te tako omogućiti svim korisnicima pristup aplikaciji 
+Kako bi se ova web aplikaciju mogla lako postaviti \engl{deploy} na neki poslužitelj te tako omogućiti svim korisnicima pristup aplikaciji,
 koristi se platforma Docker. Docker je platforma otvorenog koda koja se koristi za razvoj, isporuku i pokretanje aplikacija.
 Docker pakira dijelove web aplikacije u odvojene dijelove koji se zovu kontejneri \engl{containers}.
 Kontejneri su zapravo Docker slike \engl{images} u izvođenju. Docker slika je lagana \engl{lightweight} komponenta koja sadrži sve što je aplikaciji 
 potrebno za izvođenje (izvorni kod, pokretačko okruženje \engl{runtime}, razne alate i biblioteke). Način stvaranja docker slike se definira 
-datotekom Dockerfile. Jednom kad imamo stvorenu Docker sliku, možemo je pokrenuti. Time smo dobili kontejner koji se izvršava na Docker Engine-u. 
+datotekom \\Dockerfile. Jednom kad je stvorena Docker slika, može se pokrenuti. Time se dobije kontejner koji se izvršava na Docker Engineu. 
 Velika prednost Dockera je ta što je podržan na puno operacijskih sustava (Windows, Linux, MacOS i ostali) te uz pomoć samo jedne naredbe i datoteke Dockerfile
-možemo dobiti pokrenutu i funkcionalnu aplikaciju. Aplikacije koje se pokreću kao kontejneri rade na jednak način na svim operacijskim sustavima zbog ugrađene virtualizacije.
+dobije se pokrenuta i funkcionalna aplikacija. Aplikacije koje se pokreću kao kontejneri rade na jednak način na svim operacijskim sustavima zbog ugrađene virtualizacije.
 Docker virtualizira operacijski sustav, a ne sklopovlje. Ovo je velika prednost u odnosu na virtualizaciju koju rade virtualni strojevi. 
 Virtualni strojevi emuliraju sklopovlje i upravljanjem pomoću hipervizora omogućuju da se na istom sklopovlju izvršava više operacijskih sustava. 
-Docker kontejneri dijele isti operacijski sustav te svaki predstavlja poseban proces. Možemo zaključiti da Docker kontejneri zauzimaju manje 
+Docker kontejneri dijele isti operacijski sustav te svaki predstavlja poseban proces. Docker kontejneri zauzimaju manje 
 resursa, lakši su i brži. 
 
 \begin{figure}[htb]
     
     \includegraphics[scale=0.35]{slika2.png}
     \caption{Usporedba virtualnih strojeva i Docker načina virtualizacije}
-    \label{fig:korisnik}
+    \label{fig:docker}
     \end{figure}
 
-U slučaju ove aplikacije imat ćemo 3 Docker slike koje će postati Docker kontejneri prilikom izvođenja. Moramo imati po jednu sliku za bazu podataka,
-backend poslužitelj te web korisničko sučelje. Jednom kada smo napisali Dockerfile za sve navedene dijelove aplikacije moramo ih povezati kako 
-bi sa samo jednom naredbom imali potpuno funkcionalnu aplikaciju, a to radimo u datoteci docker-compose.
+U slučaju ove aplikacije postoje 3 Docker slike koje će postati Docker kontejneri prilikom izvođenja. Jedna slika je za bazu podataka,
+druga za \emph{backend} poslužitelj, a treća za web korisničko sučelje. Jednom kada je napisan Dockerfile za sve navedene dijelove aplikacije, dijelovi se povezuju  
+datotekom docker-compose. U toj datoteci stoje upute od kojih se sve kontejnera aplikacija sastoji, kako kontejneri međusobno surađuju te kako se pokreću. Zahvaljujući 
+ovoj datoteci, umjesto da se svaki kontejner posebno inicijalizira i pokrene, s jednom naredbom se pokrene cijela aplikacija.
+\\
+\begin{figure}[htb]
+    \includegraphics[scale=0.3]{tehnologije.png}
+    \caption{Prikaz raspodjele korištenih tehnologija po arhitekturnim slojevima}
+    \label{fig:arhitektura}
+    \end{figure}
+\chapter{Pregled funkcionalnosti}
+\section{Početna stranica}
+
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+    \includegraphics[scale=0.2]{homePage.png} 
+    \caption{Prikaz početne stranice}
+    \label{fig:homepage}
+    \end{figure}
+Početna stranica nalazi se na putanji "/". Na početnoj stranici korisnik može birati između tri opcije. Klikom na neki od gornja dva gumba \emph{CSE} ili \emph{EEE}
+korisnika će se preusmjeriti na stranicu za pregled procjene Shanghai Rankinga i svih vrijednosti indikatora za područje CSE, odnosno EEE.        
+Klikom na donji gumb \emph{UPLOAD STVARNIH RANKING PODATAKA} korisnik će biti preusmjeren na stranicu na kojoj može objaviti .xlsx datoteku koja ima 
+identične vrijednosti indikatora i pozicija za pojedina sveučilišta kao i Shanghai Ranking stranica. Na osnovu te datoteke popunit će se baza podataka, a 
+objavljeni podatci služit će za usporedbu procjene rankinga i Shanghai Rankinga.  
+\newpage\section{Tablični prikaz rankinga sveučilišta}
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+    \includegraphics[scale=0.2]{tablica.png} 
+    \caption{Tablični prikaz rankinga sveučilišta}
+    \label{fig:tablica}
+    \end{figure}
+
+Klikom na neki od gumba \emph{CSE} ili \emph{EEE} korisniku se prikaže stranica na slici \ref{fig:tablica}. Putanja koja vodi do ove stranice 
+je "/ranking?category=CSE\&year=2022\&page=0".
+URL parametar \emph{category} specifira za koje područje se prikazuje procjena rankinga, parametar \emph{year} specifira 
+za koju godinu se gleda procjena rankinga, a parametar \emph{page} je pomoćni parametar za ostvarenje paginacije.  
+U ovom konkretnom primjeru iz URL-a se vidi da se korisniku prikazuje prva stranica procjene rankinga sveučilišta u području CSE za 2022.godinu.
+\\Stranica na vrhu ima ikonu u obliku kućice s kojom se korisnik vraća na početnu stranicu. \\Odmah ispod ikone kućice nalazi se komponenta
+za odabir godine za koju korisnik želi pogledati procjenu rankinga sveučilišta. Klikom na tu komponentu prikazuje se padajući izbornik 
+s popisom godina od 2017. godine do trenutne godine. 
+\begin{figure}[htb]
+    \centering
+       \includegraphics[scale=0.24]{select.png} 
+       \caption{Komponenta za odabir godine za koju se prikazuju podatci procjene rankinga}
+       \label{fig:select}
+       \end{figure}
+Početna godina je 2017. jer od te godine su dostupne rang liste na stranici 
+Shanghai Ranking. Kada korisnik odabere jednu od ponuđenih godina u URL-u se mijenja parametar \emph{year}, šalje se GET zahtjev na \emph{backend}
+poslužitelj te se ažurira tablica procjene rankinga s podatcima za odabranu godinu.\newpage Ispod komponete za odabir goidne, a prije tablice rankinga
+nalazi se polje za pretragu sveučilišta po njihovom imenu. Upisom imena sveučilišta u tablici za procjenu rankinga pojavit će se podatci samo za ona sveučilišta
+koja u imenu sadrže podniz koji je korisnik upisao u polje za pretragu.
 
 
-        
-        
+
+
+Ovo je jedan od slučajeva gdje se vidi prednost 
+Reacta i virtualnog DOM-a koji koristi u tome što iako smo promjenili URL, nije došlo do ponovnog učitavanja stranice već se samo 
+postojeća stranica ažurirala novim podatcima. 
+
 
 
 \chapter{Zaključak}

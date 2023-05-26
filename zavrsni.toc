@@ -13,8 +13,11 @@
 \contentsline {chapter}{\numberline {4}Korištene tehnologije}{11}{}%
 \contentsline {section}{\numberline {4.1}Arhitektura sustava}{11}{}%
 \contentsline {subsection}{\numberline {4.1.1}Web korisničko sučelje}{11}{}%
-\contentsline {subsection}{\numberline {4.1.2}Backend poslužitelj}{12}{}%
+\contentsline {subsection}{\numberline {4.1.2}\emph {Backend} poslužitelj}{12}{}%
 \contentsline {subsection}{\numberline {4.1.3}Baza podataka}{13}{}%
 \contentsline {section}{\numberline {4.2}Docker}{14}{}%
-\contentsline {chapter}{\numberline {5}Zaključak}{16}{}%
-\contentsline {chapter}{Literatura}{17}{}%
+\contentsline {chapter}{\numberline {5}Pregled funkcionalnosti}{16}{}%
+\contentsline {section}{\numberline {5.1}Početna stranica}{16}{}%
+\contentsline {section}{\numberline {5.2}Tablični prikaz rankinga sveučilišta}{17}{}%
+\contentsline {chapter}{\numberline {6}Zaključak}{19}{}%
+\contentsline {chapter}{Literatura}{20}{}%
