@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.20)  26 MAY 2023 23:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.20)  27 MAY 2023 11:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -273,7 +273,11 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count292
 \l__pdf_internal_box=\box55
-) (./zavrsni.aux)
+) (./zavrsni.aux
+
+LaTeX Warning: Label `fig:brojstranica' multiply defined.
+
+)
 \openout1 = `zavrsni.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -643,30 +647,80 @@ File: select.png Graphic file (type png)
 <use select.png>
 Package pdftex.def Info: select.png  used on input line 371.
 (pdftex.def)             Requested size: 106.47997pt x 115.87526pt.
-[17 <./tablica.png>] [18 <./select.png>]
+[17 <./tablica.png>]
+<search.png, id=107, 2568.59625pt x 1027.84pt>
+File: search.png Graphic file (type png)
+<use search.png>
+Package pdftex.def Info: search.png  used on input line 387.
+(pdftex.def)             Requested size: 539.42114pt x 215.85277pt.
+
+Overfull \hbox (72.2307pt too wide) in paragraph at lines 386--388
+[]|  [] 
+ []
+
+<sort1.png, id=108, 2568.59625pt x 1318.9275pt>
+File: sort1.png Graphic file (type png)
+<use sort1.png>
+Package pdftex.def Info: sort1.png  used on input line 401.
+(pdftex.def)             Requested size: 539.42114pt x 276.98294pt.
+
+Overfull \hbox (72.2307pt too wide) in paragraph at lines 400--402
+[]|  [] 
+ []
+
+<sort2.png, id=109, 2563.5775pt x 1315.91624pt>
+File: sort2.png Graphic file (type png)
+<use sort2.png>
+Package pdftex.def Info: sort2.png  used on input line 414.
+(pdftex.def)             Requested size: 538.36717pt x 276.35057pt.
+
+Overfull \hbox (71.17673pt too wide) in paragraph at lines 413--415
+[]|  [] 
+ []
+
+<stranica.png, id=110, 223.83624pt x 79.29625pt>
+File: stranica.png Graphic file (type png)
+<use stranica.png>
+Package pdftex.def Info: stranica.png  used on input line 429.
+(pdftex.def)             Requested size: 67.15138pt x 23.78905pt.
+<brojstranica.png, id=111, 982.67125pt x 376.40625pt>
+File: brojstranica.png Graphic file (type png)
+<use brojstranica.png>
+Package pdftex.def Info: brojstranica.png  used on input line 439.
+(pdftex.def)             Requested size: 294.80365pt x 112.92273pt.
+<navigiranje.png, id=112, 296.10625pt x 104.39pt>
+File: navigiranje.png Graphic file (type png)
+<use navigiranje.png>
+Package pdftex.def Info: navigiranje.png  used on input line 446.
+(pdftex.def)             Requested size: 88.83255pt x 31.31723pt.
+[18 <./select.png> <./search.png>] [19 <./sort1.png>] [20 <./sort2.png>] [21 <./stranica.png> <./brojstranica.png> <./navigiranje.png>]
 Poglavlje 6.
-(./zavrsni.bbl [19
+(./zavrsni.bbl [22
 
 ]
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [20
+) [23
 
-] [21] (./zavrsni.aux) ) 
+] [24] (./zavrsni.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 8193 strings out of 478287
- 130598 string characters out of 5849289
- 444757 words of memory out of 5000000
- 26245 multiletter control sequences out of 15000+600000
+ 8240 strings out of 478287
+ 131349 string characters out of 5849289
+ 444851 words of memory out of 5000000
+ 26286 multiletter control sequences out of 15000+600000
  527123 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,17n,77p,300b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (25 pages, 776494 bytes).
+Output written on zavrsni.pdf (28 pages, 1300301 bytes).
 PDF statistics:
- 177 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
+ 192 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

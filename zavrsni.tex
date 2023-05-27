@@ -294,7 +294,7 @@ lagano upravljanje HTTP zahtjevima i izradu krajnjih točaka \engl{endpoint} s k
 DevTools protokol omogućuje alatima upravljanje preglednicima kao što su Chrome i Chromium na temelju uputa koje smo dali tim alatima.
 Puppeteer koristimo za izradu \emph{web scrappera} (alat koji posjećuje web stranice i 
 na njima obavlja neke radnje bez potrebe za intervencijom čovjeka) za baze InCites i WoS. Iako navedene baze nude API pomoću kojeg bi mogli 
-dohvatiti sve podatke potrebne za ranking, on se plaća. Puppeteer alatu moramo zadati niz koraka koje treba obaviti na nekoj stranici (upisati tekst u neko polje, kliknuti na gumb, otići na drugu stranicu)
+dohvatiti sve podatke potrebne za ranking, on se plaća. Puppeteer alatu moramo zadati niz koraka koje treba obaviti na nekoj stranici (upisati tekst u neko polje, pritisnuti na gumb, otići na drugu stranicu)
 kako bi postigli željeni rezultat.
 \\ \\ \textbf{Node-postgres} 
 \\ Kako bi \emph{backend} poslužitelj mogao komunicirati s bazom podataka koristi se Node-postgres. To je skup Node.js modula koji nude 
@@ -345,9 +345,9 @@ ovoj datoteci, umjesto da se svaki kontejner posebno inicijalizira i pokrene, s 
     \caption{Prikaz početne stranice}
     \label{fig:homepage}
     \end{figure}
-Početna stranica nalazi se na putanji "/". Na početnoj stranici korisnik može birati između tri opcije. Klikom na neki od gornja dva gumba \emph{CSE} ili \emph{EEE}
+Početna stranica nalazi se na putanji "/". Na početnoj stranici korisnik može birati između tri opcije. Pritiskom na neki od gornja dva gumba \emph{CSE} ili \emph{EEE}
 korisnika će se preusmjeriti na stranicu za pregled procjene Shanghai Rankinga i svih vrijednosti indikatora za područje CSE, odnosno EEE.        
-Klikom na donji gumb \emph{UPLOAD STVARNIH RANKING PODATAKA} korisnik će biti preusmjeren na stranicu na kojoj može objaviti .xlsx datoteku koja ima 
+Pritiskom na donji gumb \emph{UPLOAD STVARNIH RANKING PODATAKA} korisnik će biti preusmjeren na stranicu na kojoj može objaviti .xlsx datoteku koja ima 
 identične vrijednosti indikatora i pozicija za pojedina sveučilišta kao i Shanghai Ranking stranica. Na osnovu te datoteke popunit će se baza podataka, a 
 objavljeni podatci služit će za usporedbu procjene rankinga i Shanghai Rankinga.  
 \newpage\section{Tablični prikaz rankinga sveučilišta}
@@ -358,13 +358,13 @@ objavljeni podatci služit će za usporedbu procjene rankinga i Shanghai Ranking
     \label{fig:tablica}
     \end{figure}
 
-Klikom na neki od gumba \emph{CSE} ili \emph{EEE} korisniku se prikaže stranica na slici \ref{fig:tablica}. Putanja koja vodi do ove stranice 
+Pritiskom na neki od gumba \emph{CSE} ili \emph{EEE} korisniku se prikaže stranica na slici \ref{fig:tablica}. Putanja koja vodi do ove stranice 
 je "/ranking?category=CSE\&year=2022\&page=0".
 URL parametar \emph{category} specifira za koje područje se prikazuje procjena rankinga, parametar \emph{year} specifira 
 za koju godinu se gleda procjena rankinga, a parametar \emph{page} je pomoćni parametar za ostvarenje paginacije.  
 U ovom konkretnom primjeru iz URL-a se vidi da se korisniku prikazuje prva stranica procjene rankinga sveučilišta u području CSE za 2022.godinu.
 \\Stranica na vrhu ima ikonu u obliku kućice s kojom se korisnik vraća na početnu stranicu. \\Odmah ispod ikone kućice nalazi se komponenta
-za odabir godine za koju korisnik želi pogledati procjenu rankinga sveučilišta. Klikom na tu komponentu prikazuje se padajući izbornik 
+za odabir godine za koju korisnik želi pogledati procjenu rankinga sveučilišta. Pritiskom na tu komponentu prikazuje se padajući izbornik 
 s popisom godina od 2017. godine do trenutne godine. 
 \begin{figure}[htb]
     \centering
@@ -373,14 +373,80 @@ s popisom godina od 2017. godine do trenutne godine.
        \label{fig:select}
        \end{figure}
 Početna godina je 2017. jer od te godine su dostupne rang liste na stranici 
-Shanghai Ranking. Kada korisnik odabere jednu od ponuđenih godina u URL-u se mijenja parametar \emph{year}, šalje se GET zahtjev na \emph{backend}
-poslužitelj te se ažurira tablica procjene rankinga s podatcima za odabranu godinu.\newpage Ispod komponete za odabir goidne, a prije tablice rankinga
-nalazi se polje za pretragu sveučilišta po njihovom imenu. Upisom imena sveučilišta u tablici za procjenu rankinga pojavit će se podatci samo za ona sveučilišta
-koja u imenu sadrže podniz koji je korisnik upisao u polje za pretragu.
-
-
-
-
+Shanghai Ranking. Kada korisnik odabere jednu od ponuđenih godina u URL-u se mijenja parametar \emph{year}, šalje se HTTP GET zahtjev na \emph{backend}
+poslužitelj te se ažurira tablica procjene rankinga s podatcima za odabranu godinu koje \emph{backend} poslužitelj poašlje u HTTP odgovoru \engl{response}.
+\newpage Ispod komponente za odabir godine, a prije tablice rankinga
+nalazi se polje za pretragu sveučilišta po njihovom imenu. Prije nego što korisnik krene upisivati slova u to polje, u njemu kao zamjenski tekst \engl{placeholder}
+piše koliko sveučilišta se određene godine u nekom području našlo na procijenjenoj rang listi. Na slici \ref{fig:tablica} se vidi da je za 2022. godinu u području CSE 
+na procijenjenoj rang listi 1122 sveučilišta.
+Upisom imena sveučilišta u tablici za procjenu rankinga pojavit će se podatci samo za ona sveučilišta
+koja u imenu sadrže podniz koji je korisnik upisao u polje za pretragu. Upisom podniza na \emph{backend} poslužitelj HTTP GET zahtjevom šalje se taj podniz te se 
+pretražuje baza podataka procijene rankinga za određenu godinu u nekom području po imenu sveučilišta. Dolaskom HTTP odgovora ažuriraju se podatci u tablici.\\
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.21]{search.png} 
+       \caption{Primjer pretrage sveučilišta po imenu}
+       \label{fig:search}
+       \end{figure}
+\\Na slici \ref{fig:search} se vidi primjer pretrage sveučilišta po imenu. Korisnik je upisao niz slova "zag" te se u tablici vide podatci za dva sveučilišta
+koja u svom imenu sadrže navedeni podniz. 
+\\Tablica procjene rankinga sastoji se od 8 stupaca. Zaglavlje tablice sadrži nazive vrijednosti koje se nalaze u pojedinim stupcima.
+Prvi stupac pokazuje poziciju sveučilišta na rang listi za određenu godinu te u nekom području, drugi 
+pokazuje ime sveučilišta, sljedećih pet stupaca sadrže vrijednosti koje se vežu uz indikatore Q1, CNCI, IC, Top i Award, a zadnji stupac sadrži ukupan rezultat sveučilišta 
+u određenoj godini za neko područje prema kojem su sveučilišta sortirana i zove se Total. U zaglavlju tablice prije samog naziva vrijednosti stupca nalazi se ikona koja simbolizira
+sortiranje tablice rankinga. Ova funkcionalnost omogućena je za sve stupce osim prva dva. Ako korisnik pritisne na tu ikonu ili naziv stupca cijela tablica 
+procjene rankinga sortirat će se prema vrijednosti tog stupca silazno odnosno uzlazno. 
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.21]{sort1.png} 
+       \caption{Primjer uzlaznog sortiranja tablice procjene rankinga prema vrijednosti indikatora Q1}
+       \label{fig:sort1}
+       \end{figure}
+\\Slika \ref{fig:sort1} prikazuje stanje tablice nakon što je korisnik pritisnuo u zaglavlju tablice treći stupac koji ima naziv Q1. Sada se ikona koja simbolizira
+sortiranje zamjenila s ikonom strelice koja pokazuje prema gore. Strelica prema gore simbolizira da se cijela tablica procjene rankinga
+sortira uzlazno prema vrijednosti indikatora uz koji se nalazi strelica, u ovom slučaju to je indikator Q1. Sada su se podatci u tablici 
+ažurirali te su sveučilišta sortirana uzlazno po vrijednosti indikatora Q1 što se i vidi u samoj tablici na slici \ref{fig:sort1} jer vrijednost indikatora Q1 za prvo 
+sveučilište je 3.02, a za svako sljedeće sveučilište ta vrijednost je veća u odnosu na prethodno sveučilište. Sortiranje se može raditi i silazno. Tada se ikona promjeni
+u strelicu koja je okrenuta prema dolje. Promjene vrste sortiranja između silaznog, uzlaznog ili zadanog \engl{default} se radi uzastopnim pritiskanjem 
+jednog od zadnjih 6 stupaca u zaglavlju tablice.
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.21]{sort2.png} 
+       \caption{Primjer silaznog sortiranja tablice procjene rankinga prema vrijednosti indikatora Q1}
+       \label{fig:sort2}
+       \end{figure}
+\\\engl{Default} sortiranje je silazno prema vrijednosti stupca Total jer se tako dobije rang lista sveučilišta od najboljih prema najgorim uzimajući u obzir sve 
+vrijednosti koje se vežu uz pojedine indikatore.
+Istodobno sortiranje sveučilišta prema više vrijednosti stupaca nije moguće. Tako na primjer ako korisnik prvo odabere uzlazno sortiranje prema vrijednosti stupca 
+Q1 te zatim odabere sortiranje za stupac IC, sortiranje prema vrijednosti stupca Q1 će se poništit te će se primjeniti željeno sortiranje prema vrijednosti stupca IC.
+Sortiranje sveučilišta se također odvija na 
+\emph{backend} poslužitelju, a parametri se prenose u sklopu HTTP GET zahtjeva. Dolaskom HTTP odgovora ažuriraju se podatci u tablici.
+\\Zbog potencijalno velikog broja sveučilišta na rang listama, korisniku se ne prikažu sva sveučilišta u obliku jedne velike tablice nego 
+je napravljena paginacija tako da se na jednoj stranici prikaže samo određeni broj zapisa iz rang liste sveučilišta. Informacija o tome na kojoj je trenutno stranici i 
+koliko ukupno stranica rang liste ima korisniku je vidljiva ispod tablice uz lijevi rub. 
+\begin{figure}[htb]
+    \centering
+       \includegraphics[scale=0.3]{stranica.png} 
+       \caption{Prikaz trenutne stranice i ukupnog broja stranica rang liste}
+       \label{fig:paginacija}
+       \end{figure}
+\\Korisnik također može birati količinu redaka tablice po jednoj stranici. Pritiskom na komponentu ispod tablice otvara se 
+padajući izbornik gdje korisnik može birati između 10, 20, 30, 40 ili 50 redaka tablice po jednoj stranici. \emph{Default} vrijednost je 10. Ova vrijednost zajedno s 
+trenutnim brojem stranice prenose se kao parametri prilikom HTTP GET zahtjeva kako bi \emph{backend} poslužitelj znao koliko zapisa i s kojim pomakom mora vratiti u 
+HTTP odgovoru klijentu. Na ovaj način na klijentskoj strani imamo pohranjeno uvijek najviše 50 zapisa što pridonosi brzini korisničkog sučelja.
+\begin{figure}[htb]
+    \centering
+       \includegraphics[scale=0.3]{brojstranica.png} 
+       \caption{Odabir broja redaka tablice po jednoj stranici rang liste}
+       \label{fig:brojstranica}
+       \end{figure}
+\\Ispod tablice rankinga uz desni rub nalazi se područje za navigiranje stranicama tablice.        
+\begin{figure}[htb]
+    \centering
+       \includegraphics[scale=0.3]{navigiranje.png} 
+       \caption{Područje za navigiranje }
+       \label{fig:brojstranica}
+       \end{figure}
 Ovo je jedan od slučajeva gdje se vidi prednost 
 Reacta i virtualnog DOM-a koji koristi u tome što iako smo promjenili URL, nije došlo do ponovnog učitavanja stranice već se samo 
 postojeća stranica ažurirala novim podatcima. 

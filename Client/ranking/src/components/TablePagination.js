@@ -245,7 +245,7 @@ import SelectComponent from './SelectComponent';
             >
               {[10, 20, 30, 40, 50].map((pageSize) => (
                 <option key={pageSize} value={pageSize} style={{fontSize:'0.6em'}}>
-                {pageSize}rezultata po stranici
+                {pageSize} rezultata po stranici
                 </option>
               ))}
             </select>
