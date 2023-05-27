@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.20)  27 MAY 2023 20:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.20)  27 MAY 2023 22:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -800,15 +800,19 @@ Overfull \hbox (59.48125pt too wide) in paragraph at lines 581--583
 
 [27 <./uni4.png>] [28 <./upload.png> <./error.png>] [29 <./real.png>]
 Poglavlje 6.
-(./zavrsni.bbl [30
+[30
+
+]
+Poglavlje 7.
+(./zavrsni.bbl [31
 
 ]
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [31
+) [32
 
-] [32] (./zavrsni.aux)
+] [33] (./zavrsni.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -822,10 +826,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  70i,17n,77p,300b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (37 pages, 2172048 bytes).
+Output written on zavrsni.pdf (38 pages, 2172617 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
+ 237 PDF objects out of 1000 (max. 8388607)
+ 138 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
