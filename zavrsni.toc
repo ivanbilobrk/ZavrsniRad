@@ -19,5 +19,6 @@
 \contentsline {chapter}{\numberline {5}Pregled funkcionalnosti}{16}{}%
 \contentsline {section}{\numberline {5.1}Početna stranica}{16}{}%
 \contentsline {section}{\numberline {5.2}Tablični prikaz rankinga sveučilišta}{17}{}%
-\contentsline {chapter}{\numberline {6}Zaključak}{22}{}%
-\contentsline {chapter}{Literatura}{23}{}%
+\contentsline {section}{\numberline {5.3}Stranica sveučilišta}{22}{}%
+\contentsline {chapter}{\numberline {6}Zaključak}{28}{}%
+\contentsline {chapter}{Literatura}{29}{}%

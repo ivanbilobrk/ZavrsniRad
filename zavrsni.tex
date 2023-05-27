@@ -282,6 +282,10 @@ Material UI je biblioteka za React koja nudi veliki broj gotovih komponenti koje
 \\ \textbf{Tailwind CSS}
 \\ Tailwind CSS je radni okvir \engl{framework} za CSS \engl{Cascading Style Sheets} koji ima niz gotovih CSS razreda koji omogućavaju lagano postizanje 
 željenog izgleda komponenti.
+\\
+\\ \textbf{React-chartjs-2}
+\\ React-chartjs-2 je jedna od najpopularnijih React biblioteka koja nudi funkcionalnost jednostavne izrade grafova. Koristi se za izradu grafova na 
+kojima pratimo promjene ranking podataka tijekom vremena.
 \\ \subsection{\emph{Backend} poslužitelj}
 \textbf{Node.js} 
 \\ Node.js je JavaScript pokretačko okruženje \engl{runtime environment} namijenjeno izvođenju na poslužiteljskoj strani. Pokreće se na V8 JavaScript \emph{engineu}
@@ -362,7 +366,7 @@ Pritiskom na neki od gumba \emph{CSE} ili \emph{EEE} korisniku se prikaže stran
 je "/ranking?category=CSE\&year=2022\&page=0".
 URL parametar \emph{category} specifira za koje područje se prikazuje procjena rankinga, parametar \emph{year} specifira 
 za koju godinu se gleda procjena rankinga, a parametar \emph{page} je pomoćni parametar za ostvarenje paginacije.  
-U ovom konkretnom primjeru iz URL-a se vidi da se korisniku prikazuje prva stranica procjene rankinga sveučilišta u području CSE za 2022.godinu.
+U ovom konkretnom primjeru iz URL-a se vidi da korisnik trenutno gleda prvu stranicu (indeksiranje stranica kreće od 0) procjene rankinga sveučilišta u području CSE za 2022.godinu.
 \\Stranica na vrhu ima ikonu u obliku kućice s kojom se korisnik vraća na početnu stranicu. \\Odmah ispod ikone kućice nalazi se komponenta
 za odabir godine za koju korisnik želi pogledati procjenu rankinga sveučilišta. Pritiskom na tu komponentu prikazuje se padajući izbornik 
 s popisom godina od 2017. godine do trenutne godine. 
@@ -374,7 +378,7 @@ s popisom godina od 2017. godine do trenutne godine.
        \end{figure}
 Početna godina je 2017. jer od te godine su dostupne rang liste na stranici 
 Shanghai Ranking. Kada korisnik odabere jednu od ponuđenih godina u URL-u se mijenja parametar \emph{year}, šalje se HTTP GET zahtjev na \emph{backend}
-poslužitelj te se ažurira tablica procjene rankinga s podatcima za odabranu godinu koje \emph{backend} poslužitelj poašlje u HTTP odgovoru \engl{response}.
+poslužitelj te se ažurira tablica procjene rankinga s podatcima za odabranu godinu koje \emph{backend} poslužitelj pošalje u HTTP odgovoru \engl{response}.
 \newpage Ispod komponente za odabir godine, a prije tablice rankinga
 nalazi se polje za pretragu sveučilišta po njihovom imenu. Prije nego što korisnik krene upisivati slova u to polje, u njemu kao zamjenski tekst \engl{placeholder}
 piše koliko sveučilišta se određene godine u nekom području našlo na procijenjenoj rang listi. Na slici \ref{fig:tablica} se vidi da je za 2022. godinu u području CSE 
@@ -431,7 +435,7 @@ koliko ukupno stranica rang liste ima korisniku je vidljiva ispod tablice uz lij
        \label{fig:paginacija}
        \end{figure}
 \\Korisnik također može birati količinu redaka tablice po jednoj stranici. Pritiskom na komponentu ispod tablice otvara se 
-padajući izbornik gdje korisnik može birati između 10, 20, 30, 40 ili 50 redaka tablice po jednoj stranici. \emph{Default} vrijednost je 10. Ova vrijednost zajedno s 
+izbornik gdje korisnik može birati između 10, 20, 30, 40 ili 50 redaka tablice po jednoj stranici. \emph{Default} vrijednost je 10. Ova vrijednost zajedno s 
 trenutnim brojem stranice prenose se kao parametri prilikom HTTP GET zahtjeva kako bi \emph{backend} poslužitelj znao koliko zapisa i s kojim pomakom mora vratiti u 
 HTTP odgovoru klijentu. Na ovaj način na klijentskoj strani imamo pohranjeno uvijek najviše 50 zapisa što pridonosi brzini korisničkog sučelja.
 \begin{figure}[htb]
@@ -440,18 +444,98 @@ HTTP odgovoru klijentu. Na ovaj način na klijentskoj strani imamo pohranjeno uv
        \caption{Odabir broja redaka tablice po jednoj stranici rang liste}
        \label{fig:brojstranica}
        \end{figure}
-\\Ispod tablice rankinga uz desni rub nalazi se područje za navigiranje stranicama tablice.        
+\\Ispod tablice rankinga uz desni rub nalazi se područje za navigiranje stranicama rang liste.       
 \begin{figure}[htb]
     \centering
-       \includegraphics[scale=0.3]{navigiranje.png} 
-       \caption{Područje za navigiranje }
-       \label{fig:brojstranica}
+       \includegraphics[scale=0.4]{navigiranje.png} 
+       \caption{Područje za navigiranje stranicama rang liste}
+       \label{fig:navigacija}
        \end{figure}
-Ovo je jedan od slučajeva gdje se vidi prednost 
-Reacta i virtualnog DOM-a koji koristi u tome što iako smo promjenili URL, nije došlo do ponovnog učitavanja stranice već se samo 
-postojeća stranica ažurirala novim podatcima. 
-
-
+Postoje četiri mogućnosti navigacije kao što se i vidi na slici \ref{fig:navigacija}. Pritiskom na ikonu označenu brojem 1 korisniku će se prikazati prva stranica rang liste.
+Pritiskom na ikonu označenu brojem 2 korisnik će se pomaknuti za jednu stranicu unazad, a pritiskom na ikonu označenu brojem 3 prikazat će se sljedeća stranica. 
+Pritisci na ikone 2 i 3 funkcioniraju ukoliko uistinu postoji prethodna odnosno sljedeća stranica, u suprotnom se ništa ne događa.
+Pritiskom na zadnju ikonu označenu rednim brojem 4 korisniku će se prikazati zadnja stranica rang liste. 
+\\Ako je korisnik recimo navigirao na petu stranicu rang liste te u tom trenutku krenuo pretraživati sveučilišta, automatski ga se navigira na prvu stranicu rang liste.
+\\Prilikom ažuriranja prikaza tablice rankinga ne dolazi do ponovnog učitavanja stranice što je jedna od opisanih koristi jednostraničnih web aplikacija.
+Za vrijeme čekanja HTTP odgovora od \emph{backend} polsužitelja korisniku se prikaže odgovarajuća ikona te se pozadina posivi.
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.21]{loading.png} 
+       \caption{Primjer čekanja HTTP odgovora \emph{backend} poslužitelja}
+       \label{fig:sort2}
+       \end{figure}
+\\Na samom dnu stranice nalazi se ocjena uspješnosti procjene rankinga za neku godinu u određenom području u odnosu na stvarni 
+ranking objavljen na stranici Shanghai Ranking. To je decimalni broj u rasponu od 0 do 100. Što je vrijednost tog broja veća znači da se procjena 
+rankinga to bolje podudara sa stvarnim ranking podatcima sa Shanghai Ranking stranice. 
+\begin{figure}[htb]
+    \centering
+       \includegraphics[scale=0.4]{uspjeh.png} 
+       \caption{Labela sa ocjenom uspješnosti procjene rankinga}
+       \label{fig:uspjeh}
+       \end{figure}
+\\Na svako ime sveučilišta u tablici rankinga korisnik može pritisnuti mišem te će ga se preusmjeriti na stranicu s detaljnijim podatcima za to konkretno sveučilište.
+\section{Stranica sveučilišta}
+Temeljni funkcionalni zahtjevi su bili da korisnik može pratiti ranking sveučilišta i promjene vrijednosti indikatora tijekom godina, pogledati procjenu 
+rankinga sveučilišta u tekućoj godini te usporediti procjenu rankinga sa stvarnim ranking podatcima na \\stranici Shanghai Ranking. Ova stranica 
+nudi te funkcionalnosti korisniku u obliku grafičkog prikaza. 
+\\
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.21]{unipage.png} 
+       \caption{Stranica sveučilišta}
+       \label{fig:unipage}
+       \end{figure}
+\\Nakon što je korisnik pritisnuo ime nekog sveučilišta prikazat će mu se stranica na slici \ref{fig:unipage}. Stranica sa slike nalazi se na putanji 
+"/rankingUni?uni=Massachusetts Institute of Technology (MIT)\&category=CSE". Parametar \emph{uni} specifira za koje sveučilište će se prikazivati podatci, a 
+parametar \emph{category} specifira za koje područje se prikazuju podatci. U primjeru sa slike \ref{fig:unipage} gledamo stranicu koja se odnosi na sveučilište 
+Massachusetts Institute of Technology (MIT) za područje CSE. Područje za koje promatramo podatke ovisi za koje područje je korisnik prethodno gledao 
+rang listu te se ono prenosi na ovu stranicu. 
+\\Na ovoj stranici korisnik može birati između 3 ponuđene opcije. 
+Pritiskom na prvi padajući izbornik prikazat će se grafički prikaz promjene podataka za ranking 
+od 2017. godine, što se vidi na slici \ref{fig:unipage1}. 
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.21]{uni1.png} 
+       \caption{Grafički prikaz promjene vrijednosti indikatora}
+       \label{fig:unipage1}
+       \end{figure}
+Ukoliko korisnika zanima vrijednost nekog drugog podatka za ranking, na raspolaganju mu je izbornik 
+koji je prikazan na slici \ref{fig:unipage2}. 
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.21]{uni2.png} 
+       \caption{Grafički prikaz promjene vrijednosti indikatora}
+       \label{fig:unipage2}
+       \end{figure}
+Postoji mogućnost pregleda promjene vrijednosti svih indikatora koji služe za računanje rankinga: Q1, CNCI, IC, Top, Award. 
+Osim vrijednosti indikatora može se promatrati kako se pozicija \engl{position} sveučilišta te ukupna vrijednost \engl{total} prema kojoj se sveučilišta 
+sortiraju na rang listi mijenjala kroz godine. Iz grafičkog prikaza se ne mogu potpuno točno pročitati vrijednosti podataka za neku godinu. Točan iznos 
+nekog podatka za određenu godinu dobije se zadržavanjem miša na krivulji iznad određene godine, što se vidi na slici \ref{fig:detail}.
+\begin{figure}[htb]
+            \centering
+               \includegraphics[scale=0.4]{detail.png} 
+               \caption{Detaljniji prikaz vrijednosti podataka na grafu}
+               \label{fig:detail}
+               \end{figure}           
+\FloatBarrier 
+Pritiskom na drugi padajući izbornik korisniku se prikaže isti graf s opcijom pregleda podataka za ranking
+kao i u prethodnom slučaju. Jedina razlika je što ovaj graf prikazan na slici \ref{fig:uni3}
+prikazuje promjenu procjene ranking podataka tijekom mjeseci tekuće godine. Primjer sa slike \ref{fig:uni3} nije reprezentativan jer su podatci 
+prikupljani u kratkom vremenskom razdoblju, no kada bi se aplikacija držala pokrenutom tijekom jedne godine vidjeli bismo promjene na grafu. Pregledom ovog 
+grafa može se procjeniti kako će izgledati Shanghai Ranking rang lista za trenutnu godinu prije službene objave. 
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.21]{uni3.png} 
+       \caption{Prikaz ranking podataka za trenutnu godinu}
+       \label{fig:uni3}
+       \end{figure} 
+\\Pritiskom na treći padajući izbornik prikaže se grafički prikaz na kojem 
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.35]{uni4.png} 
+       \caption{Grafički prikaz usporedbe procjene rankinga i stvarnih Shanghai Ranking podataka}
+       \label{fig:uni4}
+       \end{figure} 
 
 \chapter{Zaključak}
 Zaključak.
