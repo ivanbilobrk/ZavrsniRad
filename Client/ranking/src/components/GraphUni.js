@@ -82,34 +82,11 @@ export default function GraphUni({ uni, factor, labels, dataFetch, isExpanded, d
             </div>
           ) : null}
         
-        {factor === 'POSITION' && graphData['datasets'].length > 1 ? 
-        (
-          
-          <div style={{display:'flex', justifyContent:'space-around', fontSize:'1.5em', marginTop:'1em'}}>
-              <div>
-                Pozicija Shanghai Ranking:
-                {Array.from({ length: new Date().getFullYear() - 2017 + 1 }, (_, i) => (
-                  <div key={i}>
-                    {i+2017}:
-                    {graphData['datasets'][0]['data'][i] || 'Nema zapisa'}
-                  </div>
-                ))}
-              </div>
-              <div>
-                Pozicija Procjena:
-                {Array.from({ length: new Date().getFullYear() - 2017 + 1 }, (_, i) => (
-                  <div key={i}>
-                    {graphData['datasets'][1]['data'][i]}
-                  </div>
-                ))}
-              </div>
 
-          </div>
-          ) :
          <div style={{minHeight:'40vh'}}>
           <Line options={options} data={graphData}/>
          </div>
-        }
+        
 
     </>
   );

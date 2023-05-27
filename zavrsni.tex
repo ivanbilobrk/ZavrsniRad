@@ -363,8 +363,8 @@ objavljeni podatci služit će za usporedbu procjene rankinga i Shanghai Ranking
     \end{figure}
 
 Pritiskom na neki od gumba \emph{CSE} ili \emph{EEE} korisniku se prikaže stranica na slici \ref{fig:tablica}. Putanja koja vodi do ove stranice 
-je "/ranking?category=CSE\&year=2022\&page=0".
-URL parametar \emph{category} specifira za koje područje se prikazuje procjena rankinga, parametar \emph{year} specifira 
+je \url{/ranking?category=CSE\&year=2022\&page=0}.
+URL parametar \emph{category} specificira za koje područje se prikazuje procjena rankinga, parametar \emph{year} specificira
 za koju godinu se gleda procjena rankinga, a parametar \emph{page} je pomoćni parametar za ostvarenje paginacije.  
 U ovom konkretnom primjeru iz URL-a se vidi da korisnik trenutno gleda prvu stranicu (indeksiranje stranica kreće od 0) procjene rankinga sveučilišta u području CSE za 2022.godinu.
 \\Stranica na vrhu ima ikonu u obliku kućice s kojom se korisnik vraća na početnu stranicu. \\Odmah ispod ikone kućice nalazi se komponenta
@@ -385,7 +385,7 @@ piše koliko sveučilišta se određene godine u nekom području našlo na proci
 na procijenjenoj rang listi 1122 sveučilišta.
 Upisom imena sveučilišta u tablici za procjenu rankinga pojavit će se podatci samo za ona sveučilišta
 koja u imenu sadrže podniz koji je korisnik upisao u polje za pretragu. Upisom podniza na \emph{backend} poslužitelj HTTP GET zahtjevom šalje se taj podniz te se 
-pretražuje baza podataka procijene rankinga za određenu godinu u nekom području po imenu sveučilišta. Dolaskom HTTP odgovora ažuriraju se podatci u tablici.\\
+pretražuje baza podataka procjene rankinga za određenu godinu u nekom području po imenu sveučilišta. Dolaskom HTTP odgovora ažuriraju se podatci u tablici.\\
 \begin{figure}[htb]
     \hspace*{-2cm}  
        \includegraphics[scale=0.21]{search.png} 
@@ -407,7 +407,7 @@ procjene rankinga sortirat će se prema vrijednosti tog stupca silazno odnosno u
        \label{fig:sort1}
        \end{figure}
 \\Slika \ref{fig:sort1} prikazuje stanje tablice nakon što je korisnik pritisnuo u zaglavlju tablice treći stupac koji ima naziv Q1. Sada se ikona koja simbolizira
-sortiranje zamjenila s ikonom strelice koja pokazuje prema gore. Strelica prema gore simbolizira da se cijela tablica procjene rankinga
+sortiranje zamijenila s ikonom strelice koja pokazuje prema gore. Strelica prema gore simbolizira da se cijela tablica procjene rankinga
 sortira uzlazno prema vrijednosti indikatora uz koji se nalazi strelica, u ovom slučaju to je indikator Q1. Sada su se podatci u tablici 
 ažurirali te su sveučilišta sortirana uzlazno po vrijednosti indikatora Q1 što se i vidi u samoj tablici na slici \ref{fig:sort1} jer vrijednost indikatora Q1 za prvo 
 sveučilište je 3.02, a za svako sljedeće sveučilište ta vrijednost je veća u odnosu na prethodno sveučilište. Sortiranje se može raditi i silazno. Tada se ikona promjeni
@@ -419,10 +419,10 @@ jednog od zadnjih 6 stupaca u zaglavlju tablice.
        \caption{Primjer silaznog sortiranja tablice procjene rankinga prema vrijednosti indikatora Q1}
        \label{fig:sort2}
        \end{figure}
-\\\engl{Default} sortiranje je silazno prema vrijednosti stupca Total jer se tako dobije rang lista sveučilišta od najboljih prema najgorim uzimajući u obzir sve 
+\\\emph{Default} sortiranje je silazno prema vrijednosti stupca Total jer se tako dobije rang lista sveučilišta od najboljih prema najgorim uzimajući u obzir sve 
 vrijednosti koje se vežu uz pojedine indikatore.
 Istodobno sortiranje sveučilišta prema više vrijednosti stupaca nije moguće. Tako na primjer ako korisnik prvo odabere uzlazno sortiranje prema vrijednosti stupca 
-Q1 te zatim odabere sortiranje za stupac IC, sortiranje prema vrijednosti stupca Q1 će se poništit te će se primjeniti željeno sortiranje prema vrijednosti stupca IC.
+Q1 te zatim odabere sortiranje za stupac IC, sortiranje prema vrijednosti stupca Q1 će se poništiti te će se primijeniti željeno sortiranje prema vrijednosti stupca IC.
 Sortiranje sveučilišta se također odvija na 
 \emph{backend} poslužitelju, a parametri se prenose u sklopu HTTP GET zahtjeva. Dolaskom HTTP odgovora ažuriraju se podatci u tablici.
 \\Zbog potencijalno velikog broja sveučilišta na rang listama, korisniku se ne prikažu sva sveučilišta u obliku jedne velike tablice nego 
@@ -453,11 +453,11 @@ HTTP odgovoru klijentu. Na ovaj način na klijentskoj strani imamo pohranjeno uv
        \end{figure}
 Postoje četiri mogućnosti navigacije kao što se i vidi na slici \ref{fig:navigacija}. Pritiskom na ikonu označenu brojem 1 korisniku će se prikazati prva stranica rang liste.
 Pritiskom na ikonu označenu brojem 2 korisnik će se pomaknuti za jednu stranicu unazad, a pritiskom na ikonu označenu brojem 3 prikazat će se sljedeća stranica. 
-Pritisci na ikone 2 i 3 funkcioniraju ukoliko uistinu postoji prethodna odnosno sljedeća stranica, u suprotnom se ništa ne događa.
+Pritisci na ikone 2 i 3 funkcioniraju ako uistinu postoji prethodna odnosno sljedeća stranica, u suprotnom se ništa ne događa.
 Pritiskom na zadnju ikonu označenu rednim brojem 4 korisniku će se prikazati zadnja stranica rang liste. 
 \\Ako je korisnik recimo navigirao na petu stranicu rang liste te u tom trenutku krenuo pretraživati sveučilišta, automatski ga se navigira na prvu stranicu rang liste.
 \\Prilikom ažuriranja prikaza tablice rankinga ne dolazi do ponovnog učitavanja stranice što je jedna od opisanih koristi jednostraničnih web aplikacija.
-Za vrijeme čekanja HTTP odgovora od \emph{backend} polsužitelja korisniku se prikaže odgovarajuća ikona te se pozadina posivi.
+\\Za vrijeme čekanja HTTP odgovora od \emph{backend} poslužitelja korisniku se prikaže odgovarajuća ikona koja simbolizira učitavanje podataka te se pozadina posivi.
 \begin{figure}[htb]
     \hspace*{-2cm}  
        \includegraphics[scale=0.21]{loading.png} 
@@ -470,12 +470,13 @@ rankinga to bolje podudara sa stvarnim ranking podatcima sa Shanghai Ranking str
 \begin{figure}[htb]
     \centering
        \includegraphics[scale=0.4]{uspjeh.png} 
-       \caption{Labela sa ocjenom uspješnosti procjene rankinga}
+       \caption{Labela s ocjenom uspješnosti procjene rankinga}
        \label{fig:uspjeh}
        \end{figure}
 \\Na svako ime sveučilišta u tablici rankinga korisnik može pritisnuti mišem te će ga se preusmjeriti na stranicu s detaljnijim podatcima za to konkretno sveučilište.
 \section{Stranica sveučilišta}
-Temeljni funkcionalni zahtjevi su bili da korisnik može pratiti ranking sveučilišta i promjene vrijednosti indikatora tijekom godina, pogledati procjenu 
+\label{section:unipagesection}
+Temeljni funkcionalni zahtjevi nalažu da korisnik može pratiti ranking sveučilišta i promjene vrijednosti indikatora tijekom godina, pogledati procjenu 
 rankinga sveučilišta u tekućoj godini te usporediti procjenu rankinga sa stvarnim ranking podatcima na \\stranici Shanghai Ranking. Ova stranica 
 nudi te funkcionalnosti korisniku u obliku grafičkog prikaza. 
 \\
@@ -486,8 +487,8 @@ nudi te funkcionalnosti korisniku u obliku grafičkog prikaza.
        \label{fig:unipage}
        \end{figure}
 \\Nakon što je korisnik pritisnuo ime nekog sveučilišta prikazat će mu se stranica na slici \ref{fig:unipage}. Stranica sa slike nalazi se na putanji 
-"/rankingUni?uni=Massachusetts Institute of Technology (MIT)\&category=CSE". Parametar \emph{uni} specifira za koje sveučilište će se prikazivati podatci, a 
-parametar \emph{category} specifira za koje područje se prikazuju podatci. U primjeru sa slike \ref{fig:unipage} gledamo stranicu koja se odnosi na sveučilište 
+"/rankingUni?uni=Massachusetts Institute of Technology (MIT)\&category=CSE". Parametar \emph{uni} specificira za koje sveučilište će se prikazivati podatci, a 
+parametar \emph{category} specificira za koje područje se prikazuju podatci. U primjeru sa slike \ref{fig:unipage} gledamo stranicu koja se odnosi na sveučilište 
 Massachusetts Institute of Technology (MIT) za područje CSE. Područje za koje promatramo podatke ovisi za koje područje je korisnik prethodno gledao 
 rang listu te se ono prenosi na ovu stranicu. 
 \\Na ovoj stranici korisnik može birati između 3 ponuđene opcije. 
@@ -499,18 +500,18 @@ od 2017. godine, što se vidi na slici \ref{fig:unipage1}.
        \caption{Grafički prikaz promjene vrijednosti indikatora}
        \label{fig:unipage1}
        \end{figure}
-Ukoliko korisnika zanima vrijednost nekog drugog podatka za ranking, na raspolaganju mu je izbornik 
+Ako korisnika zanima vrijednost nekog drugog podatka za ranking, na raspolaganju mu je izbornik 
 koji je prikazan na slici \ref{fig:unipage2}. 
 \begin{figure}[htb]
     \hspace*{-2cm}  
        \includegraphics[scale=0.21]{uni2.png} 
-       \caption{Grafički prikaz promjene vrijednosti indikatora}
+       \caption{Izbornik podataka čije će se vrijednosti prikazati na grafu}
        \label{fig:unipage2}
        \end{figure}
 Postoji mogućnost pregleda promjene vrijednosti svih indikatora koji služe za računanje rankinga: Q1, CNCI, IC, Top, Award. 
 Osim vrijednosti indikatora može se promatrati kako se pozicija \engl{position} sveučilišta te ukupna vrijednost \engl{total} prema kojoj se sveučilišta 
 sortiraju na rang listi mijenjala kroz godine. Iz grafičkog prikaza se ne mogu potpuno točno pročitati vrijednosti podataka za neku godinu. Točan iznos 
-nekog podatka za određenu godinu dobije se zadržavanjem miša na krivulji iznad određene godine, što se vidi na slici \ref{fig:detail}.
+nekog podatka za određenu godinu dobije se zadržavanjem strelice miša na krivulji iznad određene godine, što se vidi na slici \ref{fig:detail}.
 \begin{figure}[htb]
             \centering
                \includegraphics[scale=0.4]{detail.png} 
@@ -529,13 +530,60 @@ grafa može se procjeniti kako će izgledati Shanghai Ranking rang lista za tren
        \caption{Prikaz ranking podataka za trenutnu godinu}
        \label{fig:uni3}
        \end{figure} 
-\\Pritiskom na treći padajući izbornik prikaže se grafički prikaz na kojem 
+\\\\Pritiskom na treći padajući izbornik prikaže se grafički prikaz na slici \ref{fig:uni4}. Na ovom grafu postoje dvije krivulje, ona označena plavom bojom predstavlja 
+stvarne podatke rankinga sa stranice Shanghai Ranking, dok ona označena crvenom bojom predstavlja procijenjene vrijednosti podataka za ranking.
+Na ovaj način može se lakše vizualno usporediti koliko je procjena rankinga dobra. Na ovom konkretnom primjeru vidi se odnos procijenjene i stvarne 
+vrijednosti Total. Kao i na prethodnim grafovima ukoliko se zadrži strelica miša na dijelu krivulje iznad godine dobit će se točniji iznos 
+vrijednosti podatka za tu godinu.
+Podatke sa Shanghai Ranking stranice korisnik unosi postavljanjem \engl{upload} 
+odgovarajuće .xlsx datoteke, što je opisano u sljedećem dijelu.
+\\Svi podatci potrebni za prikaz grafova dohvaćaju se pomoću HTTP GET zahtjeva na \emph{backend} poslužitelj. Na ovoj stranici, kao i prethodno opisanoj, 
+vidimo prednosti jednostraničnih web aplikacija jer promjenom grafa ili vrijednosti koja se prikazuje na grafu ne dolazi do ponovnog 
+učitavanja web stranice.
 \begin{figure}[htb]
-    \hspace*{-2cm}  
-       \includegraphics[scale=0.35]{uni4.png} 
+    \centering
+       \includegraphics[scale=0.3]{uni4.png} 
        \caption{Grafički prikaz usporedbe procjene rankinga i stvarnih Shanghai Ranking podataka}
        \label{fig:uni4}
        \end{figure} 
+
+
+\section{Stranica za postavljanje podataka sa \\Shanghai Ranking stranice}
+Usporedba procijenjenih podataka rankinga i stvarnih podataka sa Shanghai Ranking stranice moguća je postavljanjem .xlsx datoteke koja sadrži 
+podatke sa Shanghai \\Ranking stranice. Kako korisnik ne bi morao direktno unositi podatke u bazu podataka, na ovoj stranici može kroz 
+interaktivno web sučelje postaviti datoteku sa Shanghai Ranking podatcima koji će se automatski upisati u odgovarajuću tablicu u bazi podataka.
+\\Ova stranica prikazana na slici \ref{fig:upload} ima URL "/upload" te se na nju dolazi s početne stranice prikazane na slici \ref{fig:homepage} pritiskom na gumb s tekstom
+"UPLOAD STVARNIH RANKING PODATAKA".
+\\Na stranici u gornjem dijelu postoje dvije komponente za odabir područja, koje može biti CSE ili EEE, i godine, koja se kreće od 2017. do trenutne. Nakon što 
+se odaberu te dvije vrijednosti korisnik može pritisnuti gumb s tekstom "Postavi datoteku" nakon čega mu se otvara preglednik datoteka osobnog računala
+u kojem može izabrati koju datoteku želi postaviti. Ako korisnik postavi datoteku koja nema .xlsx proširenje, ispisat će mu se poruka pogreške kao na 
+slici \ref{fig:error}.
+\begin{figure}[htb]
+    \hspace*{-2cm}  
+       \includegraphics[scale=0.2]{upload.png} 
+       \caption{Stranica za postavljanje stvarnih Shanghai Ranking podataka}
+       \label{fig:upload}
+       \end{figure} 
+ \begin{figure}[htb]
+        \centering
+           \includegraphics[scale=0.2]{error.png} 
+           \caption{Poruka greške u slučaju postavljanja neispravne datoteke}
+           \label{fig:error}
+           \end{figure}        
+\\Zapisi u postavljenoj datoteci trebaju biti formatirani na ispravan način kako bi se podatci uspješno unijeli u bazu podataka. 
+Na slici \ref{fig:real} vidimo nekoliko zapisa ispravno formatirane .xlsx datoteke. Svaki redak zapisa treba imati sedam stupaca čiji su nazivi redom:
+ime sveučilišta, vrijednost Q1, CNCI, IC, Top i Award indikatora te pozicija. Vrijednost podatka \emph{Total} prema kojem se sortiraju 
+sveučilišta nije potrebno upisati jer se on lako izračuna iz zadanih vrijednosti indikatora. Pozicija sveučilišta se također mogla
+izostaviti uz pretpostavku da će svaka postavljena datoteka imati zapise za sva sveučilišta za neku godinu u određenom području, ali
+na ovaj način korisnik može unijeti samo nekoliko zapisa za sveučilišta koja su mu od interesa te dobiti mogućnost 
+grafičke usporedbe podataka na stranici opisanoj u odjeljku \ref{section:unipagesection}.
+\begin{figure}[htb]
+    \hspace*{-2cm} 
+       \includegraphics[scale=0.3]{real.png} 
+       \caption{Prikaz zapisa datoteke sa stvarnim Shanghai Ranking podatcima}
+       \label{fig:real}
+       \end{figure}  
+
 
 \chapter{Zaključak}
 Zaključak.

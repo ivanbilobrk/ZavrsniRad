@@ -20,5 +20,6 @@
 \contentsline {section}{\numberline {5.1}Početna stranica}{16}{}%
 \contentsline {section}{\numberline {5.2}Tablični prikaz rankinga sveučilišta}{17}{}%
 \contentsline {section}{\numberline {5.3}Stranica sveučilišta}{22}{}%
-\contentsline {chapter}{\numberline {6}Zaključak}{28}{}%
-\contentsline {chapter}{Literatura}{29}{}%
+\contentsline {section}{\numberline {5.4}Stranica za postavljanje podataka sa \\Shanghai Ranking stranice}{27}{}%
+\contentsline {chapter}{\numberline {6}Zaključak}{30}{}%
+\contentsline {chapter}{Literatura}{31}{}%

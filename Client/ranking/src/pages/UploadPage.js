@@ -62,7 +62,7 @@ export default function UploadPage(){
                     style={{ display: 'none' }}
                 />
                 <label htmlFor="fileUpload" style={{ backgroundColor: 'green', borderRadius: '10px', color: 'white', padding: '10px', cursor: 'pointer' }}>
-                    Upload File
+                    Postavi datoteku
                 </label>
                 {uploadedFileName && <span style={{ marginLeft: '10px' }}>{uploadedFileName}</span>}
                 {errorMessage && <span style={{ color: 'red', marginLeft:'10px' }}>{errorMessage}</span>}
