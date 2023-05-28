@@ -2,6 +2,7 @@
 \usepackage{booktabs}
 \usepackage{pdfpages}
 \usepackage{placeins}
+\usepackage{listings}
 
 \begin{document}
 
@@ -89,6 +90,7 @@ na bazama WoS i InCites.
         \FloatBarrier
 
 \section{Indikatori za računanje rankinga}
+\label{indikatori}
 Global Ranking of Academic Subjects (GRAS) se računa na temelju pet indikatora, a to su: Q1, CNCI, IC, Top i Award.
 \\ \\\textbf{Q1} indikator predstavlja broj publikacija sveučilišta u top $25\%$ časopisa koji su izabrani za neko područje putem ankete ShanghaiRanking’s Academic Excellence Survey
 (AES) tijekom relevantnog razdoblja.   
@@ -157,6 +159,7 @@ Na kraju dobivene vrijednosti se sumiraju.
 
 
 \subsection{Primjer izračuna vrijednosti za ranking}
+\label{racunanje}
 U sljedećem dijelu prikazan je primjer izračuna vrijednosti za ranking za sveučilište University of California, Berkeley koje je 2022. godine bilo prvo na rankingu u području EEE.
 Period tijekom kojeg se uzimaju podatci je 2016. godina - 2020. godina.
 \\
@@ -246,6 +249,7 @@ c) dati što bolju procjenu rankinga sveučilišta u odnosu na Shanghai Ranking 
 
 \chapter{Korištene tehnologije}
 \section{Arhitektura sustava}
+\label{arhitektura}
 Arhitektura ovog programskog sustava sastoji se kao i mnoge web aplikacije od 3 dijela:
 
 1. web korisničko sučelje
@@ -585,8 +589,221 @@ grafičke usporedbe podataka na stranici opisanoj u odjeljku \ref{section:unipag
        \end{figure}  
 
 \chapter{Opis rješenja i podatkovni model}
+Kao što je već rečeno u odjeljku \ref{arhitektura}, arhitektura ovog sustava ima tri dijela. U odjeljku koji slijedi opisano je kako je svaki od njih izveden
+te kako međusobno surađuju.
+\begin{figure}[htb]
+    \hspace*{-2.5cm} 
+       \includegraphics[scale=0.3]{razmjestaj.png} 
+       \caption{Dijagram razmještaja}
+       \label{fig:razmjestaj}
+       \end{figure}  
 \section{Baza podataka}
-Ova web aplikacija temelji se na tri relacije u PostgreSQL bazi podataka. Nazivi tablica su: \emph{award}, \emph{ranking} i \emph{rankingreal}.
+Ova web aplikacija temelji se na tri relacije u PostgreSQL bazi podataka. Nazivi relacija su: \emph{award}, \emph{ranking} i \emph{rankingreal}.
+\\\\\subsection{Relacija \emph{award}}
+\begin{table}[htb]
+    \caption{Atributi relacije \emph{award}}
+        \label{tbl:award}
+        \centering
+        \begin{tabular}{llr} \hline
+        Naziv atributa & Tip podatka & Opis\\ \hline
+        \emph{id} &  \emph{integer} & jedinstveni identifikator zapisa i primarni ključ relacije\\
+        \emph{uni} &  \emph{text} & naziv sveučilišta\\
+        \emph{year} &  \emph{integer} & godina osvajanja nagrade\\
+        \emph{share} &  \emph{double precision} & udio bodova sveučilišta\\
+        \emph{category} &  \emph{text} & naziv područja za koje je nagrada osvojena\\
+        \end{tabular}
+        \end{table}    
+        \FloatBarrier 
+Relacija \emph{award} sadrži podatke o osvojenim nagradama sveučilišta. Svaki zapis sadrži atribut \emph{share} koji označava 
+koliko bodova za ranking će sveučilište dobiti u ovisnosti o tome s koliko institucija je osvajač nagrade za vrijeme dobitka nagrade
+surađivao. Postupak izračuna udjela opisan je u odjeljku \ref{indikatori}, a predstavlja recipročan broj broja institucija s kojima je osvajač 
+nagrade surađivao. Svaki zapis također ima i atribut \emph{category} koji označava područje u kojem je nagrada osvojena te može biti CSE ili EEE.
+Atribut \emph{year}, koji predstavlja godinu osvajanja nagrade, bitan je kod izračuna težine s kojom množimo vrijednost indikatora.
+\\Indikator \emph{award} ima posebnu relaciju, za razliku od stalih indikatora, zbog bolje organizacije relacija te iz razloga što se 
+vrijednost indikatora \emph{award} za jednu godinu koristi za izračun više rankinga sveučilišta. Ako bi indikator \emph{award} bio u istoj relaciji
+kao i ostali indikatori dobila bi se relacija koja ima puno ponavljanja istih zapisa.
+\subsection{Relacija \emph{ranking}}
+Relacija \emph{ranking} sadrži vrijednosti koje se vežu za neko sveučilište u nekoj gedini te u području CSE ili EEE. 
+Nakon što se podatci dohvate s baze InCites, vrijednosti koje se vežu uz indikatore se izračunaju kako je opisano u odjeljku \ref{racunanje} 
+te se unesu u ovu relaciju. Atribut \emph{readingyear} pomoćni je atribut koji se koristi kod grafičkog prikaza napretka procjene rankinga 
+nekog sveučilišta koji omogućava sortiranje zapisa od najstarijeg prema najmlađem.
+\begin{table}[htb]
+    \caption{Atributi relacije \emph{ranking}}
+        \label{tbl:ranking}
+        \centering
+        \begin{tabular}{llr} \hline
+        Naziv atributa & Tip podatka & Opis\\ \hline
+        \emph{id} &  \emph{integer} & jedinstveni identifikator zapisa i primarni ključ relacije\\
+        \emph{uni} &  \emph{text} & naziv sveučilišta\\
+        \emph{year} &  \emph{integer} & godina vrijednosti indikatora\\
+        \emph{q1} &  \emph{double precision} & vrijednost uz indikator Q1\\
+        \emph{cnci} &  \emph{double precision} & vrijednost uz indikator CNCI\\
+        \emph{ic} &  \emph{double precision} & vrijednost uz indikator IC\\
+        \emph{top} &  \emph{double precision} & vrijednost uz indikator Top\\
+        \emph{category} &  \emph{text} & naziv područja za koje vrijede podatci\\
+        \emph{readingyear} &  \emph{double precision} & vrijeme unosa zapisa u relaciju\\
+        \end{tabular}
+        \end{table}    
+        \FloatBarrier 
+\subsection{Relacija \emph{rankingreal}}
+\begin{table}[htb]
+    \caption{Atributi relacije \emph{rankingreal}}
+        \label{tbl:rankingreal}
+        \centering
+        \begin{tabular}{llr} \hline
+        Naziv atributa & Tip podatka & Opis\\ \hline
+        \emph{id} &  \emph{integer} & jedinstveni identifikator zapisa i primarni ključ relacije\\
+        \emph{uni} &  \emph{text} & naziv sveučilišta\\
+        \emph{year} &  \emph{integer} & godina vrijednosti indikatora\\
+        \emph{q1} &  \emph{double precision} & vrijednost uz indikator Q1\\
+        \emph{cnci} &  \emph{double precision} & vrijednost uz indikator CNCI\\
+        \emph{ic} &  \emph{double precision} & vrijednost uz indikator IC\\
+        \emph{top} &  \emph{double precision} & vrijednost uz indikator Top\\
+        \emph{award} &  \emph{double precision} & vrijednost uz indikator Award\\
+        \emph{category} &  \emph{text} & naziv područja za koje vrijede podatci\\
+        \end{tabular}
+        \end{table}    
+        \FloatBarrier 
+Relacija \emph{rankingreal} sadrži ranking podatke prikupljene sa Shanghai Ranking stranice. Ova relacija sadrži sve 
+vrijednosti koje se vežu uz indikatore za neko sveučilište u nekom području te za određenu godinu. Svaki put kad korisnik 
+postavi datoteku na stranici s putom \url{/upload} ažurirat će se i unest novi zapisi u ovu relaciju. Podatci iz ove 
+relacije koriste se za usporedbu procjene rankinga te stvarnog Shanghai Ranking rankinga.
+\newpage\section{\emph{Backend} poslužitelj}
+Poslužiteljska aplikacija napisana je koristeći Node.js JavaScript pokretačko okruženje koje omogućava jednostavnu izradu poslužiteljskih strana 
+web aplikacija. Node.js u kombinaciji s Express radnim okvirom omogućava jednostavnu izradu RESTful \\API-ja ove web aplikacije čiji je dijagram 
+komponenti prikazan na slici \ref{fig:expressdijagramkomponenti}.
+\begin{figure}[htb]
+    \hspace*{-2cm} 
+       \includegraphics[scale=0.25]{expressdijagramkomponenti.png} 
+       \caption{Dijagram komponenti Express API-ja, korisničkog preglednika te baze podataka}
+       \label{fig:expressdijagramkomponenti}
+       \end{figure} 
+\\Poslužiteljska strana nudi korisniku RESTful API, a komunikacija se odvija putem HTTP protokola. Ova web aplikacija je jednostranična što znači da će se u korisnički preglednik
+pristupom aplikaciji prvo dostaviti sav potreban HTML, CSS i JavaScript kod za cijelu aplikaciju, a podatci za ažuriranje sadržaja stranice 
+dohvaćat će se s poslužitelja koristeći RESTful API napisan pomoću Expressa kako je prikazano na slici \ref{fig:expressdijagramkomponenti}. \\Komunikacija
+Express API-ja i PostgreSQL baze podataka omogućena je Node-postgres modulom. Node-postgres nudi jednostavno sučelje za obavljanje operacija nad bazom podataka te stvaranje 
+bazena otvorenih veza \engl{connection pool}. Koristeći \emph{connection pool} jednom otvorena veza s bazom podataka može se koristiti više puta te se ne mora 
+stvarati nova veza s bazom podataka za svaki novi korisnički upit čime se štedi vrijeme i smanjuje mogućnost pogreške. Novostvoreni \emph{connection pool} inicijalno 
+je prazan te se nove veze dodaju lijeno, po potrebi.
+\newpage Primjer stvaranja \emph{connection poola}:
+\lstset{language=Java, tabsize=2}
+\begin{lstlisting}
+    const pool = new Pool({
+    user: env.DB_USER,
+    host: env.DB_HOST,
+    database: env.DB_NAME,
+    password: env.DB_PASSWORD
+    });
+\end{lstlisting}
+Vrijednosti potrebne za spajanje na bazu nalaze se u datoteci .env u koju se spremaju varijable okoline. Osim navedenih podataka potrebna je još 
+vrijednost pristupa \engl{port} koja se konfigurira u datoteci Dockerfile.  
+Primjer SQL upita koristeći stvoreni \emph{connection pool}:
+\begin{lstlisting}
+    await pool.query(`delete from rankingreal 
+    where year = $1 and category = $2`, [i, category]);
+\end{lstlisting}
+\subsection{Inicijalno punjenje baze podataka i korištenje alata\\ Puppeteer}
+Prilikom prvog pokretanja poslužiteljske aplikacije potrebno je stvoriti tablice u bazi podataka i napuniti ih ranking podatcima od prijašnjih godina.
+Vrijednosti svih indikatora, osim indikatora Award, mogu se dobiti s InCites stranice. Vrijednosti indikatora Award teže je automatski prikupljati 
+s web stranica zbog potrebne analize institucija s kojima je dobitnik nagrade u vrijeme dobitka bio povezan. Iz tog razloga ti podatci 
+su ručno prikupljeni i upisani u bazu podataka. 
+\\Dio programskog koda koja obavlja ovaj posao nalazi se prema slici \ref{fig:expressdijagramkomponenti} u komponenti podatkovni modeli, a 
+implementiran je pomoću funkcijskog izraza koji se odmah poziva \engl{Immediately Invoked Function Expression} prilikom pokretanja 
+poslužiteljske aplikacije. \\Lakše prikupljanje podataka sa stranice InCites omogućava izrada predložaka za pretragu koji se mogu pohraniti 
+na korisničkom profilu u odjeljku \emph{Dashboard}. Ukupno je pohranjeno 4 predloška. Za svaku od kategorija CSE i EEE pohranjen je predložak 
+za dohvat indikatora Q1, CNCI, IC te još jedan predložak za indikator Top. U svakom predlošku unaprijed su odabrani filteri kao što su područje istraživanja,
+vrsta organizacije, vrsta dokumenta i vremenski period. Indikator Top ima vlastiti predložak jer zahtjeva unos filtera prema časopisima za područje EEE te 
+prema konferencijama za područje CSE. 
+\begin{figure}[htb]
+    \hspace*{-2cm} 
+       \includegraphics[scale=0.21]{dashboard.png} 
+       \caption{Stranica \emph{Dashboard} na InCites web aplikaciji}
+       \label{fig:dashboard}
+       \end{figure} 
+\begin{figure}[htb]
+        \hspace*{-2cm} 
+           \includegraphics[scale=0.21]{predlozak.png} 
+           \caption{Primjer izgleda predloška za dohvat ranking podataka}
+           \label{fig:predlozak}
+           \end{figure}  
+           \FloatBarrier      
+\begin{figure}[htb]
+    \centering
+       \includegraphics[scale=0.28]{sekvencijski.png} 
+       \caption{Sekvencijski dijagram inicijalnog punjenja baze podataka}
+       \label{fig:sekvencijski}
+       \end{figure}
+Prema sekvencijskom dijagramu sa slike \ref{fig:sekvencijski} metoda koja inicijalno puni bazu podataka mora za svako područje i
+godinu od 2017. do prošle u odnosu na trenutnu prikupiti sve vrijednosti indikatora potrebnih za računanje rankinga.  
+\\Programski kod metode koja inicijalno puni bazu podataka:        
+\begin{lstlisting}  
+(async()=>{
+    let number = 0;
+    try{
+        let rows = (await pool.query(`select count (*) 
+                        from ranking`, [])).rows
+        number = rows[0].count
+    } catch(exception){
+    }
+    if(number == 0){
+        await createTables();
+        await seedAward("EEE")
+        await seedAward("CSE")
+        await seedRealRanking();
+            
+        let dataSelector1 = `[aria-label=`View more 
+                                data for EEE1`]`
+        let dataSelector2 = `[aria-label=`View more 
+                                data for EEE2`]`
+        await seedIndicators("EEE", dataSelector1, 
+                                dataSelector2, 2017, 
+                                new Date().getFullYear()-1, 
+                                6, 2, 'ranking')
+    
+        dataSelector1 = `[aria-label=`View more
+                             data for CSE1`]`
+        dataSelector1 = `[aria-label=`View more
+                             data for CSE2`]`
+        await seedIndicators("CSE", dataSelector1, 
+                                dataSelector2, 2017, 
+                                new Date().getFullYear()-1,
+                                6, 2, 'ranking')
+    }
+})()
+\end{lstlisting}    
+Metoda provjerava je li relacija za izračun rankinga već popunjena podatcima te nastavlja s izvršavanjem samo ako je prazna. 
+Za oba područja CSE i EEE puni bazu podataka vrijednostima indikatora Award te zatim priprema CSS selektore koji će omogućiti alatu 
+Puppeteer pritisak na odgovarajući predložak. Metoda poziva drugu metodu \emph{seedIndicators} koja kao argumente redom prima:
+područje istraživanja, CSS selektor prvog predloška, CSS selektor drugog predloška, donju i gornju granicu godina za koje će se prikupiti
+podatci, dva broja koji označavaju donju i gornju granicu vremenskog perioda tijekom kojeg se uzimaju podatci za ranking određene godine, te 
+ime relacije u koju će se unijeti dohvaćeni podatci.
+\\\\Inicijalizacija alata Puppeteer radi se sljedećim programskim kodom:
+\begin{lstlisting}  
+const browser = await puppeteer.launch({
+    executablePath: '/usr/bin/google-chrome',
+    headless: true,
+    args: [
+        "--disable-gpu",
+        "--disable-dev-shm-usage",
+        "--disable-setuid-sandbox",
+        "--no-sandbox",
+        ]
+});
+\end{lstlisting} 
+Kako bi alat ispravno radio unutar Docker kontejnera mora se postaviti parametar \\\emph{executablePath} koji predstavlja putanju 
+do preglednika kojeg Puppeteer koristi, isključiti grafičko sučelje preglednika postavljanjem parametra \emph{headless} na \emph{true} te predati 
+polje argumenata koji omogućavaju dodatnu konfiguraciju, a preporučeni su u dokumentaciji alata za upotrebu unutar kontejnera.
+Nakon što je alat instanciran putem dobivene reference može se navigirati na željenu stranicu koristeći metodu \emph{goto(\url{`url/stranice`})}.
+\\Jednom kad je stranica učitana moguće je obavljati razne akcije na stranici kao što su:
+
+    a) pritisak na gumb s metodom \emph{click(`CSS selektor`)}
+
+    b) upisati tekt u polje za unos teksta s metodom \emph{type(`CSS selektor`, `tekst za unos`)}
+
+    c) pričekati obavljanje daljnjih akcija dok se željeni HTML element nije učitao koristeći metodu \emph{waitForSelector(`CSS selektor`)}.
+\\Kombinacijom navedenih metoda moguće je preuzeti podatke u obliku CSV datoteke koji su nakon parsiranja spremni za unos u bazu podataka.
+Programski kod navigiranja stranicom koristeći alat Puppeteer te parsiranje preuzetih CSV datoteka nalazi se prema \ref{fig:expressdijagramkomponenti}
+dijagramu u sklopu pomoćnih servisa.
 
 \chapter{Zaključak}
 Zaključak.

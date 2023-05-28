@@ -15,7 +15,6 @@ const pool = new Pool({
     host: env.DB_HOST,
     database: env.DB_NAME,
     password: env.DB_PASSWORD
-    //port: parseInt(env.DB_PORT),
 });
 
 
@@ -76,7 +75,6 @@ let table_names = [
 let tables = [
     sql_create_award,
     sql_create_ranking,
-    sql_create_ranking_current_year_data,
     sql_create_ranking_real
 ];
 
@@ -282,16 +280,14 @@ async function getMaxAwardForYear(year, category, awardData){
 
 }
 
-    (async()=>{
-
+(async()=>{
         let number = 0;
         try{
             let rows = (await pool.query("select count(*) from ranking", [])).rows
             number = rows[0].count
         } catch(exception){
-
         }
-        
+
         if(number == 0){
             await createTables();
             await seedAward("EEE")
@@ -306,7 +302,6 @@ async function getMaxAwardForYear(year, category, awardData){
             dataSelector2 = '[aria-label="View more data for CSE2"]'
             await seedIndicators("CSE", dataSelector1, dataSelector2, 2017, new Date().getFullYear()-1, 6, 2, 'ranking')
         }
-
-    })()
+})()
 
 module.exports = {seedAward, seedIndicators, pool, getMaxAwardForYear, seedRealRanking}
