@@ -27,6 +27,7 @@
 \contentsline {subsection}{\numberline {6.1.2}Relacija \emph {ranking}}{31}{}%
 \contentsline {subsection}{\numberline {6.1.3}Relacija \emph {rankingreal}}{32}{}%
 \contentsline {section}{\numberline {6.2}\emph {Backend} poslužitelj}{33}{}%
-\contentsline {subsection}{\numberline {6.2.1}Inicijalno punjenje baze podataka i korištenje alata\\ Puppeteer}{34}{}%
-\contentsline {chapter}{\numberline {7}Zaključak}{39}{}%
-\contentsline {chapter}{Literatura}{40}{}%
+\contentsline {subsection}{\numberline {6.2.1}Punjenje baze podataka i korištenje alata\\ Puppeteer}{34}{}%
+\contentsline {subsection}{\numberline {6.2.2}Rute i kontroleri}{39}{}%
+\contentsline {chapter}{\numberline {7}Zaključak}{41}{}%
+\contentsline {chapter}{Literatura}{42}{}%

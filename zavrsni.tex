@@ -702,12 +702,12 @@ Primjer SQL upita koristeći stvoreni \emph{connection pool}:
     await pool.query(`delete from rankingreal 
     where year = $1 and category = $2`, [i, category]);
 \end{lstlisting}
-\subsection{Inicijalno punjenje baze podataka i korištenje alata\\ Puppeteer}
+\subsection{Punjenje baze podataka i korištenje alata\\ Puppeteer}
 Prilikom prvog pokretanja poslužiteljske aplikacije potrebno je stvoriti tablice u bazi podataka i napuniti ih ranking podatcima od prijašnjih godina.
 Vrijednosti svih indikatora, osim indikatora Award, mogu se dobiti s InCites stranice. Vrijednosti indikatora Award teže je automatski prikupljati 
 s web stranica zbog potrebne analize institucija s kojima je dobitnik nagrade u vrijeme dobitka bio povezan. Iz tog razloga ti podatci 
-su ručno prikupljeni i upisani u bazu podataka. 
-\\Dio programskog koda koja obavlja ovaj posao nalazi se prema slici \ref{fig:expressdijagramkomponenti} u komponenti podatkovni modeli, a 
+su ručno prikupljeni te kasnije uneseni u bazu podataka. 
+\\Dio programskog koda koji inicijalno puni bazu podataka nalazi se prema slici \ref{fig:expressdijagramkomponenti} u komponenti podatkovni modeli, a 
 implementiran je pomoću funkcijskog izraza koji se odmah poziva \engl{Immediately Invoked Function Expression} prilikom pokretanja 
 poslužiteljske aplikacije. \\Lakše prikupljanje podataka sa stranice InCites omogućava izrada predložaka za pretragu koji se mogu pohraniti 
 na korisničkom profilu u odjeljku \emph{Dashboard}. Ukupno je pohranjeno 4 predloška. Za svaku od kategorija CSE i EEE pohranjen je predložak 
@@ -751,9 +751,9 @@ godinu od 2017. do prošle u odnosu na trenutnu prikupiti sve vrijednosti indika
         await seedAward("CSE")
         await seedRealRanking();
             
-        let dataSelector1 = `[aria-label=`View more 
+        dataSelector1 = `[aria-label=`View more 
                                 data for EEE1`]`
-        let dataSelector2 = `[aria-label=`View more 
+        dataSelector2 = `[aria-label=`View more 
                                 data for EEE2`]`
         await seedIndicators("EEE", dataSelector1, 
                                 dataSelector2, 2017, 
@@ -774,9 +774,19 @@ godinu od 2017. do prošle u odnosu na trenutnu prikupiti sve vrijednosti indika
 Metoda provjerava je li relacija za izračun rankinga već popunjena podatcima te nastavlja s izvršavanjem samo ako je prazna. 
 Za oba područja CSE i EEE puni bazu podataka vrijednostima indikatora Award te zatim priprema CSS selektore koji će omogućiti alatu 
 Puppeteer pritisak na odgovarajući predložak. Metoda poziva drugu metodu \emph{seedIndicators} koja kao argumente redom prima:
-područje istraživanja, CSS selektor prvog predloška, CSS selektor drugog predloška, donju i gornju granicu godina za koje će se prikupiti
-podatci, dva broja koji označavaju donju i gornju granicu vremenskog perioda tijekom kojeg se uzimaju podatci za ranking određene godine, te 
-ime relacije u koju će se unijeti dohvaćeni podatci.
+
+    a) područje istraživanja
+    
+    b) CSS selektor prvog predloška 
+
+    c) CSS selektor drugog predloška
+    
+    d) donju i gornju granicu godina za koje će se prikupiti podatci
+    
+    e) dva broja pomoću kojih se izračuna donja i gornja granica vremenskog perioda tijekom kojeg se uzimaju podatci za ranking određene godine
+        (prema Shanghai Ranking algoritmu taj period je 4 godine, a postupak izračuna granica objašnjen je u dijelu 2.)
+      
+    f) ime relacije u koju će se unijeti dohvaćeni podatci.
 \\\\Inicijalizacija alata Puppeteer radi se sljedećim programskim kodom:
 \begin{lstlisting}  
 const browser = await puppeteer.launch({
@@ -804,7 +814,65 @@ Nakon što je alat instanciran putem dobivene reference može se navigirati na �
 \\Kombinacijom navedenih metoda moguće je preuzeti podatke u obliku CSV datoteke koji su nakon parsiranja spremni za unos u bazu podataka.
 Programski kod navigiranja stranicom koristeći alat Puppeteer te parsiranje preuzetih CSV datoteka nalazi se prema \ref{fig:expressdijagramkomponenti}
 dijagramu u sklopu pomoćnih servisa.
+\\\\Procjena rankinga trenutne godine te periodičko punjenje baze podataka s vrijednostima indikatora kako bi se mogao pratiti napredak 
+sveučilišta kroz tekuću godinu ostvareno je pozivanjem funkcije \emph{seedIndicators} svaka dva tjedna. Pozivanje funkcije svaka dva tjedna 
+ostvareno je Node.js modulom Node cron. 
+\\Primjer korištenja modula Node cron:
+\begin{lstlisting}  
+    const job = new cron.CronJob(`0 0 */14 * *`, 
+                            async function() {
+                await scheduledFunction();}, 
+                null, false, 'UTC');
+    job.start();
+\end{lstlisting}
+Node cron modul nalaže da se inicijalizira jedan \emph{posao}. Za inicijaliziranje posla potrebno je predati sljedeće argumente:
 
+    a) \emph{string} koji označava koliko često i kada će se metoda predana u drugom argumentu pozivati (u ovom primjeru to je svakih 14 dana)
+
+    b) metodu koja će se pozvati kad za to dođe vrijeme
+
+    c) metoda koja će se pozvati nakon što se posao zadan drugim argumentom obavio 
+
+    d) \emph{boolean} parametar koji označava hoće li se posao pokrenuti odmah prilikom izlaska iz konstruktora
+
+    e) \emph{string} koji označava vremensku zonu
+\\Metoda \emph{scheduledFunction} poziva metode \emph{seedAward} i \emph{seedIndicators}. Argumenti metode \emph{seedIndicators}  
+koji označavaju donji i gornju granicu godina za koje će se prikupiti podatci su isti te imaju vrijednost trenutne godine.
+\subsection{Rute i kontroleri}
+Krajnje točke \engl{endpoint} RESTful API-ja ostvarene su upotrebom usmjerivača \emph{router} i kontrolera u sklopu Express radnog okvira. 
+Prije nego što Express aplikacija može primati HTTP zahtjeve, potrebno je registrirati rute i povezati ih s odgovarajućim \emph{routerima}.
+Primjer registriranja rute \url{/rankingReal} i povezivanja na \emph{router} \emph{getRealRanking} gdje varijabla \emph{app} predstavlja instancu Express aplikacije:
+\begin{lstlisting}  
+app.use('/rankingReal', require('./routes/getRealRanking'))
+\end{lstlisting}
+Dolaskom HTTP zahtjeva na poslužitelj Express aplikacija provjerava postoji li ruta koja se podudara s registriranim rutama te ako postoji 
+zahtjev preusmjerava na definirani \emph{router}.
+\\\emph{Routeri} su dio Express radnog okvira koji omogućavaju definiranje raznih \emph{middleware} funkcija koje će se izvršavati 
+na nekoj ruti.
+\emph{Middleware} funkcije se izvršavaju između prijema HTTP zahtjeva i slanja HTTP odgovora. Primjer definiranja \emph{middleware}
+funkcija za HTTP GET zahtjev na ruti \url{/rankingReal}:
+\begin{lstlisting}  
+const express = require('express');
+const router = express.Router();
+const getRealRanking = require(
+            '../controllers/getRealRankingUni')
+router.get('/', 
+    getRealRanking.getRealRankingForYearUniCategory)
+module.exports = router
+\end{lstlisting}
+Iz priloženog programskog koda vidi se da je \emph{middleware} funkcija definirana u kontroleru \emph{getRealRankingUni}:
+\begin{lstlisting}  
+const getRealRankingForYearUniCategory = async (req, res)=>{
+    const{ year, category, uni } = req.query
+    let results = await getRealRanking(uni, year, category)
+    if(results.length > 0){
+        results[0].total = results[0].q1+results[0].cnci+
+        results[0].ic*0.2+results[0].top+results[0].award
+    }
+    return res.json(results[0])
+}
+\end{lstlisting}
+\emph{Middleware} funkcije u kontrolerima obavljaju neku poslovnu logiku, komuniciraju s bazom podataka te vraćaju rezultat HTTP zahtjeva u JSON obliku.
 \chapter{Zaključak}
 Zaključak.
 
