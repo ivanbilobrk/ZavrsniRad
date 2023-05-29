@@ -11,7 +11,7 @@ export default function SelectComponent({value, setValue, values, desc}){
     const handleChange = (event) => {
         setValue(event.target.value);
     };
-
+    
     return(
         <>
             <Box sx={{ minWidth: 120, mt:2}}>
