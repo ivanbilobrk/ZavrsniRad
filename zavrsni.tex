@@ -872,7 +872,55 @@ const getRealRankingForYearUniCategory = async (req, res)=>{
     return res.json(results[0])
 }
 \end{lstlisting}
+Parametri iz URL-a kod HTTP GET zahtjeva dostupni su unutar objekta \emph{req.query}, a JSON tijelo poruke koje se šalje kod POST zahtjeva u objektu \emph{req.body}.
 \emph{Middleware} funkcije u kontrolerima obavljaju neku poslovnu logiku, komuniciraju s bazom podataka te vraćaju rezultat HTTP zahtjeva u JSON obliku.
+\begin{table}[htb]
+    \caption{Krajnje točke \emph{backend} poslužitelja}
+        \label{tbl:endpoints}
+        \centering
+        \begin{tabular}{llll} \hline
+        Redni broj & Ruta & Vrsta zahtjeva & Dodatni parametri\\ \hline
+        1. & \url{/rankingsYear} & GET & \emph{page, limit, search, orderid, orderkey} \\
+        &&&\emph{year, category}
+        \\2. & \url{/rankingUni} & GET & \emph{year, category, uni}
+        \\3. & \url{/uniCurrentYear} & GET & \emph{uni, category}
+        \\4. & \url{/rankingReal} & GET & \emph{year, category, uni}
+        \\5. & \url{/difference} & GET & \emph{ year, category}
+        \\6. & \url{/upload} & POST & \emph{-}
+        \end{tabular}
+        \end{table} 
+        \FloatBarrier
+Krajnja točka rednog broja 1 iz tablice \ref{tbl:endpoints} koristi se za ostvarenje paginacije tablice rankinga za neku godinu u nekom području.
+Pomak od prvog zapisa rang liste računa se pomoću parametara \emph{page}, a broj zapisa koje treba vratitit pomoću parametra \emph{limit}.
+Sortiranje rang liste prema željenoj vrijednosti indikatora omogućeno je parametrima \emph{orderkey} i \emph{orderid}.
+\emph{Orderkey} je \emph{boolean} vrijednost koja označava silazno odnosno uzlazno sortiranje, a \emph{orderid} je oznaka indikatora
+prema kojem se rang lista sortira. Pretraga sveučilišta po imenu omogućena je parametrom \emph{search} koji predstavlja podniz koji je korisnik unio 
+kroz grafičko sučelje.
+\\
+
+Krajnje točke rednog broja 2, 3, 4 iz tablice \ref{tbl:endpoints} služe za dohvat podataka s kojima se crtaju grafovi na stranici objašnjenoj u 
+dijelu 5.3. Sve tri krajnje točke primaju parametre \emph{year, category, uni} osim one rednog broja 3 jer se za parametar \emph{year} podrazumijeva 
+da je riječ o trenutnoj godini.
+\\
+
+Krajnja točka rednog broja 5 iz tablice \ref{tbl:endpoints} služi za dohvat uspješnosti procjene rankinga neke godine u određenom području.
+\\
+
+Krajnja točka rednog broja 6 iz tablice \ref{tbl:endpoints} služi za postavljanje .xlsx datoteka u kojoj su zapisani stvarni Shanghai Ranking podatci 
+koji se kasnije koriste za usporedbu s procjenjenim ranking podatcima.\\
+\begin{figure}[htb]
+    \centering
+       \includegraphics[scale=0.36]{get1.png} 
+       \caption{Primjer HTTP GET zahtjeva za dohvat ranking podataka sveučilišta Massachusetts Institute of Technology (MIT) u području CSE za 2019. godinu}
+       \label{fig:get1}
+       \end{figure}
+\begin{figure}[htb]
+        \centering
+           \includegraphics[scale=0.4]{get2.png} 
+           \caption{HTTP odgovor na zahtjev sa slike \ref{fig:get1}}
+           \label{fig:get2}
+           \end{figure}
+
 \chapter{Zaključak}
 Zaključak.
 

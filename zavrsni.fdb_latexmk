@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex zavrsni"] 1685310129 "zavrsni.aux" "zavrsni.bbl" "zavrsni" 1685310555
+["bibtex zavrsni"] 1685344698 "zavrsni.aux" "zavrsni.bbl" "zavrsni" 1685344702
   "./fer.bst" 1284151297 26009 c9fe7ac62e814ee4c7bb7b0cdf6bf7a5 ""
   "literatura.bib" 1268922119 694 14ef1ef6963dccc1171f34d0309bf39f ""
-  "zavrsni.aux" 1685310555 11779 656153533dc22f3ce24c43f71f47f0c7 "pdflatex"
+  "zavrsni.aux" 1685344701 12451 bb116bb04644c610e41b0e8d95e86f78 "pdflatex"
   (generated)
   "zavrsni.bbl"
   "zavrsni.blg"
-["pdflatex"] 1685310551 "/home/ivan/Desktop/ZavrsniRad/zavrsni.tex" "zavrsni.pdf" "zavrsni" 1685310555
+["pdflatex"] 1685344698 "/home/ivan/Desktop/ZavrsniRad/zavrsni.tex" "zavrsni.pdf" "zavrsni" 1685344702
   "/etc/texmf/web2c/texmf.cnf" 1684608166 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ivan/Desktop/ZavrsniRad/zavrsni.tex" 1685310551 61666 26599a665f266bf25329424142b5d864 ""
+  "/home/ivan/Desktop/ZavrsniRad/zavrsni.tex" 1685344695 64505 11ce32a73aad2cf4b6a0c411e022ef46 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm" 1136768653 1292 bd42be2f344128bff6d35d98474adfe3 ""
@@ -136,6 +136,8 @@
   "error.png" 1685206749 21390 e3258d9c5b6fdde2c7f22d5ad4a19d5e ""
   "expressdijagramkomponenti.png" 1685285320 116521 d8e151bd85e2f7545f9537889a52c1c5 ""
   "fer.cls" 1284151396 10145 76761193ed91b0ce7a5a85bc13f7191d ""
+  "get1.png" 1685344472 24074 fc5ef271af00c189e4a7c354977a94e9 ""
+  "get2.png" 1685344648 38826 2780e222aafeeff4dfa7d1bf0a705d1a ""
   "homePage.png" 1685130062 56247 f50872c155d2b68ee9c140e808e3fbf0 ""
   "loading.png" 1685185894 236069 f0c52f0a500bc41b98f312f061d1cfb4 ""
   "navigiranje.png" 1685181055 14272 934d880abde713f17df319928fc2f3f3 ""
@@ -160,10 +162,10 @@
   "upload.png" 1685206547 30225 3861044c2d81a0e0bb1cf174f2e721ed ""
   "uspjeh.png" 1685187164 7209 9ae62088801d16a785650509d73940bd ""
   "zadatak.pdf" 1684668436 17750 e12c60d8f9fd6895eeffb8a5ee72808f ""
-  "zavrsni.aux" 1685310555 11779 656153533dc22f3ce24c43f71f47f0c7 "pdflatex"
-  "zavrsni.bbl" 1685310129 275 de5ffaf5b665b622658d80bed97ba2a5 "bibtex zavrsni"
-  "zavrsni.tex" 1685310551 61666 26599a665f266bf25329424142b5d864 ""
-  "zavrsni.toc" 1685310555 2458 8546ac6f48fa4d9cb415f0629894503f "pdflatex"
+  "zavrsni.aux" 1685344701 12451 bb116bb04644c610e41b0e8d95e86f78 "pdflatex"
+  "zavrsni.bbl" 1685344698 275 de5ffaf5b665b622658d80bed97ba2a5 "bibtex zavrsni"
+  "zavrsni.tex" 1685344695 64505 11ce32a73aad2cf4b6a0c411e022ef46 ""
+  "zavrsni.toc" 1685344701 2458 046958a96e98f20162dbcd88a4a1dce5 "pdflatex"
   (generated)
   "zavrsni.aux"
   "zavrsni.log"

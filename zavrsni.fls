@@ -790,6 +790,16 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrro8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/courier/pcrro8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrro8r.tfm
+INPUT ./get1.png
+INPUT ./get1.png
+INPUT get1.png
+INPUT ./get1.png
+INPUT ./get1.png
+INPUT ./get2.png
+INPUT ./get2.png
+INPUT get2.png
+INPUT ./get2.png
+INPUT ./get2.png
 INPUT ./zavrsni.bbl
 INPUT zavrsni.bbl
 INPUT ./zavrsni.bbl

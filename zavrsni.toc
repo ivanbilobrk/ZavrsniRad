@@ -29,5 +29,5 @@
 \contentsline {section}{\numberline {6.2}\emph {Backend} poslužitelj}{33}{}%
 \contentsline {subsection}{\numberline {6.2.1}Punjenje baze podataka i korištenje alata\\ Puppeteer}{34}{}%
 \contentsline {subsection}{\numberline {6.2.2}Rute i kontroleri}{39}{}%
-\contentsline {chapter}{\numberline {7}Zaključak}{41}{}%
-\contentsline {chapter}{Literatura}{42}{}%
+\contentsline {chapter}{\numberline {7}Zaključak}{42}{}%
+\contentsline {chapter}{Literatura}{43}{}%
