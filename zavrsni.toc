@@ -7,29 +7,30 @@
 \contentsline {section}{\numberline {2.4}Indikatori za računanje rankinga}{4}{}%
 \contentsline {section}{\numberline {2.5}Računanje ukupnog rezultata sveučilišta}{6}{}%
 \contentsline {subsection}{\numberline {2.5.1}Primjer izračuna vrijednosti za ranking}{6}{}%
-\contentsline {chapter}{\numberline {3}Funkcionalni zahtjevi}{8}{}%
-\contentsline {section}{\numberline {3.1}Funkcionalni zahtjevi}{8}{}%
-\contentsline {section}{\numberline {3.2}Nefunkcionalni zahtjevi}{10}{}%
-\contentsline {chapter}{\numberline {4}Korištene tehnologije}{11}{}%
-\contentsline {section}{\numberline {4.1}Arhitektura sustava}{11}{}%
-\contentsline {subsection}{\numberline {4.1.1}Web korisničko sučelje}{11}{}%
-\contentsline {subsection}{\numberline {4.1.2}\emph {Backend} poslužitelj}{12}{}%
-\contentsline {subsection}{\numberline {4.1.3}Baza podataka}{13}{}%
-\contentsline {section}{\numberline {4.2}Docker}{14}{}%
-\contentsline {chapter}{\numberline {5}Pregled funkcionalnosti}{16}{}%
-\contentsline {section}{\numberline {5.1}Početna stranica}{16}{}%
-\contentsline {section}{\numberline {5.2}Tablični prikaz rankinga sveučilišta}{17}{}%
-\contentsline {section}{\numberline {5.3}Stranica sveučilišta}{22}{}%
-\contentsline {section}{\numberline {5.4}Stranica za postavljanje podataka sa \\Shanghai Ranking stranice}{27}{}%
-\contentsline {chapter}{\numberline {6}Opis rješenja i podatkovni model}{30}{}%
-\contentsline {section}{\numberline {6.1}Baza podataka}{30}{}%
-\contentsline {subsection}{\numberline {6.1.1}Relacija \emph {award}}{31}{}%
-\contentsline {subsection}{\numberline {6.1.2}Relacija \emph {ranking}}{31}{}%
-\contentsline {subsection}{\numberline {6.1.3}Relacija \emph {rankingreal}}{32}{}%
-\contentsline {section}{\numberline {6.2}\emph {Backend} poslužitelj}{33}{}%
-\contentsline {subsection}{\numberline {6.2.1}Punjenje baze podataka i korištenje alata\\ Puppeteer}{34}{}%
-\contentsline {subsection}{\numberline {6.2.2}Rute i kontroleri}{39}{}%
-\contentsline {section}{\numberline {6.3}React web korisničko sučelje}{41}{}%
-\contentsline {section}{\numberline {6.4}Docker}{47}{}%
-\contentsline {chapter}{\numberline {7}Zaključak}{49}{}%
-\contentsline {chapter}{Literatura}{50}{}%
+\contentsline {section}{\numberline {2.6}Računanje uspješnosti procjene rankinga}{8}{}%
+\contentsline {chapter}{\numberline {3}Funkcionalni zahtjevi}{9}{}%
+\contentsline {section}{\numberline {3.1}Funkcionalni zahtjevi}{9}{}%
+\contentsline {section}{\numberline {3.2}Nefunkcionalni zahtjevi}{11}{}%
+\contentsline {chapter}{\numberline {4}Korištene tehnologije}{12}{}%
+\contentsline {section}{\numberline {4.1}Arhitektura sustava}{12}{}%
+\contentsline {subsection}{\numberline {4.1.1}Web korisničko sučelje}{12}{}%
+\contentsline {subsection}{\numberline {4.1.2}\emph {Backend} poslužitelj}{13}{}%
+\contentsline {subsection}{\numberline {4.1.3}Baza podataka}{14}{}%
+\contentsline {section}{\numberline {4.2}Docker}{15}{}%
+\contentsline {chapter}{\numberline {5}Pregled funkcionalnosti}{17}{}%
+\contentsline {section}{\numberline {5.1}Početna stranica}{17}{}%
+\contentsline {section}{\numberline {5.2}Tablični prikaz rankinga sveučilišta}{18}{}%
+\contentsline {section}{\numberline {5.3}Stranica sveučilišta}{23}{}%
+\contentsline {section}{\numberline {5.4}Stranica za postavljanje podataka sa \\Shanghai Ranking stranice}{28}{}%
+\contentsline {chapter}{\numberline {6}Opis rješenja i podatkovni model}{31}{}%
+\contentsline {section}{\numberline {6.1}Baza podataka}{31}{}%
+\contentsline {subsection}{\numberline {6.1.1}Relacija \emph {award}}{32}{}%
+\contentsline {subsection}{\numberline {6.1.2}Relacija \emph {ranking}}{32}{}%
+\contentsline {subsection}{\numberline {6.1.3}Relacija \emph {rankingreal}}{33}{}%
+\contentsline {section}{\numberline {6.2}\emph {Backend} poslužitelj}{34}{}%
+\contentsline {subsection}{\numberline {6.2.1}Punjenje baze podataka i korištenje alata\\ Puppeteer}{35}{}%
+\contentsline {subsection}{\numberline {6.2.2}Rute i kontroleri}{40}{}%
+\contentsline {section}{\numberline {6.3}React web korisničko sučelje}{42}{}%
+\contentsline {section}{\numberline {6.4}Docker}{48}{}%
+\contentsline {chapter}{\numberline {7}Zaključak}{50}{}%
+\contentsline {chapter}{Literatura}{51}{}%

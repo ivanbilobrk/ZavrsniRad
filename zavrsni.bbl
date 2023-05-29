@@ -1,8 +1,85 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Axi()]{Axios}
+\emph{Axios dokumentacija i upute}.
+\newblock URL \url{https://axios-http.com/docs/intro}.
+
+\bibitem[Cha()]{Chart}
+\emph{React-chartjs-2 linijski dijagram}.
+\newblock URL \url{https://react-chartjs-2.js.org/components/line}.
+
+\bibitem[Exp()]{Express}
+\emph{Express.js dokumentacija}.
+\newblock URL \url{https://expressjs.com/}.
+
+\bibitem[Nod({\natexlab{a}})]{Node}
+\emph{Node.js dokumentacija}, {\natexlab{a}}.
+\newblock URL \url{https://nodejs.org/en/docs}.
+
+\bibitem[Nod({\natexlab{b}})]{Node-cron}
+\emph{Node-cron upute}, {\natexlab{b}}.
+\newblock URL \url{https://www.npmjs.com/package/node-cron}.
+
+\bibitem[doc({\natexlab{a}})]{docker}
+\emph{Docker dokumentacija i upute}, {\natexlab{a}}.
+\newblock URL \url{https://docs.docker.com/}.
+
+\bibitem[doc({\natexlab{b}})]{docker2}
+\emph{Predlošci za izradu datoteka Dockerfile i docker-compose},
+  {\natexlab{b}}.
+\newblock URL \url{https://docs.docker.com/samples/}.
+
+\bibitem[iee()]{ieee}
+\emph{Dobitnici IEEE Medal of Honor nagrade}.
+\newblock URL \url{https://corporate-awards.ieee.org/}.
+
+\bibitem[inc()]{incites}
+\emph{InCites baza podataka}.
+\newblock URL \url{https://clarivate.com/}.
+
+\bibitem[mui()]{mui}
+\emph{Material UI komponente}.
+\newblock URL \url{https://mui.com/material-ui/}.
+
+\bibitem[nod()]{node-postgres}
+\emph{Node-postgres dokumentacija i upute}.
+\newblock URL \url{https://node-postgres.com/guides/project-structure}.
+
+\bibitem[rea()]{react}
+\emph{React dokumentacija i tutorijali}.
+\newblock URL \url{https://react.dev/learn}.
+
+\bibitem[rut()]{ruter}
+\emph{React router dokumentacija i tutorijali}.
+\newblock URL \url{https://reactrouter.com/en/main/start/tutorial}.
+
+\bibitem[sha()]{shanghai}
+\emph{Shanghai Ranking}.
+\newblock URL \url{https://www.shanghairanking.com/}.
+
+\bibitem[sta()]{stack}
+\emph{Stack Overflow forum s odgovorima za implementacijske probleme}.
+\newblock URL \url{https://stackoverflow.com/}.
+
+\bibitem[tai({\natexlab{a}})]{tailwind}
+\emph{Tailwind CSS upute za instalaciju}, {\natexlab{a}}.
+\newblock URL \url{https://tailwindcss.com/docs/installation}.
+
+\bibitem[tai({\natexlab{b}})]{tailwind2}
+\emph{Popis Tailwind CSS razreda}, {\natexlab{b}}.
+\newblock URL \url{https://tailwind.build/classes}.
+
+\bibitem[tur()]{turing}
+\emph{Dobitnici Turingove nagrade}.
+\newblock URL \url{https://amturing.acm.org/}.
+
+\bibitem[wos()]{wos}
+\emph{Web of Science baza podataka}.
+\newblock URL \url{https://www.webofscience.com/wos/woscc/basic-search}.
 
 \end{thebibliography}

@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex zavrsni"] 1685366503 "zavrsni.aux" "zavrsni.bbl" "zavrsni" 1685369770
+["bibtex zavrsni"] 1685388271 "zavrsni.aux" "zavrsni.bbl" "zavrsni" 1685388275
   "./fer.bst" 1284151297 26009 c9fe7ac62e814ee4c7bb7b0cdf6bf7a5 ""
-  "literatura.bib" 1268922119 694 14ef1ef6963dccc1171f34d0309bf39f ""
-  "zavrsni.aux" 1685369770 13427 92e4863f4f5ac5db96e5fd4617d1dcf2 "pdflatex"
+  "literatura.bib" 1685386879 2144 a1f03ee944fa37ace00d169f9b046651 ""
+  "zavrsni.aux" 1685388275 14268 93294cc6360be40d0123bfaa01caa201 "pdflatex"
   (generated)
   "zavrsni.bbl"
   "zavrsni.blg"
-["pdflatex"] 1685369767 "/home/ivan/Desktop/ZavrsniRad/zavrsni.tex" "zavrsni.pdf" "zavrsni" 1685369770
+["pdflatex"] 1685388271 "/home/ivan/Desktop/ZavrsniRad/zavrsni.tex" "zavrsni.pdf" "zavrsni" 1685388275
   "/etc/texmf/web2c/texmf.cnf" 1684608166 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ivan/Desktop/ZavrsniRad/zavrsni.tex" 1685369766 77059 628af35fffa24b0226f780d3959325f1 ""
+  "/home/ivan/Desktop/ZavrsniRad/zavrsni.tex" 1685388267 82059 e90a05b0076880b9a29b47be16c4f87e ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm" 1136768653 1292 bd42be2f344128bff6d35d98474adfe3 ""
@@ -162,10 +162,10 @@
   "upload.png" 1685206547 30225 3861044c2d81a0e0bb1cf174f2e721ed ""
   "uspjeh.png" 1685187164 7209 9ae62088801d16a785650509d73940bd ""
   "zadatak.pdf" 1684668436 17750 e12c60d8f9fd6895eeffb8a5ee72808f ""
-  "zavrsni.aux" 1685369770 13427 92e4863f4f5ac5db96e5fd4617d1dcf2 "pdflatex"
-  "zavrsni.bbl" 1685366503 275 de5ffaf5b665b622658d80bed97ba2a5 "bibtex zavrsni"
-  "zavrsni.tex" 1685369766 77059 628af35fffa24b0226f780d3959325f1 ""
-  "zavrsni.toc" 1685369770 2594 43adf96d437f8fdd28b090f9a82173f7 "pdflatex"
+  "zavrsni.aux" 1685388275 14268 93294cc6360be40d0123bfaa01caa201 "pdflatex"
+  "zavrsni.bbl" 1685388271 2740 a7dd53785ef1bdaed7d8929b40bacc19 "bibtex zavrsni"
+  "zavrsni.tex" 1685388267 82059 e90a05b0076880b9a29b47be16c4f87e ""
+  "zavrsni.toc" 1685388275 2684 e3d67fd04fb675636f16fb14a32920b9 "pdflatex"
   (generated)
   "zavrsni.aux"
   "zavrsni.log"
