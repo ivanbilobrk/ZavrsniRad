@@ -76,13 +76,13 @@ Kako bi dobitak nagrade išao u korist sveučilištu, osoba koje je dobila nagra
 tom sveučilištu, a ako  je osoba u trenutku dobitka nagrade bila povezana s više sveučilišta ili drugih institucija, svakoj ustanovi se pridjeljuje
 recipročan broj broja sveučilišta. Tako na primjer, ako je osoba bila povezana s 3 ustanove, svakoj od njih se pridjeljuje $1/3$, a ako je bila 
 povezana samo s jednom ustanovom pridjeljuje se toj ustanovi $1$. 
-Vrijeme dobitka nagrade također igra ulogu jer u obzir dolaze nagrade dodijeljene unazad 4 desetljeća od gornje granice godine za koju promatramo podatke.
-Ako nas zanima rang lista za 2022. godinu, onda je gornja granica godine za koju promatramo podatke 2020. Svakom desetljeću pridjeljuju se različite težine 
+Vrijeme dobitka nagrade također igra ulogu jer u obzir dolaze nagrade dodijeljene unazad 4 desetljeća od gornje granice godine za koju se promatraju podatci.
+Ako se promatra rang lista za 2022. godinu, onda je gornja granica godine za podatke 2020. Svakom desetljeću pridjeljuju se različite težine 
 s kojima se onda množi \\prethodno dobiveni broj. Desetljeću najbližem sadašnjosti pridjeljuje se težina 1, a svim ostalima smanjuje se za 0.25.
 Ukupna vrijednost indikatora dobije se zbrajanjem pojedinih vrijednosti za neko sveučilište u nekom području.
 
 \begin{table}[htb]
-    \caption{Primjer težina za indikator \emph{Award} za rang 2022. godine}
+    \caption{Primjer težina za indikator \emph{Award} za rang listu 2022. godine}
         \label{tbl:konstante2}
         \centering
         \begin{tabular}{cccc} \hline
@@ -93,13 +93,13 @@ Ukupna vrijednost indikatora dobije se zbrajanjem pojedinih vrijednosti za neko 
         \FloatBarrier
 \subsection{Izvori za prikupljanje podataka}        
 Podatke za izračun svih 5 vrijednosti indikatora, osim indikatora \emph{Award}, prikupljaju se s baza InCites i Web of Science (WoS). 
-Podatke za indikator \emph{Award} mogu se pronaći na službenim stranicama koje objavljuju dobitnike nagrada za neko područje.
+Podatci za indikator \emph{Award} mogu se pronaći na službenim stranicama koje objavljuju dobitnike nagrada za neko područje.
 Za \\\\\emph{Computer Science \& Engineering} (CSE) to je stranica A.M. Turing Award, a za \emph{\\Electrical \& Electronic Engineering} (EEE) IEEE Awards.
 
 \section{Minimalni broj publikacija} Kako bi sveučilište ušlo na rang listu za područja CSE i EEE mora imati minimalno 150 publikacija koje su vidljive 
 na bazama WoS i InCites.
-\\ \section{Preslikavanje područja istraživanja}Kako bi uspješno prikupili podatke s navedenih baza moramo na tim stranicama odabrati ispravno područje istraživanja jer preslikavanja nisu $1:1$.
-\\\\U sljedećim tablicama možemo vidjeti kako izgledaju preslikavanja za područja CSE i EEE.
+\\ \section{Preslikavanje područja istraživanja}Kako bi se podatci uspješno prikupili s navedenih baza, potrebno je odabrati ispravno područje istraživanja jer preslikavanja nisu $1:1$.
+\\\\U sljedećim tablicama vidi se kako izgledaju preslikavanja za područja CSE i EEE.
 
 \begin{table}[htb]
     \caption{Preslikavanje za područje \emph{Computer Science \& Engineering} (CSE)}
@@ -146,7 +146,7 @@ Na kraju dobivene vrijednosti se sumiraju.
 \begin{align}
     \sqrt[\leftroot{-2}]{\frac{vrijednost \; CNCI \; indikatora}{min(2*average(CNCI), max(CNCI))}} \; * tezina(CNCI) \label{eq:b}
     \end{align}
-\\ Ukoliko je vrijednost CNCI indikatora veća od vrijednosti brojnika u izrazu \ref{eq:b} onda se sveučilištu automatski pridjeljuje vrijednost 100.
+\\ Ako je vrijednost CNCI indikatora veća od vrijednosti brojnika u izrazu \ref{eq:b} onda se sveučilištu automatski pridjeljuje vrijednost 100.
 
 \begin{table}[htb]
     \caption{Težine s kojima se vrijednosti pridružene indikatorima množe}
@@ -163,7 +163,7 @@ Na kraju dobivene vrijednosti se sumiraju.
 \label{racunanje}
 U sljedećem dijelu prikazan je primjer izračuna vrijednosti koje se vežu uz indikatore za sveučilište University of California, Berkeley koje je 2022. godine bilo prvo na 
 Shanghai Ranking rang listi u području EEE.
-Period tijekom kojeg se uzimaju podatci je 2016. godina - 2020. godina.
+Period tijekom kojeg se uzimaju podatci je od 2016. godine do 2020. godine.
 \\
 \\ \underline{Vrijednost Q1:} 
 \\ Pretraživanjem InCites baze saznaje se da navedeno sveučilište ima vrijednost indikatora Q1 603. Najveća vrijednost Q1 indikatora u tom razdoblju iznosi 3285.
@@ -195,7 +195,7 @@ Izračun vrijednosti koje se vežu uz indikatore kako je opisano u odjeljku 2.4.
 Shanghai Ranking stranici.
 \\Odstupanja proizlaze iz toga što je Shanghai Ranking rang lista za neku godinu fiksna, ne ažurira se novim podatcima, te iz toga što za pojedine 
 indikatore nije u potpunosti jasno kako se računaju. \\Kada se pretražuju radovi sveučilišta
-kroz InCites i WoS baze podataka uvijek se dobivaju najnoviji podatci za koje je moguće da su se promjenili od trenutka kada se računala Shanghai Ranking rang lista za neku godinu.
+kroz InCites i WoS baze podataka uvijek se dobivaju najnoviji podatci za koje je moguće da su se promijenili od trenutka kada se računala Shanghai Ranking rang lista za neku godinu.
 Primjer je indikator CNCI koji se temelji na broju citiranosti radova nekog sveučilišta. Moguće je da se neki rad citirao tek nakon što je Shanghai rang lista objavljena. Sveučilište uz 
 koje se veže taj rad će na Shanghai Ranking rang listi imati manju vrijednost indikatora CNCI nego na procijenjenoj rang listi koja se temelji na novijim podatcima. 
 Moguća situacija je i da su radovi tek nakon objave Shanghai Ranking rang liste za neku godinu uvršteni pod kategoriju međunarodnih suradnja što uzrokuje odstupanje 
@@ -204,7 +204,7 @@ indikatora IC. Ulogu također igra i zaokruživanje brojčanih vrijednosti, a po
 Rezultati analize razlika procijenjenih i stvarnih vrijednosti vidljivi su na slikama \ref{fig:graf2022} i \ref{fig:graf2021}.
 \begin{figure}[htb]
     \centering
-    \includegraphics[scale=0.31]{EEE2022.png}
+    \includegraphics[scale=0.26]{EEE2022.png}
     \caption{Grafički prikaz odstupanja procijenjenih vrijednosti indikatora i ukupne vrijednosti \engl{total} za 2022. godinu}
     \label{fig:graf2022}
     \end{figure}
@@ -225,12 +225,16 @@ indikatora \emph{Top} je manje pogrešna jer se računa na temelju radova objavl
 \\Za indikator \emph{Award} odstupanja nema jer su podatci za izračun njegove vrijednosti ručno uneseni u bazu podataka.
 \\Osim vrijednosti indikatora i ukupne sume \engl{total} usporediti se mogu i pozicije na procijenjenoj i stvarnoj Shanghai Ranking rang listi.
 Na svakoj Shanghai Ranking listi za područja CSE i EEE nalazi se 500 sveučilišta. Samo prvih 50 ima dodijeljenu točnu poziciju, dok se ostale pozicije određuju
-otprilike te sveučilištima nije dodijeljena egzaktna pozicija nego interval pozicija. Na grafovima \ref{fig:pozicije2021} i \ref{fig:pozicije2022}
-prikazana je uspješnost procjene pozicije na rang listi. U okviru ove analize, 
-pozicija se smatra uspješno procijenjenom ukoliko je apsolutna razlika procijenjene i Shanghai Ranking pozicije manja od 4. Ako je riječ o intervalu pozicija, 
-pozicija se smatra uspješno procijenjena ako se nalazi unutar intervala ili na udaljenosti manjoj od 4 od gornje ili donje granice intervala. Kriteriji uspješnosti 
-procjene pozicija su smanjeni jer ih je teško ispravno procijenjeniti. Nekad i najmanje razlike ukupne sume bodova uzrokuju veliku razliku ranga na listi. 
+otprilike te sveučilištima nije dodijeljena točna pozicija nego interval pozicija. Na grafovima \ref{fig:pozicije2021} i \ref{fig:pozicije2022}
+prikazana je \\uspješnost procjene pozicije na rang listi. U okviru ove analize, 
+pozicija se smatra uspješno procijenjenom ako je apsolutna razlika procijenjene i Shanghai Ranking pozicije manja od 4. Ako je riječ o intervalu pozicija, 
+pozicija se smatra uspješno procijenjenom ako se nalazi unutar intervala ili na udaljenosti manjoj od 4 od gornje ili donje granice intervala. Kriteriji uspješnosti 
+procjene pozicija su smanjeni jer ih je teško ispravno procijeniti. Nekad i najmanje razlike ukupne sume bodova uzrokuju veliku razliku ranga na listi. 
 Bolja procjena vrijednosti indikatora \emph{Top} za područje EEE sada dolazi do izražaja jer su procjene pozicije bolje u odnosu na područje CSE.
+\\Kako bi korisnik lakše usporedio procijenjene i stvarne Shanghai Ranking rang liste, u aplikaciji je dostupna opcija postavljanja \engl{upload} 
+stvarnih Shanghai Ranking podataka. Stranica koja ima tu funkcionalnost opisana je u dijelu 6.4. Postavljanjem stvarnih Shanghai Ranking podataka na dnu svake stranice gdje se prikazuje
+rang lista dotupna je ocjena uspješnosti procjene pozicija što je ustvari zadnji stupac na grafovima \ref{fig:pozicije2021} i \ref{fig:pozicije2022}. Osim ocjene procjene pozicija, 
+mogu se usporediti i vrijednosti svih indikatora te ukupne sume bodova na stranici opisanoj u dijelu 6.3.
 \begin{figure}[htb]
     \centering
     \includegraphics[scale=0.25]{pozicije2021.png}
@@ -327,7 +331,7 @@ Navigiranje aplikacijom ne uzrokuje dohvat potpuno drugačije web stranice već 
 mijenja i prepisuje s podatcima dohvaćenih s poslužitelja. Ovu funkcionalnost omogućava dodatak react-router-dom koji nudi komponente kao što su Link.
 Navigiranjem po aplikaciji korištenjem komponente Link mijenja se URL u pregledniku, ali web stranica zapravo ostaje ista uz promijenjen sadržaj.
 React koristi virtualni DOM \engl{Document Object Model} koji prati stanja 
-komponenti web stranice te kada dođe do promjene stanja, u stvarnom preglednikovom DOM-u mijenja samo one elemente koji su se promjenili. Ova 
+komponenti web stranice te kada dođe do promjene stanja, u stvarnom preglednikovom DOM-u mijenja samo one elemente koji su se promijenili. Ova 
 funkcionalnost uvelike poboljšava performanse aplikacije.
 Jedna stranica u Reactu sastoji se od više manjih komponenti koje se mogu dijeliti \\između više stranica i proizvoljno gnijezditi. Ovakvom organizacijom
 postiže se dobra organizacija koda uz mogućnosti višestrukog korištenja komponenti.
@@ -388,11 +392,11 @@ Navedeno stanje koristi se unutar komponente \emph{TablePagination} i pomoću JS
         {parseFloat((correct*100).toFixed(2)) || 0}
 </div>
 \end{verbnobox}
-Svaki puta kada se vrijednost stanja \emph{correct} promjeni, ažurirat će se prvo Reactov virtualni DOM, a kasnije samo onaj dio koji se treba promijeniti u preglednikovom DOM-u.
-Obavljanje radnji kada se vrijednost nekog stanja promjeni omogućava React \emph{hook useEffect} koji prima polje ovisnosti \engl{dependency array}. \emph{Hook useEffect}
+Svaki puta kada se vrijednost stanja \emph{correct} promijeni, ažurirat će se prvo Reactov virtualni DOM, a kasnije samo onaj dio koji se treba promijeniti u preglednikovom DOM-u.
+Obavljanje radnji kada se vrijednost nekog stanja promijeni omogućava React \emph{hook useEffect} koji prima polje ovisnosti \engl{dependency array}. \emph{Hook useEffect}
 pokreće se svaki put kad se komponenta prvi put iscrtava te kada vrijednosti stanja predanih u polju ovisnosti nemaju istu vrijednost koju su imali kod prošlog iscrtavanja.
 Kombinacija funkcionalnosti \emph{useEffect} i \emph{useState} koristi se često u ovoj aplikaciji. Jedan primjer je dohvat podataka s poslužitelja 
-kada se vrijednost nekog stanja ili više njih promjeni. Programski kod koji dohvaća podatke smješta se unutar \emph{useEffect} React \emph{hooka}.
+kada se vrijednost nekog stanja ili više njih promijeni. Programski kod koji dohvaća podatke smješta se unutar \emph{useEffect} React \emph{hooka}.
 Prilikom izrade stranice na kojoj je prikazana tablica rang liste \emph{useEffect} je korišten za dohvat podataka o uspješnosti procjene vrijednosti rangiranja:
 \begin{verbnobox}[\fontsize{10pt}{10pt}\selectfont]
  React.useEffect(()=>{
@@ -409,7 +413,7 @@ Prilikom izrade stranice na kojoj je prikazana tablica rang liste \emph{useEffec
       })()
 },[year])
 \end{verbnobox}
-Prikazani \emph{useEffect} ima predano stanje \emph{year} u polju ovisnosti te svaki put kada korisnik putem komponente za odabir godine promjeni 
+Prikazani \emph{useEffect} ima predano stanje \emph{year} u polju ovisnosti te svaki put kada korisnik putem komponente za odabir godine promijeni 
 godinu za koju želi gledati rang listu, izvest će se funkcija unutar \emph{useEffect hooka} koja će dohvatiti ocjenu uspješnosti procjene rang liste te ažurirati stanje 
 \emph{correct} čime će se automatski ažurirati i DOM te će korisnik imati prikaz uspješnosti rangiranja za odabranu godinu.
 U prethodno prikazanom programskom kodu za stvaranje HTTP GET zahtjeva na poslužitelj korištena je biblioteka Axios.
@@ -420,7 +424,7 @@ U prethodno prikazanom programskom kodu za stvaranje HTTP GET zahtjeva na poslu�
 \\\textbf{Route} komponenta registrira pojedinu stranicu na određenu putanju iz URL-a.
 \\\textbf{Link} komponenta služi za umatanje HTML elemenata ili vlastitih React komponenti tako da pritisak miša na tu komponentu korisnika odvede na novu stranicu.
 \\\\Pritisak miša na recimo komponentu Link ne uzrokuje HTTP zahtjev za novom HTML stranicom jer su svi elementi stranica već preuzeti i nalaze se u korisnikovom \\pregledniku.
-\\React-router-dom radi interno usmjeravanje i brine se da pritiskom na komponentu Link se promjeni URL preglednika i ažurira prikaz stranice koju korisnik vidi.
+\\React-router-dom radi interno usmjeravanje i brine se da pritiskom na komponentu Link se promijeni URL preglednika i ažurira prikaz stranice koju korisnik vidi.
 \\Primjer korištenja react-router-dom i registriranja stranice \emph{HomePage} na putanju \url{/}:
 \begin{verbnobox}[\fontsize{10pt}{10pt}\selectfont]
 <BrowserRouter>
@@ -431,7 +435,7 @@ U prethodno prikazanom programskom kodu za stvaranje HTTP GET zahtjeva na poslu�
 \end{verbnobox}
 Material UI biblioteka gotovih komponenti u ovoj aplikaciji korištena je za izradu dijelova pojedinih stranica. Primjer su komponente za odabir godine rangiranja
 na stranici opisanoj u dijelu 5.2 te Accordion komponenta koja skriva odnosno prikazuje jedan od tri vrste grafa na stranici opisanoj u dijelu 5.3.
-Material UI komponente koriste se kao obične React komponente kojima možemo predati razne parametre za prilagođavanje vlastitim potrebama.
+Material UI komponente koriste se kao obične React komponente kojima se mogu predati razni parametri za prilagođavanje vlastitim potrebama.
 Primjer upotrebe Material UI komponenti na stranici opisanoj u dijelu 5.3:
 Graf komponenta ostvarena je React-chartjs-2 bibliotekom koja nudi brojne vrse grafova, a u ovoj aplikaciji korišten je linijski graf:
 \begin{verbnobox}[\fontsize{10pt}{10pt}\selectfont]
@@ -448,18 +452,18 @@ U sljedećem dijelu opisane su tehnologije te detalji implementacije periodičko
 aplikaciji koristi kako bi se svaka dva tjedna pokrenuo alat Puppeteer koji će prikupiti najnovije podatke za izračun ranga sveučilišta.
 \\ \\ \textbf{Puppeteer}
 \\ Puppeteer je Node.js biblioteka koja nudi bogati API pomoću kojeg se preglednici Chrome i Chromium mogu kontrolirati koristeći DevTools protokol.
-DevTools protokol omogućuje alatima upravljanje preglednicima kao što su Chrome i Chromium na temelju uputa koje smo dali tim alatima.
-Puppeteer koristimo za izradu \emph{web scrappera} (alat koji posjećuje web stranice i 
-na njima obavlja neke radnje bez potrebe za \\intervencijom čovjeka) za baze InCites i WoS. Iako navedene baze nude API pomoću kojeg bi mogli 
-dohvatiti sve podatke potrebne za izračun rang liste, on se plaća. Puppeteer alatu moramo zadati niz koraka koje treba obaviti na nekoj stranici (upisati tekst u neko polje, pritisnuti na gumb, otići na drugu stranicu)
-kako bi postigli željeni rezultat.
+DevTools protokol omogućuje alatima upravljanje preglednicima kao što su Chrome i Chromium na temelju uputa koje se predaju tim alatima.
+Puppeteer je korišten za izradu \emph{web \\scrappera} (alat koji posjećuje web stranice i 
+na njima obavlja neke radnje bez potrebe za intervencijom čovjeka) za baze InCites i WoS. Iako navedene baze nude API pomoću kojeg se svi
+podatci potrebni za izračun rang liste mogu dohvatiti, on se plaća. Puppeteer alatu zadan je niz koraka koje treba obaviti na nekoj stranici (upisati tekst u neko polje, pritisnuti na gumb, otići na drugu stranicu)
+kako bi se postigao željeni rezultat.
 \\\\\textbf{Punjenje baze podataka i korištenje alata Puppeteer}
 \\Prilikom prvog pokretanja poslužiteljske aplikacije potrebno je stvoriti tablice u bazi podataka i napuniti ih vrijednostima indikatora od prijašnjih godina.
-Vrijednosti svih indikatora, osim indikatora \emph{Award}, mogu se dobiti s InCites stranice. Vrijednosti indikatora \emph{Award} teže je automatski prikupljati 
+Vrijednosti svih indikatora, osim indikatora \emph{Award}, mogu se dobiti s InCites stranice. Vrijednosti \\indikatora \emph{Award} teže je automatski prikupljati 
 s web stranica zbog potrebne analize institucija s kojima je dobitnik nagrade u vrijeme dobitka bio povezan. Iz tog razloga ti podatci 
 su ručno prikupljeni te kasnije uneseni u bazu podataka. 
-\\Dio programskog koda koji inicijalno puni bazu podataka nalazi se prema slici \ref{fig:expressdijagramkomponenti} u komponenti podatkovni modeli.Lakše prikupljanje podataka sa stranice InCites omogućava izrada predložaka za pretragu koji se mogu pohraniti 
-na korisničkom profilu u odjeljku \emph{Dashboard}. Ukupno je pohranjeno 4 predloška. Za svaku od kategorija CSE i EEE pohranjen je predložak 
+\\Dio programskog koda koji inicijalno puni bazu podataka nalazi se prema slici \ref{fig:expressdijagramkomponenti} u komponenti podatkovni modeli. Lakše prikupljanje podataka sa stranice InCites omogućava izrada predložaka za pretragu koji se mogu pohraniti 
+na korisničkom profilu u odjeljku \emph{Dashboard}. Ukupno su pohranjena 4 predloška. Za svaku od kategorija CSE i EEE pohranjen je predložak 
 za dohvat indikatora Q1, CNCI, IC te još jedan predložak za indikator \emph{Top}. U svakom predlošku unaprijed su odabrani filteri kao što su područje istraživanja,
 vrsta organizacije, vrsta dokumenta i vremenski period. Indikator \emph{Top} ima vlastiti predložak jer zahtjeva unos filtera prema časopisima za područje EEE te 
 prema konferencijama za područje CSE. 
@@ -478,7 +482,7 @@ prema konferencijama za područje CSE.
            \FloatBarrier      
 \begin{figure}[htb]
     \centering
-       \includegraphics[scale=0.3]{sekvencijski.png} 
+       \includegraphics[scale=0.22]{sekvencijski.png} 
        \caption{Sekvencijski dijagram inicijalnog punjenja baze podataka}
        \label{fig:sekvencijski}
        \end{figure}
@@ -563,8 +567,8 @@ Nakon što je alat instanciran putem dobivene reference može se navigirati na �
 
     c) pričekati obavljanje daljnjih akcija dok se željeni HTML element nije učitao koristeći funkciju \emph{waitForSelector("CSS selektor")}.
 \\Kombinacijom navedenih funkcija moguće je preuzeti podatke u obliku CSV datoteke koji su nakon parsiranja spremni za unos u bazu podataka.
-Programski kod navigiranja stranicom koristeći alat Puppeteer te parsiranje preuzetih CSV datoteka nalazi se prema \ref{fig:expressdijagramkomponenti}
-dijagramu u sklopu pomoćnih servisa.
+Programski kod navigiranja stranicom koristeći alat Puppeteer te parsiranje preuzetih CSV datoteka nalazi se prema 
+dijagramu \ref{fig:expressdijagramkomponenti} u sklopu pomoćnih servisa.
 \\\\Procjena vrijednosti indikatora trenutne godine te periodičko punjenje baze podataka s \\vrijednostima indikatora kako bi se mogao pratiti napredak 
 sveučilišta kroz tekuću godinu ostvareno je pozivanjem funkcije \emph{seedIndicators} svaka dva tjedna. Pozivanje funkcije svaka dva tjedna 
 ostvareno je Node.js modulom Node cron. 
@@ -588,7 +592,7 @@ Node cron modul nalaže da se inicijalizira jedan \emph{posao}. Za inicijalizira
 
     e) \emph{string} koji označava vremensku zonu
 \\Funkcija \emph{scheduledFunction} poziva funkcije \emph{seedAward} i \emph{seedIndicators}. Argumenti funkcije \emph{seedIndicators}  
-koji označavaju donji i gornju granicu godina za koje će se prikupiti podatci su isti te imaju vrijednost trenutne godine.
+koji označavaju donju i gornju granicu godina za koje će se prikupiti podatci su isti te imaju vrijednost trenutne godine.
 \\ \subsection{Poslužitelj web-aplikacije}
 U sljedećem dijelu opisane su tehnologije te detalji implementacije poslužitelja web-aplikacije.
 \\\\
@@ -613,7 +617,7 @@ je prazan te se nove veze dodaju lijeno, po potrebi.
        \label{fig:expressdijagramkomponenti}
        \end{figure}      
 \\\\Poslužiteljska strana nudi React korisničkom sučelju RESTful API, a komunikacija se odvija putem HTTP protokola. Podatke za ažuriranje sadržaja stranice 
-React korisničko sučelje dohvaća s poslužitelja koristeći RESTful API kako je prikazano na slici \ref{fig:expressdijagramkomponenti}.
+React \\korisničko sučelje dohvaća s poslužitelja koristeći RESTful API kako je prikazano na slici \ref{fig:expressdijagramkomponenti}.
 \\\\\\\textbf{Krajnje točke i kontroleri}
 \\Krajnje točke \engl{endpoint} RESTful API-ja ostvarene su upotrebom usmjerivača \engl{router} i kontrolera u sklopu Express radnog okvira. 
 Prije nego što Express aplikacija može primati HTTP zahtjeve, potrebno je registrirati rute i povezati ih s odgovarajućim \emph{routerima}.
@@ -669,7 +673,7 @@ Parametri iz URL-a kod HTTP GET zahtjeva dostupni su unutar objekta \emph{req.qu
 Krajnja točka rednog broja 1 iz tablice \ref{tbl:endpoints} koristi se za ostvarenje paginacije tablice rang liste za neku godinu u nekom području.
 Pomak od prvog zapisa rang liste računa se pomoću parametara \emph{page}, a broj zapisa koje treba vratiti pomoću parametra \emph{limit}.
 Sortiranje rang liste prema željenoj vrijednosti indikatora omogućeno je parametrima \emph{orderkey} i \emph{orderid}.
-\emph{Orderkey} je \emph{boolean} vrijednost koja označava silazno odnosno uzlazno sortiranje, a \emph{orderid} je oznaka indikatora
+\emph{Orderkey} je \emph{boolean} vrijednost koja označava silazno, odnosno uzlazno sortiranje, a \emph{orderid} je oznaka indikatora
 prema kojem se rang lista sortira. Pretraga sveučilišta po imenu omogućena je parametrom \emph{search} koji predstavlja \\podniz koji je korisnik unio 
 kroz grafičko sučelje.
 \\
@@ -690,7 +694,7 @@ koristi se platforma Docker. Docker je platforma otvorenog koda koja se koristi 
 Docker se u ovom završnom radu koristi za pakiranje dijelova aplikacije u odvojene dijelove koji se zovu kontejneri \engl{containers}.
 Kontejneri su zapravo Docker slike \engl{images} u izvođenju. Docker slika je lagana \engl{lightweight} komponenta koja sadrži sve što je aplikaciji 
 potrebno za izvođenje (izvorni kod, pokretačko okruženje \engl{runtime}, razne alate i biblioteke). Način stvaranja docker slike se definira 
-datotekom \\Dockerfile. Jednom kad je stvorena Docker slika, može se pokrenuti. Time se dobije kontejner koji se izvršava na Docker Engineu. 
+datotekom Dockerfile. Jednom kad je stvorena Docker slika, može se pokrenuti. Time se dobije kontejner koji se izvršava na Docker Engineu. 
 Velika prednost Dockera je ta što je podržan na puno operacijskih sustava (Windows, Linux, MacOS i ostali) te se uz pomoć samo jedne naredbe i datoteke Dockerfile
 dobije pokrenuta i funkcionalna aplikacija. Aplikacije koje se pokreću kao kontejneri rade na jednak način na svim operacijskim sustavima zbog ugrađene virtualizacije.
 Docker virtualizira operacijski sustav, a ne sklopovlje. Ovo je velika prednost u odnosu na virtualizaciju koju rade virtualni strojevi. 
@@ -735,7 +739,7 @@ upute za stvaranje kontejnera unutar kojeg se pokreće \\PostgreSQL baza podatak
            \label{fig:docker2}
            \end{figure}       
            
-Pokretanje baze podataka, Express API-ja te React aplikacije sada je moguće naredbom: \emph{docker-compose up}. Kada se Express API prvi put pokrene, krenut će se 
+Pokretanje baze podataka, Express API-ja te React aplikacije sada je moguće \\naredbom: \emph{docker-compose up}. Kada se Express API prvi put pokrene, krenut će se 
 puniti baza podataka tako da sve vrijednosti indikatora neće biti dostupne odmah već nakon nešto više od 15 minuta.
 \begin{figure}[htb]
     \centering
@@ -794,7 +798,7 @@ puniti baza podataka tako da sve vrijednosti indikatora neće biti dostupne odma
            \newpage \subsection{Relacija \emph{rankingreal}}   
            Relacija \emph{rankingreal} sadrži vrijednosti indikatora prikupljene sa Shanghai Ranking stranice. Ova relacija sadrži sve 
            vrijednosti koje se vežu uz indikatore za neko sveučilište u nekom području te za određenu godinu. Svaki put kad korisnik 
-           postavi datoteku na stranici s putom \url{/upload} ažurirat će se i upisati novi zapisi u ovu relaciju. Podatci iz ove 
+           postavi datoteku na stranici s putanjom \url{/upload} ažurirat će se i upisati novi zapisi u ovu relaciju. Podatci iz ove 
            relacije koriste se za usporedbu procijenjene i Shanghai Ranking rang liste.
            \begin{table}[htb]
             \caption{Atributi relacije \emph{rankingreal}}
@@ -823,7 +827,7 @@ puniti baza podataka tako da sve vrijednosti indikatora neće biti dostupne odma
     \caption{Prikaz početne stranice}
     \label{fig:homepage}
     \end{figure}
-Početna stranica nalazi se na putanji "/". Na početnoj stranici korisnik može birati između tri opcije. Pritiskom na neki od gornja dva gumba \emph{CSE} ili \emph{EEE}
+Početna stranica nalazi se na putanji \url{/}. Na početnoj stranici korisnik može birati između tri opcije. Pritiskom na neki od gornja dva gumba \emph{CSE} ili \emph{EEE}
 korisnika će se preusmjeriti na stranicu za pregled procjene Shanghai Rankinga i svih vrijednosti indikatora za područje CSE, odnosno EEE.        
 Pritiskom na donji gumb \emph{UPLOAD STVARNIH RANKING PODATAKA} korisnik će biti preusmjeren na stranicu na kojoj može objaviti .xlsx datoteku koja ima 
 identične vrijednosti indikatora i pozicija za pojedina sveučilišta kao i Shanghai Ranking stranica.
@@ -871,8 +875,8 @@ koja u svom imenu sadrže navedeni podniz.
 Prvi stupac pokazuje poziciju sveučilišta na rang listi za određenu godinu te u nekom području, drugi 
 pokazuje ime sveučilišta, sljedećih pet stupaca sadrže vrijednosti koje se vežu uz indikatore Q1, CNCI, IC, \emph{Top} i \emph{Award}, a zadnji stupac sadrži ukupan rezultat sveučilišta 
 u određenoj godini za neko područje prema kojem su sveučilišta sortirana i zove se Total. U zaglavlju tablice prije samog naziva vrijednosti stupca nalazi se ikona koja simbolizira
-sortiranje tablice rankinga. Ova funkcionalnost omogućena je za sve stupce osim prva dva. Ako korisnik pritisne na tu ikonu ili naziv stupca cijela tablica 
-procjene rankinga sortirat će se prema \\vrijednosti tog stupca silazno, odnosno uzlazno. 
+sortiranje tablice rangiranja. Ova funkcionalnost omogućena je za sve stupce osim prva dva. Ako korisnik pritisne na tu ikonu ili naziv stupca cijela tablica 
+procjene rangiranja sortirat će se prema \\vrijednosti tog stupca silazno, odnosno uzlazno. 
 \begin{figure}[htb]
     \hspace*{-2cm}  
        \includegraphics[scale=0.21]{sort1.png} 
@@ -883,7 +887,7 @@ procjene rankinga sortirat će se prema \\vrijednosti tog stupca silazno, odnosn
 sortiranje zamijenila s ikonom strelice koja pokazuje prema gore. Strelica prema gore simbolizira da se cijela rang lista
 sortira uzlazno prema vrijednosti indikatora uz koji se nalazi strelica, u ovom slučaju to je indikator Q1. Sada su se podatci u tablici 
 ažurirali te su sveučilišta sortirana uzlazno po vrijednosti indikatora Q1 što se i vidi u samoj tablici na slici \ref{fig:sort1} jer vrijednost indikatora Q1 za prvo 
-sveučilište je 3.02, a za svako sljedeće sveučilište ta vrijednost je veća u odnosu na prethodno sveučilište. Sortiranje se može raditi i silazno. Tada se ikona promjeni
+sveučilište je 3.02, a za svako sljedeće sveučilište ta vrijednost je veća u odnosu na prethodno sveučilište. Sortiranje se može raditi i silazno. Tada se ikona promijeni
 u strelicu koja je okrenuta prema dolje. Promjene \\vrste sortiranja između silaznog, uzlaznog ili zadanog \engl{default} se radi \\uzastopnim pritiskanjem 
 jednog od zadnjih 6 stupaca u zaglavlju tablice.
 \\\emph{Default} sortiranje je silazno prema vrijednosti stupca Total jer se tako dobije rang lista sveučilišta od najboljih prema najgorim uzimajući u obzir sve 
@@ -904,7 +908,7 @@ koliko ukupno stranica rang liste ima korisniku je vidljiva ispod tablice uz lij
 \\Korisnik također može birati količinu redaka tablice po jednoj stranici. Pritiskom na komponentu ispod tablice otvara se 
 izbornik gdje korisnik može birati između 10, 20, 30, 40 ili 50 redaka tablice po jednoj stranici. \emph{Default} vrijednost je 10. Ova \\vrijednost zajedno s 
 trenutnim brojem stranice prenose se kao parametri prilikom HTTP GET zahtjeva kako bi poslužitelj znao koliko zapisa i s kojim pomakom mora vratiti u 
-HTTP odgovoru klijentu. Na ovaj način na klijentskoj strani imamo pohranjeno uvijek najviše 50 zapisa što pridonosi brzini korisničkog sučelja.
+HTTP odgovoru klijentu. Na ovaj način na klijentskoj strani pohranjeno je uvijek najviše 50 zapisa što pridonosi brzini korisničkog sučelja.
 \begin{figure}[htb]
     \centering
        \includegraphics[scale=0.3]{brojstranica.png} 
@@ -945,9 +949,9 @@ nudi te funkcionalnosti korisniku u obliku grafičkog prikaza.
        \label{fig:unipage}
        \end{figure}
 \\Nakon što je korisnik pritisnuo ime nekog sveučilišta prikazat će mu se stranica na slici \ref{fig:unipage}. Stranica sa slike nalazi se na putanji 
-"/rankingUni?uni=Massachusetts Institute of Technology (MIT)\&category=CSE". Parametar \emph{uni} specificira za koje sveučilište će se prikazivati podatci, a 
-parametar \emph{category} specificira za koje područje se prikazuju podatci. U primjeru sa slike \ref{fig:unipage} gledamo stranicu koja se odnosi na sveučilište 
-Massachusetts Institute of Technology (MIT) za područje CSE. Područje za koje promatramo podatke ovisi za koje područje je korisnik prethodno gledao 
+\url{/rankingUni?uni=Massachusetts\%20Institute\%20of\%20Technology\%20(MIT)\&category=CSE}. Parametar \emph{uni} specificira za koje sveučilište će se prikazivati podatci, a 
+parametar \emph{category} specificira za koje područje se prikazuju podatci. U primjeru sa slike \ref{fig:unipage} prikazana je stranica koja se odnosi na sveučilište 
+Massachusetts Institute of Technology (MIT) za područje CSE. Područje za koje se promatraju podatci ovisi o tome za koje područje je korisnik prethodno gledao 
 rang listu te se ono prenosi na ovu stranicu. 
 \\Na ovoj stranici korisnik može birati između 3 ponuđene opcije. 
 \\Pritiskom na prvi padajući izbornik prikazat će se grafički prikaz promjene vrijednosti indikatora
@@ -960,23 +964,16 @@ od 2017. godine, što se vidi na slici \ref{fig:unipage1}.
        \end{figure}
        
 Ako korisnika zanima vrijednost nekog drugog indikatora, na raspolaganju mu je izbornik 
-koji je prikazan na slici \ref{fig:unipage2}. Postoji mogućnost pregleda promjene \\vrijednosti svih indikatora koji služe za računanje ranga: Q1, CNCI, IC, \emph{Top}, \emph{Award}. 
-Osim vrijednosti indikatora može se promatrati kako se pozicija \engl{position} \\sveučilišta te ukupna vrijednost \engl{total} prema kojoj se sveučilišta 
+koji se nalazi iznad grafa prikazanog na slici \ref{fig:unipage1}. Postoji mogućnost pregleda promjene vrijednosti svih indikatora koji služe za računanje ranga: Q1, CNCI, IC, \emph{Top}, \emph{Award}. 
+Osim vrijednosti indikatora može se promatrati kako se pozicija \\\engl{position} sveučilišta te ukupna vrijednost \engl{total} prema kojoj se sveučilišta 
 sortiraju na rang listi mijenjala kroz godine. Iz grafičkog prikaza se ne mogu potpuno točno pročitati vrijednosti podataka za neku godinu. Točan iznos 
 nekog podatka za određenu godinu dobije se zadržavanjem strelice miša na krivulji iznad određene godine.
-\begin{figure}[htb]
-    \centering
-       \includegraphics[scale=0.17]{uni2.png} 
-       \caption{Izbornik podataka čije će se vrijednosti prikazati na grafu}
-       \label{fig:unipage2}
-       \end{figure}
-       \FloatBarrier
 
 Pritiskom na drugi padajući izbornik korisniku se prikaže isti graf s opcijom pregleda vrijednosti indikatora
 kao i u prethodnom slučaju. Jedina razlika je što ovaj graf prikazan na slici \ref{fig:uni3}
 prikazuje promjenu procijenjenih vrijednosti indikatora tijekom mjeseci tekuće godine. Primjer sa slike \ref{fig:uni3} nije reprezentativan jer su podatci 
-prikupljani u kratkom vremenskom razdoblju, no kada bi se aplikacija držala pokrenutom tijekom jedne godine vidjeli bi se promjene na grafu. Pregledom ovog 
-grafa može se procjeniti kako će izgledati Shanghai Ranking rang lista za trenutnu godinu prije \\službene objave. 
+prikupljani u kratkom vremenskom razdoblju, no kada bi se aplikacija držala pokrenutom tijekom jedne godine vidjele bi se promjene na grafu. Pregledom ovog 
+grafa može se procijeniti kako će izgledati Shanghai Ranking rang lista za trenutnu godinu prije \\službene objave. 
 \begin{figure}[htb]
     \hspace*{-2cm}  
        \includegraphics[scale=0.21]{uni3.png} 
@@ -989,13 +986,13 @@ Na ovaj način može se lakše vizualno usporediti koliko je procjena vrijednost
 Na ovom konkretnom primjeru vidi se \\odnos procijenjene i stvarne 
 vrijednosti ukupne sume indikatora.
 Podatke sa Shanghai Ranking stranice korisnik unosi postavljanjem \engl{upload} 
-odgovarajuće .xlsx datoteke, što je opisano u sljedećem dijelu.
+odgovarajuće .xlsx \\datoteke, što je opisano u sljedećem dijelu.
 \\Svi podatci potrebni za prikaz grafova dohvaćaju se pomoću HTTP GET zahtjeva na poslužitelj. Na ovoj stranici, kao i prethodno opisanoj, 
-vidimo prednosti \\jednostraničnih aplikacija jer promjenom grafa ili vrijednosti koja se prikazuje na grafu ne dolazi do ponovnog 
+vide se prednosti \\jednostraničnih aplikacija jer promjenom grafa ili vrijednosti koja se prikazuje na grafu ne dolazi do ponovnog 
 učitavanja web stranice.
 \begin{figure}[htb]
     \centering
-       \includegraphics[scale=0.3]{uni4.png} 
+       \includegraphics[scale=0.19]{uni4.png} 
        \caption{Grafički prikaz usporedbe procijenjenih i Shanghai Ranking vrijednosti indikatora}
        \label{fig:uni4}
        \end{figure} 
@@ -1005,7 +1002,7 @@ učitavanja web stranice.
 Usporedba procijenjenih i Shanghai Ranking vrijednosti indikatora moguća je \\postavljanjem .xlsx datoteke koja sadrži 
 podatke sa Shanghai Ranking stranice. Kako korisnik ne bi morao direktno unositi podatke u bazu podataka, na ovoj stranici može kroz 
 interaktivno sučelje postaviti datoteku sa Shanghai Ranking podatcima koji će se automatski upisati u odgovarajuću tablicu u bazi podataka.
-\\Ova stranica prikazana je na slici \ref{fig:upload} i ima URL "/upload".
+\\Ova stranica prikazana je na slici \ref{fig:upload} i ima URL \url{/upload}.
 \\Na stranici u gornjem dijelu postoje dvije komponente za odabir područja, koje može biti CSE ili EEE, i godine, koja se kreće od 2017. do trenutne. Nakon što 
 se odaberu te dvije vrijednosti korisnik može pritisnuti gumb s tekstom "Postavi datoteku" nakon čega mu se otvara preglednik datoteka osobnog računala
 u kojem može izabrati koju datoteku želi postaviti. Ako korisnik postavi datoteku koja nema .xlsx proširenje, ispisat će mu se poruka pogreške kao na 
@@ -1023,18 +1020,26 @@ slici \ref{fig:error}.
            \label{fig:error}
            \end{figure}        
 \\Zapisi u postavljenoj datoteci trebaju biti formatirani na ispravan način kako bi se \\podatci uspješno unijeli u bazu podataka. 
-Na slici \ref{fig:real} vidimo nekoliko zapisa ispravno formatirane .xlsx datoteke. Svaki redak zapisa treba imati sedam stupaca čiji su nazivi redom:
+Na slici \ref{fig:real} vidi se nekoliko zapisa ispravno formatirane .xlsx datoteke. Svaki redak zapisa treba imati sedam stupaca čiji su nazivi redom:
 ime sveučilišta, vrijednost Q1, CNCI, IC, \emph{Top} i \emph{Award} indikatora te pozicija. Vrijednost podatka \emph{Total} prema kojem se sortiraju 
 sveučilišta nije potrebno upisati jer se on lako izračuna iz zadanih vrijednosti indikatora. Pozicija sveučilišta se također mogla
 izostaviti uz pretpostavku da će svaka postavljena datoteka imati zapise za sva sveučilišta za neku godinu u određenom području, ali
 na ovaj način korisnik može unijeti samo nekoliko zapisa za sveučilišta koja su mu od interesa te dobiti mogućnost 
 grafičke usporedbe podataka na stranici opisanoj u odjeljku \ref{section:unipagesection}.
 \begin{figure}[htb]
-    \hspace*{-2cm} 
+    \hspace{-1.2cm} 
        \includegraphics[scale=0.3]{real.png} 
-       \caption{Prikaz zapisa datoteke sa stvarnim Shanghai Ranking podatcima}
+       \caption{Prikaz zapisa datoteke sa stvarnim Shanghai Ranking podatcima za neku godinu u nekom području gdje su stupci redom: naziv sveučilišta, vrijednosti indikatora Q1, CNCI, IC, \emph{Top} i \emph{Award} te pozicija
+       sveučilišta te godine na rang listi}
        \label{fig:real}
        \end{figure}  
+\chapter{Prijedlozi za budući razvoj}
+Aplikacija ima raznih mogućnosti napretka. Neki od mogućih nadogradnji su: dodavanje rang lista za druga područja istraživanja, 
+dodavanje novog algoritma i indikatora za izračun rang liste te detaljnija 
+statistička analiza vrijednosti indikatora pojedinog sveučilišta. 
+\\Aplikacija trenutno nudi uvid samo u numeričke vrijednosti indikatora, a u nekoj sljedećoj nadogradnji bilo bi korisno dobiti uvid u popis radova i njihovih autora koji su utjecali na 
+vrijednost indikatora. 
+\\Osim rangiranja sveučilišta, može se dodati prikaz informacije o tome koliko pojedine obrazovne ustanove koje su dio sveučilišta pridonose rangu.
 \chapter{Zaključak}
 Procjena ranga sveučilišta omogućava uvid u kvalitetu nastave i profesora koji predaju na tom sveučilištu. Bez ikakve povratne informacije 
 teško je zaposlenicima sveučilišta odrediti rade li dobar posao i što moraju popraviti kako bi im se reputacija poboljšala.
@@ -1043,10 +1048,8 @@ informacije o \\rangu sveučilišta ako nije u prvih 500 u svijetu. Ova aplikaci
 za koja postoje podatci u InCites i WoS bazama. Dobro razumijevanje računanja vrijednosti indikatora bilo je ključno za ovu aplikaciju.
 \\Odabir tehnologija Node.js, Express, React, Puppeteer PostgreSQL te ostalih bio je ispravan zbog velike količine dokumentacije i dostupne podrške. Ključni dijelovi 
 ove aplikacije su bili ostvarenje periodičkog punjenja baze podataka s novim vrijednostima indikatora te izrada tablice rang liste i grafova za vizualni prikaz promjene vrijednosti indikatora kroz vrijeme. 
-Dodavanjem \\Docker podrške aplikacija je postala široko primjenjiva zbog jednostavnog postavljanja na bilo koji poslužitelj koji podržava Docker.
-\\Aplikacija ima raznih mogućnosti napretka. Neki od mogućih nadogradnji su: dodavanje rang lista za druga područja istraživanja, 
-dodavanje novog algoritma i indikatora za izračun rang liste te detaljnija 
-statistička analiza vrijednosti indikatora pojedinog sveučilišta.
+Procjena rang liste bila je jako uspješna za područje EEE te nešto manje za područje CSE.
+Dodavanjem Docker podrške aplikacija je postala široko primjenjiva zbog jednostavnog postavljanja na bilo koji poslužitelj koji podržava Docker.
 
 \bibliography{literatura}
 \bibliographystyle{fer}
@@ -1056,7 +1059,7 @@ statistička analiza vrijednosti indikatora pojedinog sveučilišta.
 \begin{sazetak}
 Završni rad razmatra izradu aplikacije za praćenje rangiranja sveučilišta u područjima \emph{Computer Science \& Engineering (CSE)} i 
 \emph{Electrical \& Electronic Engineering (EEE)} prema algoritmu Shanghai Ranking sustava.
-Aplikacija rješava problem nedostupnosti uvida u rang i vrijednosti indikatora za niže rangirana sveučilišta na stranici Shanghai Ranking te nudi praćenje procijenjenih vrijednosti indikatora i ranga za trenutnu godinu prije nego što 
+Aplikacija rješava problem \\nedostupnosti uvida u rang i vrijednosti indikatora za niže rangirana sveučilišta na stranici Shanghai Ranking te nudi praćenje procijenjenih vrijednosti indikatora i ranga za trenutnu godinu prije nego što 
 izađe službena Shanghai Ranking rang lista. Korisniku nudi tablični prikaz procijenjene rang liste s vrijednostima indikatora koji se koriste za njezin izračun,
 grafički prikaz promjene vrijednosti indikatora i ranga odabranog sveučilišta, usporedbu procijenjenog rangiranja sa Shanghai Ranking sustavom te pretragu baze podataka prema imenu sveučilišta.
 Glavne tehnologije korištene za izradu aplikacije su: React, Node.js, Express.js, PostgreSQL, Puppeteer i Docker.
@@ -1070,7 +1073,7 @@ procjena rangiranja, Docker, grafički prikaz vrijednosti indikatora}
 \engtitle{An application for monitoring the ranking of universities according to the Shanghai List}
 \begin{abstract}
 Final work considers the creation of application for monitoring university rankings in the fields of Computer Science \& Engineering (CSE) and
-Electrical \& Electronic Engineering (EEE) according to the Shanghai Ranking system algorithm.
+Electrical \& Electronic \\Engineering (EEE) according to the Shanghai Ranking system algorithm.
 The application solves the problem of the unavailability of ranking data for lower-ranked universities and offers monitoring of the ranking assessment for the current year before
 the official Shanghai Ranking ranking list is out. It offers the user a tabular view of the estimated ranking along with the values of the indicators used to calculate the \\ranking,
 graphical representation of changes in the ranking data of the selected university, comparison of the ranking assessment with the Shanghai Ranking data, and database search by university name.

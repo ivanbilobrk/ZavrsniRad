@@ -26,5 +26,6 @@
 \contentsline {section}{\numberline {6.2}Tablični prikaz rang liste sveučilišta}{36}{}%
 \contentsline {section}{\numberline {6.3}Stranica sveučilišta}{41}{}%
 \contentsline {section}{\numberline {6.4}Stranica za postavljanje podataka sa \\Shanghai Ranking stranice}{44}{}%
-\contentsline {chapter}{\numberline {7}Zaključak}{46}{}%
-\contentsline {chapter}{Literatura}{47}{}%
+\contentsline {chapter}{\numberline {7}Prijedlozi za budući razvoj}{46}{}%
+\contentsline {chapter}{\numberline {8}Zaključak}{47}{}%
+\contentsline {chapter}{Literatura}{48}{}%
