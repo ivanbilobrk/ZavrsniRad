@@ -19,7 +19,8 @@ export default function RankingUniPage(){
 
     const location = useLocation()
     const { category, uni } = queryString.parse(location.search)
-    const factors = ['Q1', 'CNCI', 'IC', 'TOP', 'AWARD', 'POSITION', 'TOTAL']
+    const factors = ['Q1', 'CNCI', 'IC', 'TOP', 'AWARD', 'POSITION', 'TOTAL', 'SVI INDIKATORI']
+    const factors2 = ['Q1', 'CNCI', 'IC', 'TOP', 'AWARD', 'POSITION', 'TOTAL']
     const [factor, setFactor] = React.useState('Q1');
     const [factor2, setFactor2] = React.useState('Q1');
     const [factor3, setFactor3] = React.useState('Q1');
@@ -33,6 +34,7 @@ export default function RankingUniPage(){
     const [dataSets1, setDataSets1] = React.useState([])
     const [dataSets2, setDataSets2] = React.useState([])
     const [dataSets3, setDataSets3] = React.useState([])
+    const colors = ['rgb(255, 99, 132)', 'rgb(0, 119, 255)', 'rgb(21, 255, 0)', 'rgb(0, 0, 0)', 'rgb(234, 255, 0)']
 
     for (let year = startYear; year <= currentYear; year++) {
       labels1.push(year);
@@ -56,16 +58,32 @@ export default function RankingUniPage(){
     }
 
     async function getData1() {
-      const yearDataArray = await getRanking('rankingUni', factor)
-      const newDataSets = [
-        {
-          label: factor,
-          data: labels1.map((element) => yearDataArray[element - 2017]),
-          borderColor: 'rgb(255, 99, 132)',
-          backgroundColor: 'rgba(255, 99, 132, 0.5)'
+
+      if(factor == 'SVI INDIKATORI'){
+        const newDataSets = []
+
+        for(let i = 0; i < factors.length-3; i++){
+          let yearDataArray = await getRanking('rankingUni', factors[i]);
+          newDataSets[i] = {
+            label: factors[i],
+            data: labels1.map((element) => yearDataArray[element - 2017]),
+            borderColor: colors[i],
+            backgroundColor: colors[i]
+          }
         }
-      ];
-      setDataSets1(newDataSets);
+        setDataSets1(newDataSets);
+      } else {
+        const yearDataArray = await getRanking('rankingUni', factor)
+        const newDataSets = [
+          {
+            label: factor,
+            data: labels1.map((element) => yearDataArray[element - 2017]),
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.5)'
+          }
+        ];
+        setDataSets1(newDataSets);
+      }
     }
 
 
@@ -88,17 +106,30 @@ export default function RankingUniPage(){
     
       const currentYearData = {};
       for (let i = 0; i < tempArray.length; i++) {
-        currentYearData[tempArray[i]] = response[i][factor2.toLowerCase()];
+        currentYearData[tempArray[i]] = response[i];
       }
-    
-      setDataSets2([
-        {
-          label: factor2,
-          data: tempArray.map((element) => currentYearData[element]),
-          borderColor: 'rgb(255, 99, 132)',
-          backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        },
-      ]);
+      
+      if(factor2 == 'SVI INDIKATORI'){
+        const dataSets = [];
+        for(let i = 0; i < factors.length-3; i++){
+          dataSets[i] = {
+            label: factors[i],
+            data: tempArray.map((element) => currentYearData[element][factors[i].toLocaleLowerCase()]),
+            borderColor: colors[i],
+            backgroundColor: colors[i]
+          }
+        }
+        setDataSets2(dataSets)
+      } else {
+        setDataSets2([
+          {
+            label: factor2,
+            data: tempArray.map((element) => currentYearData[element][factor2.toLocaleLowerCase()]),
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+          },
+        ]);
+      }
     }
 
     async function getData3() {
@@ -171,7 +202,7 @@ export default function RankingUniPage(){
                 <Typography>Usporedba rankinga sveučilišta {uni} sa Shanghai rankingom</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <SelectComponent value={factor3} setValue={setFactor3} values={factors} desc='Faktor'></SelectComponent>
+                <SelectComponent value={factor3} setValue={setFactor3} values={factors2} desc='Faktor'></SelectComponent>
 
                 <GraphUni uni={uni} factor={factor3} labels={labels1} dataFetch={getData3} isExpanded={isAccordion3Expanded} dataSets={dataSets3}/>
               </AccordionDetails>

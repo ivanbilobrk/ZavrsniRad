@@ -8,7 +8,7 @@ const pool = new Pool({
     host: env.DB_HOST,
     database: env.DB_NAME,
     password: env.DB_PASSWORD
-    //port: parseInt(env.DB_PORT),
+    //port: parseInt(env.DB_PORT)
 });
 
 function getNameQ1CNCIIC(path, unis){

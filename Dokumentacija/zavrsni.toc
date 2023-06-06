@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {2.4}Računanje ukupnog rezultata sveučilišta}{6}{}%
 \contentsline {subsection}{\numberline {2.4.1}Primjer izračuna vrijednosti koje se vežu uz indikatore}{6}{}%
 \contentsline {section}{\numberline {2.5}Odstupanje procijenjenih i Shanghai Ranking vrijednosti indikatora}{8}{}%
-\contentsline {chapter}{\numberline {3}Funkcionalni zahtjevi}{12}{}%
+\contentsline {chapter}{\numberline {3}Zahtjevi aplikacije}{12}{}%
 \contentsline {section}{\numberline {3.1}Funkcionalni zahtjevi}{12}{}%
 \contentsline {section}{\numberline {3.2}Nefunkcionalni zahtjevi}{14}{}%
 \contentsline {chapter}{\numberline {4}Pregled korištenih tehnologija}{15}{}%
@@ -19,8 +19,8 @@
 \contentsline {subsection}{\numberline {4.1.4}Docker}{28}{}%
 \contentsline {chapter}{\numberline {5}Podatkovni model}{32}{}%
 \contentsline {section}{\numberline {5.1}Relacija \emph {award}}{32}{}%
-\contentsline {subsection}{\numberline {5.1.1}Relacija \emph {ranking}}{33}{}%
-\contentsline {subsection}{\numberline {5.1.2}Relacija \emph {rankingreal}}{34}{}%
+\contentsline {section}{\numberline {5.2}Relacija \emph {ranking}}{33}{}%
+\contentsline {section}{\numberline {5.3}Relacija \emph {rankingreal}}{34}{}%
 \contentsline {chapter}{\numberline {6}Pregled funkcionalnosti}{35}{}%
 \contentsline {section}{\numberline {6.1}Početna stranica}{35}{}%
 \contentsline {section}{\numberline {6.2}Tablični prikaz rang liste sveučilišta}{36}{}%

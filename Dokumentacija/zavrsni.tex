@@ -4,6 +4,15 @@
 \usepackage{placeins}
 \usepackage{verbatimbox}
 \usepackage{listings}
+\usepackage{amsmath}
+\usepackage{graphicx} % \scalebox
+\usepackage{environ}
+\NewEnviron{myequation}{%
+\begin{equation}
+\scalebox{1.5}{$\BODY$}
+\end{equation}
+}
+
 
 \begin{document}
 
@@ -76,7 +85,7 @@ Kako bi dobitak nagrade išao u korist sveučilištu, osoba koje je dobila nagra
 tom sveučilištu, a ako  je osoba u trenutku dobitka nagrade bila povezana s više sveučilišta ili drugih institucija, svakoj ustanovi se pridjeljuje
 recipročan broj broja sveučilišta. Tako na primjer, ako je osoba bila povezana s 3 ustanove, svakoj od njih se pridjeljuje $1/3$, a ako je bila 
 povezana samo s jednom ustanovom pridjeljuje se toj ustanovi $1$. 
-Vrijeme dobitka nagrade također igra ulogu jer u obzir dolaze nagrade dodijeljene unazad 4 desetljeća od gornje granice godine za koju se promatraju podatci.
+Vrijeme dobitka nagrade također igra ulogu jer u obzir dolaze nagrade dodijeljene unazad 4 desetljeća od gornje granice godina za koje se promatraju podatci.
 Ako se promatra rang lista za 2022. godinu, onda je gornja granica godine za podatke 2020. Svakom desetljeću pridjeljuju se različite težine 
 s kojima se onda množi \\prethodno dobiveni broj. Desetljeću najbližem sadašnjosti pridjeljuje se težina 1, a svim ostalima smanjuje se za 0.25.
 Ukupna vrijednost indikatora dobije se zbrajanjem pojedinih vrijednosti za neko sveučilište u nekom području.
@@ -201,19 +210,24 @@ koje se veže taj rad će na Shanghai Ranking rang listi imati manju vrijednost 
 Moguća situacija je i da su radovi tek nakon objave Shanghai Ranking rang liste za neku godinu uvršteni pod kategoriju međunarodnih suradnja što uzrokuje odstupanje 
 indikatora IC. Ulogu također igra i zaokruživanje brojčanih vrijednosti, a postupak zaokruživanja na stranici Shanghai Ranking nije naveden.
 \\Kako bi se dobio dojam odstupanja, prikupljeni su podatci prvih 100 sveučilišta sa Shanghai Ranking stranice za rang liste 2022. i 2021. godine u područjima CSE i EEE. 
-Rezultati analize razlika procijenjenih i stvarnih vrijednosti vidljivi su na slikama \ref{fig:graf2022} i \ref{fig:graf2021}.
+Rezultati analize razlika procijenjenih i stvarnih vrijednosti vidljivi su na grafovima \ref{fig:graf2022} i \ref{fig:graf2021}. Postotna odstupanja računaju se prema sljedećem izrazu:
+\begin{myequation}%
+    \frac{|Shanghai\_Ranking\_vrijednost - procijenjena\_vrijednost|}{\frac{Shanghai\_Ranking\_vrijednost + procijenjena\_vrijednost}{2}}*100.
+    \end{myequation}
 \begin{figure}[htb]
     \centering
-    \includegraphics[scale=0.26]{EEE2022.png}
-    \caption{Grafički prikaz odstupanja procijenjenih vrijednosti indikatora i ukupne vrijednosti \engl{total} za 2022. godinu}
+    \includegraphics[scale=0.25]{EEE2022.png}
+    \caption{Grafički prikaz odstupanja procijenjenih vrijednosti indikatora i ukupne vrijednosti \engl{total} za 2022. godinu gdje se odstupanje, izraženo kao postotak, za 
+    neko sveučilište računa prema izrazu 2.3, a na grafu su prikazane prosječne vrijednosti svih odstupanja pojedinih podataka.}
     \label{fig:graf2022}
     \end{figure}
     \FloatBarrier
 
     \begin{figure}[htb]
         \centering
-        \includegraphics[scale=0.28]{graf2021.png}
-        \caption{Grafički prikaz odstupanja procijenjenih vrijednosti indikatora i ukupne vrijednosti \engl{total} za 2021. godinu}
+        \includegraphics[scale=0.25]{graf2021.png}
+        \caption{Grafički prikaz odstupanja procijenjenih vrijednosti indikatora i ukupne vrijednosti \engl{total} za 2021. godinu gdje se odstupanje, izraženo kao postotak, za 
+        neko sveučilište računa prema izrazu 2.3, a na grafu su prikazane prosječne vrijednosti svih odstupanja pojedinih podataka.}
         \label{fig:graf2021}
         \end{figure}   
         \FloatBarrier 
@@ -237,19 +251,23 @@ rang lista dotupna je ocjena uspješnosti procjene pozicija što je ustvari zadn
 mogu se usporediti i vrijednosti svih indikatora te ukupne sume bodova na stranici opisanoj u dijelu 6.3.
 \begin{figure}[htb]
     \centering
-    \includegraphics[scale=0.25]{pozicije2021.png}
-    \caption{Grafički prikaz odstupanja procijenjenih vrijednosti pozicija za 2021. godinu}
+    \includegraphics[scale=0.21]{pozicije2021.png}
+    \caption{Grafički prikaz odstupanja procijenjenih vrijednosti pozicija za 2021. godinu gdje se pozicija smatra uspješno procijenjenom ako se nalazi 
+    na udaljenosti manjoj od 4 od stvarne pozicije na Shanghai Ranking stranici. Postotno odstupanje pozicija pojedinih sveučilišta računa se prema izrazu 2.3, a 
+    na grafu su prikazane prosječne vrijednosti odstupanja pozicija prvih 100 sveučilišta. Prvih 100 pozicija podijeljeno je na 4 intervala kao i na Shanghai \\Ranking stranici.}
     \label{fig:pozicije2021}
     \end{figure} 
     \begin{figure}[htb]
         \centering
-        \includegraphics[scale=0.25]{pozicije2022.png}
-        \caption{Grafički prikaz odstupanja procijenjenih vrijednosti pozicija za 2022. godinu}
+        \includegraphics[scale=0.21]{pozicije2022.png}
+        \caption{Grafički prikaz odstupanja procijenjenih vrijednosti pozicija za 2022. godinu gdje se pozicija smatra uspješno procijenjenom ako se nalazi 
+        na udaljenosti manjoj od 4 od stvarne pozicije na Shanghai Ranking stranici. Postotno odstupanje pozicija pojedinih sveučilišta računa se prema izrazu 2.3, a 
+        na grafu su prikazane prosječne vrijednosti odstupanja pozicija prvih 100 sveučilišta. Prvih 100 pozicija podijeljeno je na 4 intervala kao i na Shanghai \\Ranking stranici.}
         \label{fig:pozicije2022}
         \end{figure}   
 
 
-\chapter{Funkcionalni zahtjevi}
+\chapter{Zahtjevi aplikacije}
 \section{Funkcionalni zahtjevi}
 Funkcionalni zahtjevi predstavljaju sve usluge koje programski proizvod mora pružiti korisnicima te definiraju kako sustav reagira na određene ulazne poticaje.
 \\ Aktori ovog programskog sustava su korisnici, React web grafičko sučelje, Node.js poslužitelj, PostgreSQL baza podataka, skupljač podataka potrebnih za rangiranje, 
@@ -307,15 +325,15 @@ c) dati što bolju procjenu Shanghai Ranking rang liste
 \chapter{Pregled korištenih tehnologija}
 \section{Arhitektura sustava}
 \label{arhitektura}
-Arhitektura ovog programskog sustava sastoji se kao i mnoge aplikacije od 3 dijela:
+Arhitektura ovog programskog sustava sastoji se od 4 dijela:
 
 1. korisničko sučelje dostupno kroz preglednik
 
 2. skupljač podataka za rangiranje
 
-2. poslužitelj
+3. poslužitelj
 
-3. baza podataka
+4. baza podataka
 
 \subsection{Korisničko sučelje}
 U sljedećem dijelu opisane su tehnologije te detalji implementacije korisničkog sučelja.
@@ -334,7 +352,7 @@ React koristi virtualni DOM \engl{Document Object Model} koji prati stanja
 komponenti web stranice te kada dođe do promjene stanja, u stvarnom preglednikovom DOM-u mijenja samo one elemente koji su se promijenili. Ova 
 funkcionalnost uvelike poboljšava performanse aplikacije.
 Jedna stranica u Reactu sastoji se od više manjih komponenti koje se mogu dijeliti \\između više stranica i proizvoljno gnijezditi. Ovakvom organizacijom
-postiže se dobra organizacija koda uz mogućnosti višestrukog korištenja komponenti.
+postiže se dobra organizacija koda uz mogućnost višestrukog korištenja komponenti.
 Kombiniranjem navedenih funkcionalnosti React biblioteke dobiva se fluidno korisničko sučelje bez puno ponovnih učitavanja stranica \engl{reload}.
 \\
 \\ \textbf{Axios}
@@ -351,7 +369,7 @@ Material UI je biblioteka za React koja nudi veliki broj gotovih komponenti koje
 \\
 \\ \textbf{React-chartjs-2}
 \\ React-chartjs-2 je jedna od najpopularnijih React biblioteka koja nudi funkcionalnost jednostavne izrade grafova. Korištena je za izradu grafova na 
-kojima pratimo promjene podataka sveučilišta tijekom vremena.
+kojima se prati promjena podataka sveučilišta tijekom vremena.
 \newpage\textbf{Opis implementacije korisničkog sučelja}
 \begin{figure}[htb]
     \hspace{-1.3cm}
@@ -397,7 +415,7 @@ Obavljanje radnji kada se vrijednost nekog stanja promijeni omogućava React \em
 pokreće se svaki put kad se komponenta prvi put iscrtava te kada vrijednosti stanja predanih u polju ovisnosti nemaju istu vrijednost koju su imali kod prošlog iscrtavanja.
 Kombinacija funkcionalnosti \emph{useEffect} i \emph{useState} koristi se često u ovoj aplikaciji. Jedan primjer je dohvat podataka s poslužitelja 
 kada se vrijednost nekog stanja ili više njih promijeni. Programski kod koji dohvaća podatke smješta se unutar \emph{useEffect} React \emph{hooka}.
-Prilikom izrade stranice na kojoj je prikazana tablica rang liste \emph{useEffect} je korišten za dohvat podataka o uspješnosti procjene vrijednosti rangiranja:
+Prilikom izrade stranice na kojoj je prikazana tablica rang liste \emph{useEffect} je korišten za dohvat podataka o uspješnosti procjene rangiranja:
 \begin{verbnobox}[\fontsize{10pt}{10pt}\selectfont]
  React.useEffect(()=>{
     (async()=>{
@@ -436,8 +454,7 @@ U prethodno prikazanom programskom kodu za stvaranje HTTP GET zahtjeva na poslu�
 Material UI biblioteka gotovih komponenti u ovoj aplikaciji korištena je za izradu dijelova pojedinih stranica. Primjer su komponente za odabir godine rangiranja
 na stranici opisanoj u dijelu 5.2 te Accordion komponenta koja skriva odnosno prikazuje jedan od tri vrste grafa na stranici opisanoj u dijelu 5.3.
 Material UI komponente koriste se kao obične React komponente kojima se mogu predati razni parametri za prilagođavanje vlastitim potrebama.
-Primjer upotrebe Material UI komponenti na stranici opisanoj u dijelu 5.3:
-Graf komponenta ostvarena je React-chartjs-2 bibliotekom koja nudi brojne vrse grafova, a u ovoj aplikaciji korišten je linijski graf:
+\\Graf komponenta ostvarena je React-chartjs-2 bibliotekom koja nudi brojne vrste grafova, a u ovoj aplikaciji korišten je linijski graf:
 \begin{verbnobox}[\fontsize{10pt}{10pt}\selectfont]
 <Line options={options} data={graphData}/>
 \end{verbnobox}
@@ -768,11 +785,11 @@ puniti baza podataka tako da sve vrijednosti indikatora neće biti dostupne odma
            koliko bodova na rang listi će sveučilište dobiti u ovisnosti o tome s koliko institucija je osvajač nagrade za vrijeme dobitka nagrade
            surađivao. Postupak izračuna udjela opisan je u odjeljku \ref{indikatori}, a predstavlja recipročan broj broja institucija s kojima je osvajač 
            nagrade surađivao. Svaki zapis također ima i atribut \emph{category} koji označava područje u kojem je nagrada osvojena te može biti CSE ili EEE.
-           Atribut \emph{year}, koji predstavlja godinu osvajanja nagrade, bitan je kod izračuna težine s kojom množimo vrijednost indikatora.
+           Atribut \emph{year}, koji predstavlja godinu osvajanja nagrade, bitan je kod izračuna težine s kojom se množi vrijednost indikatora.
            \\Indikator \emph{award} ima posebnu relaciju, za razliku od ostalih indikatora, zbog bolje organizacije relacija te jer se 
            vrijednost indikatora \emph{award} za jednu godinu koristi za izračun više rang listi sveučilišta. Ako bi indikator \emph{award} bio u istoj relaciji
            kao i ostali indikatori dobila bi se relacija koja ima puno ponavljanja istih zapisa.
-           \subsection{Relacija \emph{ranking}}
+           \section{Relacija \emph{ranking}}
            Relacija \emph{ranking} sadrži vrijednosti koje se vežu za neko sveučilište u nekoj godini te u području CSE ili EEE. 
            Nakon što se podatci dohvate s baze InCites, vrijednosti koje se vežu uz indikatore se izračunaju kako je opisano u odjeljku \ref{racunanje} 
            te se unesu u ovu relaciju. Atribut \emph{readingyear} pomoćni je atribut koji se koristi kod grafičkog prikaza promjene procijenjenih vrijednosti indikatora
@@ -795,7 +812,7 @@ puniti baza podataka tako da sve vrijednosti indikatora neće biti dostupne odma
                    \end{tabular}
                    \end{table}    
                    \FloatBarrier 
-           \newpage \subsection{Relacija \emph{rankingreal}}   
+           \newpage \section{Relacija \emph{rankingreal}}   
            Relacija \emph{rankingreal} sadrži vrijednosti indikatora prikupljene sa Shanghai Ranking stranice. Ova relacija sadrži sve 
            vrijednosti koje se vežu uz indikatore za neko sveučilište u nekom području te za određenu godinu. Svaki put kad korisnik 
            postavi datoteku na stranici s putanjom \url{/upload} ažurirat će se i upisati novi zapisi u ovu relaciju. Podatci iz ove 
@@ -965,7 +982,14 @@ od 2017. godine, što se vidi na slici \ref{fig:unipage1}.
        
 Ako korisnika zanima vrijednost nekog drugog indikatora, na raspolaganju mu je izbornik 
 koji se nalazi iznad grafa prikazanog na slici \ref{fig:unipage1}. Postoji mogućnost pregleda promjene vrijednosti svih indikatora koji služe za računanje ranga: Q1, CNCI, IC, \emph{Top}, \emph{Award}. 
-Osim vrijednosti indikatora može se promatrati kako se pozicija \\\engl{position} sveučilišta te ukupna vrijednost \engl{total} prema kojoj se sveučilišta 
+Promjene vrijednosti indikatora mogu se gledati posebno za svaki \\indikator ili za sve indikatore zajedno kako je prikazano na slici \ref{fig:svi}.
+\begin{figure}[htb]
+    \centering
+       \includegraphics[scale=0.3]{svi.png} 
+       \caption{Grafički prikaz promjene vrijednosti svih indikatora}
+       \label{fig:svi}
+       \end{figure}
+\\Osim vrijednosti indikatora može se promatrati kako se pozicija \engl{position} sveučilišta te ukupna vrijednost \engl{total} prema kojoj se sveučilišta 
 sortiraju na rang listi mijenjala kroz godine. Iz grafičkog prikaza se ne mogu potpuno točno pročitati vrijednosti podataka za neku godinu. Točan iznos 
 nekog podatka za određenu godinu dobije se zadržavanjem strelice miša na krivulji iznad određene godine.
 
@@ -980,23 +1004,24 @@ grafa može se procijeniti kako će izgledati Shanghai Ranking rang lista za tre
        \caption{Prikaz vrijednosti indikatora za trenutnu godinu}
        \label{fig:uni3}
        \end{figure} 
-\\\\Pritiskom na treći padajući izbornik prikaže se grafički prikaz na slici \ref{fig:uni4}. Na ovom grafu postoje dvije krivulje, ona označena plavom bojom predstavlja 
-stvarne \\vrijednosti indikatora sa stranice Shanghai Ranking, dok ona označena crvenom bojom predstavlja procijenjene vrijednosti indikatora.
-Na ovaj način može se lakše vizualno usporediti koliko je procjena vrijednosti indikatora i njihove ukupne sume \engl{total} prema kojoj se rangiraju sveučilišta dobra. 
-Na ovom konkretnom primjeru vidi se \\odnos procijenjene i stvarne 
-vrijednosti ukupne sume indikatora.
-Podatke sa Shanghai Ranking stranice korisnik unosi postavljanjem \engl{upload} 
-odgovarajuće .xlsx \\datoteke, što je opisano u sljedećem dijelu.
-\\Svi podatci potrebni za prikaz grafova dohvaćaju se pomoću HTTP GET zahtjeva na poslužitelj. Na ovoj stranici, kao i prethodno opisanoj, 
-vide se prednosti \\jednostraničnih aplikacija jer promjenom grafa ili vrijednosti koja se prikazuje na grafu ne dolazi do ponovnog 
-učitavanja web stranice.
+\\\\Pritiskom na treći padajući izbornik prikaže se grafički prikaz na slici \ref{fig:uni4}. 
 \begin{figure}[htb]
     \centering
-       \includegraphics[scale=0.19]{uni4.png} 
+       \includegraphics[scale=0.17]{uni4.png} 
        \caption{Grafički prikaz usporedbe procijenjenih i Shanghai Ranking vrijednosti indikatora}
        \label{fig:uni4}
        \end{figure} 
        \FloatBarrier
+Na ovom grafu postoje dvije krivulje, ona označena plavom bojom predstavlja 
+stvarne vrijednosti indikatora sa stranice Shanghai Ranking, dok ona označena crvenom bojom predstavlja procijenjene vrijednosti indikatora.
+Na ovaj način može se lakše vizualno usporediti koliko je procjena vrijednosti indikatora i njihove ukupne sume \engl{total} prema kojoj se rangiraju sveučilišta dobra. 
+Na ovom konkretnom primjeru vidi se odnos procijenjene i stvarne 
+vrijednosti ukupne sume indikatora.
+Podatke sa Shanghai Ranking stranice korisnik unosi postavljanjem \engl{upload} 
+odgovarajuće .xlsx datoteke, što je opisano u sljedećem dijelu.
+\\Svi podatci potrebni za prikaz grafova dohvaćaju se pomoću HTTP GET zahtjeva na poslužitelj. Na ovoj stranici, kao i prethodno opisanoj, 
+vide se prednosti \\jednostraničnih aplikacija jer promjenom grafa ili vrijednosti koja se prikazuje na grafu ne dolazi do ponovnog 
+učitavanja web stranice.
 
 \section{Stranica za postavljanje podataka sa \\Shanghai Ranking stranice}
 Usporedba procijenjenih i Shanghai Ranking vrijednosti indikatora moguća je \\postavljanjem .xlsx datoteke koja sadrži 
