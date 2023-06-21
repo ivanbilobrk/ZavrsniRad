@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex zavrsni"] 1686067972 "zavrsni.aux" "zavrsni.bbl" "zavrsni" 1686071480
+["bibtex zavrsni"] 1687343068 "zavrsni.aux" "zavrsni.bbl" "zavrsni" 1687343072
   "./fer.bst" 1284151297 26009 c9fe7ac62e814ee4c7bb7b0cdf6bf7a5 ""
   "literatura.bib" 1685386879 2144 a1f03ee944fa37ace00d169f9b046651 ""
-  "zavrsni.aux" 1686071480 14827 146414f60c36ad393415d5fa5affac3b "pdflatex"
+  "zavrsni.aux" 1687343072 14827 146414f60c36ad393415d5fa5affac3b "pdflatex"
   (generated)
   "zavrsni.bbl"
   "zavrsni.blg"
-["pdflatex"] 1686071476 "/home/ivan/Desktop/ZavrsniRad/Dokumentacija/zavrsni.tex" "zavrsni.pdf" "zavrsni" 1686071480
+["pdflatex"] 1687343068 "/home/ivan/Desktop/ZavrsniRad/Dokumentacija/zavrsni.tex" "zavrsni.pdf" "zavrsni" 1687343072
   "/etc/texmf/web2c/texmf.cnf" 1684608166 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ivan/Desktop/ZavrsniRad/Dokumentacija/zavrsni.tex" 1686071476 83251 0800d1463324fafb84216e75cc52fd85 ""
+  "/home/ivan/Desktop/ZavrsniRad/Dokumentacija/zavrsni.tex" 1686075586 83253 c3e94a9a10162b35f8f9bdd68a3c09c0 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm" 1136768653 1292 bd42be2f344128bff6d35d98474adfe3 ""
@@ -136,7 +136,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1684608186 4379155 98693266ff65f58d9f98aff394de12d2 ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1684608198 2800626 85ec2fa88b996832257c0d61bd7dc995 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1686687279 2801399 18001557ca56c64ff606b0b6f96faed2 ""
   "EEE2022.png" 1685781042 59411 2643258686e838ecbda09559bfda4c77 ""
   "brojstranica.png" 1685177234 96628 d0ca539b5d913d2ad5d8307d818cb66e ""
   "dashboard.png" 1685297183 200128 f574a1ba7e860457d1e8511368b3460a ""
@@ -170,10 +170,10 @@
   "unipage.png" 1685191762 135581 e07b941a7c2757a89a8a808caa487137 ""
   "upload.png" 1685206547 30225 3861044c2d81a0e0bb1cf174f2e721ed ""
   "zadatak.pdf" 1684668436 17750 e12c60d8f9fd6895eeffb8a5ee72808f ""
-  "zavrsni.aux" 1686071480 14827 146414f60c36ad393415d5fa5affac3b "pdflatex"
-  "zavrsni.bbl" 1686067972 2740 a7dd53785ef1bdaed7d8929b40bacc19 "bibtex zavrsni"
-  "zavrsni.tex" 1686071476 83251 0800d1463324fafb84216e75cc52fd85 ""
-  "zavrsni.toc" 1686071480 2345 9ad401d380e3c3e8c21897efeac68be0 "pdflatex"
+  "zavrsni.aux" 1687343072 14827 146414f60c36ad393415d5fa5affac3b "pdflatex"
+  "zavrsni.bbl" 1687343068 2740 a7dd53785ef1bdaed7d8929b40bacc19 "bibtex zavrsni"
+  "zavrsni.tex" 1686075586 83253 c3e94a9a10162b35f8f9bdd68a3c09c0 ""
+  "zavrsni.toc" 1687343072 2345 9ad401d380e3c3e8c21897efeac68be0 "pdflatex"
   (generated)
   "zavrsni.aux"
   "zavrsni.log"

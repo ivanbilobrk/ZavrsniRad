@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.20)  6 JUN 2023 19:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.13)  21 JUN 2023 12:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -437,32 +437,32 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <zadatak.pdf, id=8, 598.235pt x 845.1575pt>
 File: zadatak.pdf Graphic file (type pdf)
 <use zadatak.pdf>
-Package pdftex.def Info: zadatak.pdf  used on input line 31.
+Package pdftex.def Info: zadatak.pdf  used on input line 33.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 File: zadatak.pdf Graphic file (type pdf)
 <use zadatak.pdf>
-Package pdftex.def Info: zadatak.pdf  used on input line 31.
+Package pdftex.def Info: zadatak.pdf  used on input line 33.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 <zadatak.pdf, id=11, page=1, 598.235pt x 845.1575pt>
 File: zadatak.pdf Graphic file (type pdf)
 <use zadatak.pdf, page 1>
-Package pdftex.def Info: zadatak.pdf , page1 used on input line 31.
+Package pdftex.def Info: zadatak.pdf , page1 used on input line 33.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 File: zadatak.pdf Graphic file (type pdf)
 <use zadatak.pdf, page 1>
-Package pdftex.def Info: zadatak.pdf , page1 used on input line 31.
+Package pdftex.def Info: zadatak.pdf , page1 used on input line 33.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 File: zadatak.pdf Graphic file (type pdf)
 <use zadatak.pdf, page 1>
-Package pdftex.def Info: zadatak.pdf , page1 used on input line 31.
+Package pdftex.def Info: zadatak.pdf , page1 used on input line 33.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 File: zadatak.pdf Graphic file (type pdf)
 <use zadatak.pdf, page 1>
-Package pdftex.def Info: zadatak.pdf , page1 used on input line 31.
+Package pdftex.def Info: zadatak.pdf , page1 used on input line 33.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 File: zadatak.pdf Graphic file (type pdf)
 <use zadatak.pdf, page 1>
-Package pdftex.def Info: zadatak.pdf , page1 used on input line 31.
+Package pdftex.def Info: zadatak.pdf , page1 used on input line 33.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
  [1 <./zadatak.pdf>] [3] (./zavrsni.toc [4
 
@@ -477,94 +477,94 @@ Poglavlje 1.
 ] [2]
 Poglavlje 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--92
+Underfull \hbox (badness 10000) in paragraph at lines 69--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--92
+Underfull \hbox (badness 10000) in paragraph at lines 69--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--92
+Underfull \hbox (badness 10000) in paragraph at lines 69--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--92
+Underfull \hbox (badness 10000) in paragraph at lines 69--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--92
+Underfull \hbox (badness 10000) in paragraph at lines 69--94
 
  []
 
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 104--107
+Underfull \hbox (badness 10000) in paragraph at lines 106--109
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 110--112
 
  []
 
 
-Overfull \hbox (35.49846pt too wide) in paragraph at lines 117--127
+Underfull \hbox (badness 10000) in paragraph at lines 112--114
+
+ []
+
+
+Overfull \hbox (35.49846pt too wide) in paragraph at lines 119--129
  [][] 
  []
 
 
-Overfull \hbox (16.22801pt too wide) in paragraph at lines 135--140
+Overfull \hbox (16.22801pt too wide) in paragraph at lines 137--142
  [][] 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 144--151
+Underfull \hbox (badness 10000) in paragraph at lines 146--153
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--155
+Underfull \hbox (badness 10000) in paragraph at lines 155--157
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--202
+Underfull \hbox (badness 10000) in paragraph at lines 175--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--202
+Underfull \hbox (badness 10000) in paragraph at lines 175--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--202
+Underfull \hbox (badness 10000) in paragraph at lines 175--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--202
+Underfull \hbox (badness 10000) in paragraph at lines 175--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--202
+Underfull \hbox (badness 10000) in paragraph at lines 175--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--202
+Underfull \hbox (badness 10000) in paragraph at lines 175--204
 
  []
 
@@ -572,90 +572,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--202
 <EEE2022.png, id=71, 1390.19376pt x 990.70125pt>
 File: EEE2022.png Graphic file (type png)
 <use EEE2022.png>
-Package pdftex.def Info: EEE2022.png  used on input line 219.
+Package pdftex.def Info: EEE2022.png  used on input line 221.
 (pdftex.def)             Requested size: 347.54759pt x 247.6747pt.
  [8]
 <graf2021.png, id=79, 1370.11874pt x 982.67125pt>
 File: graf2021.png Graphic file (type png)
 <use graf2021.png>
-Package pdftex.def Info: graf2021.png  used on input line 228.
+Package pdftex.def Info: graf2021.png  used on input line 230.
 (pdftex.def)             Requested size: 342.52884pt x 245.6672pt.
  [9 <./EEE2022.png> <./graf2021.png>]
 <pozicije2021.png, id=83, 1398.22375pt x 1027.84pt>
 File: pozicije2021.png Graphic file (type png)
 <use pozicije2021.png>
-Package pdftex.def Info: pozicije2021.png  used on input line 254.
+Package pdftex.def Info: pozicije2021.png  used on input line 256.
 (pdftex.def)             Requested size: 293.63565pt x 215.85277pt.
 <pozicije2022.png, id=84, 1395.2125pt x 1010.77625pt>
 File: pozicije2022.png Graphic file (type png)
 <use pozicije2022.png>
-Package pdftex.def Info: pozicije2022.png  used on input line 262.
+Package pdftex.def Info: pozicije2022.png  used on input line 264.
 (pdftex.def)             Requested size: 293.00327pt x 212.26927pt.
  [10
 
 ] [11 <./pozicije2021.png> <./pozicije2022.png>]
 Poglavlje 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--277
+Underfull \hbox (badness 10000) in paragraph at lines 274--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--290
+Underfull \hbox (badness 10000) in paragraph at lines 288--292
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--296
+Underfull \hbox (badness 10000) in paragraph at lines 295--298
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--300
+Underfull \hbox (badness 10000) in paragraph at lines 299--302
 
  []
 
 [12
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 303--306
+Underfull \hbox (badness 10000) in paragraph at lines 305--308
 
  []
 
 <slika1.png, id=94, 1313.90875pt x 676.5275pt>
 File: slika1.png Graphic file (type png)
 <use slika1.png>
-Package pdftex.def Info: slika1.png  used on input line 311.
+Package pdftex.def Info: slika1.png  used on input line 313.
 (pdftex.def)             Requested size: 525.5542pt x 270.6062pt.
 
-Overfull \hbox (58.36375pt too wide) in paragraph at lines 310--312
+Overfull \hbox (58.36375pt too wide) in paragraph at lines 312--314
 []|  [] 
  []
 
 [13 <./slika1.png>] [14]
 Poglavlje 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--373
+Underfull \hbox (badness 10000) in paragraph at lines 341--375
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--373
+Underfull \hbox (badness 10000) in paragraph at lines 341--375
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--373
+Underfull \hbox (badness 10000) in paragraph at lines 341--375
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--373
+Underfull \hbox (badness 10000) in paragraph at lines 341--375
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--373
+Underfull \hbox (badness 10000) in paragraph at lines 341--375
 
  []
 
@@ -665,74 +665,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 339--373
 <reactkomponente.png, id=108, 1390.19376pt x 721.69624pt>
 File: reactkomponente.png Graphic file (type png)
 <use reactkomponente.png>
-Package pdftex.def Info: reactkomponente.png  used on input line 376.
+Package pdftex.def Info: reactkomponente.png  used on input line 378.
 (pdftex.def)             Requested size: 486.5751pt x 252.59747pt.
 
-Overfull \hbox (39.3015pt too wide) in paragraph at lines 375--377
+Overfull \hbox (39.3015pt too wide) in paragraph at lines 377--379
 []  [] 
  []
 
 [17 <./reactkomponente.png>]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 403.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 405.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 434--447
+Underfull \hbox (badness 10000) in paragraph at lines 436--449
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--447
+Underfull \hbox (badness 10000) in paragraph at lines 436--449
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--447
+Underfull \hbox (badness 10000) in paragraph at lines 436--449
 
  []
 
 [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 461--465
+Underfull \hbox (badness 10000) in paragraph at lines 463--467
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--465
+Underfull \hbox (badness 10000) in paragraph at lines 463--467
 
  []
 
 <dashboard.png, id=119, 2552.53625pt x 1242.6425pt>
 File: dashboard.png Graphic file (type png)
 <use dashboard.png>
-Package pdftex.def Info: dashboard.png  used on input line 489.
+Package pdftex.def Info: dashboard.png  used on input line 491.
 (pdftex.def)             Requested size: 536.04845pt x 260.96263pt.
 
-Overfull \hbox (68.858pt too wide) in paragraph at lines 488--490
+Overfull \hbox (68.858pt too wide) in paragraph at lines 490--492
 []|  [] 
  []
 
 <predlozak.png, id=120, 2568.59625pt x 1178.4025pt>
 File: predlozak.png Graphic file (type png)
 <use predlozak.png>
-Package pdftex.def Info: predlozak.png  used on input line 495.
+Package pdftex.def Info: predlozak.png  used on input line 497.
 (pdftex.def)             Requested size: 539.42114pt x 247.47183pt.
 
-Overfull \hbox (72.2307pt too wide) in paragraph at lines 494--496
+Overfull \hbox (72.2307pt too wide) in paragraph at lines 496--498
 []|  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--499
+Underfull \hbox (badness 10000) in paragraph at lines 468--501
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--499
+Underfull \hbox (badness 10000) in paragraph at lines 468--501
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--499
+Underfull \hbox (badness 10000) in paragraph at lines 468--501
 
  []
 
@@ -740,84 +740,84 @@ Underfull \hbox (badness 10000) in paragraph at lines 466--499
 <sekvencijski.png, id=128, 1869.98625pt x 1072.005pt>
 File: sekvencijski.png Graphic file (type png)
 <use sekvencijski.png>
-Package pdftex.def Info: sekvencijski.png  used on input line 502.
+Package pdftex.def Info: sekvencijski.png  used on input line 504.
 (pdftex.def)             Requested size: 411.39825pt x 235.84183pt.
  [22 <./predlozak.png> <./sekvencijski.png>] [23
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 561--563
+Underfull \hbox (badness 10000) in paragraph at lines 563--565
 
  []
 
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <12> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 578.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 580.
 
-Underfull \hbox (badness 10000) in paragraph at lines 585--593
+Underfull \hbox (badness 10000) in paragraph at lines 587--595
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 585--593
+Underfull \hbox (badness 10000) in paragraph at lines 587--595
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 610--613
+Underfull \hbox (badness 10000) in paragraph at lines 612--615
 
  []
 
 <expressdijagramkomponenti.png, id=139, 1452.42625pt x 709.65125pt>
 File: expressdijagramkomponenti.png Graphic file (type png)
 <use expressdijagramkomponenti.png>
-Package pdftex.def Info: expressdijagramkomponenti.png  used on input line 632.
+Package pdftex.def Info: expressdijagramkomponenti.png  used on input line 634.
 (pdftex.def)             Requested size: 522.87306pt x 255.47424pt.
 
-Overfull \hbox (55.68262pt too wide) in paragraph at lines 631--633
+Overfull \hbox (55.68262pt too wide) in paragraph at lines 633--635
 []|  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--642
+Underfull \hbox (badness 10000) in paragraph at lines 616--644
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--642
+Underfull \hbox (badness 10000) in paragraph at lines 616--644
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--642
+Underfull \hbox (badness 10000) in paragraph at lines 616--644
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--642
+Underfull \hbox (badness 10000) in paragraph at lines 616--644
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--642
+Underfull \hbox (badness 10000) in paragraph at lines 616--644
 
  []
 
 [25] [26 <./expressdijagramkomponenti.png>]
-Overfull \hbox (40.43192pt too wide) in paragraph at lines 678--688
+Overfull \hbox (40.43192pt too wide) in paragraph at lines 680--690
  [][] 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 690--697
+Underfull \hbox (badness 10000) in paragraph at lines 692--699
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 698--702
+Underfull \hbox (badness 10000) in paragraph at lines 700--704
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--705
+Underfull \hbox (badness 10000) in paragraph at lines 705--707
 
  []
 
@@ -825,50 +825,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 703--705
 <slika2.png, id=153, 1352.05125pt x 556.0775pt>
 File: slika2.png Graphic file (type png)
 <use slika2.png>
-Package pdftex.def Info: slika2.png  used on input line 724.
+Package pdftex.def Info: slika2.png  used on input line 726.
 (pdftex.def)             Requested size: 486.73808pt x 200.18774pt.
 
-Overfull \hbox (48.0004pt too wide) in paragraph at lines 723--725
+Overfull \hbox (48.0004pt too wide) in paragraph at lines 725--727
 []|  [] 
  []
 
 <dockerfile.png, id=154, 1587.9325pt x 519.9425pt>
 File: dockerfile.png Graphic file (type png)
 <use dockerfile.png>
-Package pdftex.def Info: dockerfile.png  used on input line 748.
+Package pdftex.def Info: dockerfile.png  used on input line 750.
 (pdftex.def)             Requested size: 524.01935pt x 171.58156pt.
 
-Overfull \hbox (56.8289pt too wide) in paragraph at lines 747--749
+Overfull \hbox (56.8289pt too wide) in paragraph at lines 749--751
 []|  [] 
  []
 
 <docker2.png, id=155, 443.6575pt x 691.58376pt>
 File: docker2.png Graphic file (type png)
 <use docker2.png>
-Package pdftex.def Info: docker2.png  used on input line 754.
+Package pdftex.def Info: docker2.png  used on input line 756.
 (pdftex.def)             Requested size: 133.09827pt x 207.47672pt.
 [29 <./slika2.png>]
 <tehnologije.png, id=159, 931.48pt x 796.9775pt>
 File: tehnologije.png Graphic file (type png)
 <use tehnologije.png>
-Package pdftex.def Info: tehnologije.png  used on input line 763.
+Package pdftex.def Info: tehnologije.png  used on input line 765.
 (pdftex.def)             Requested size: 279.44615pt x 239.0951pt.
  [30 <./dockerfile.png>] [31 <./docker2.png> <./tehnologije.png>]
 Poglavlje 5.
 
-Overfull \hbox (34.21385pt too wide) in paragraph at lines 774--782
+Overfull \hbox (34.21385pt too wide) in paragraph at lines 776--784
  [][] 
  []
 
 
-Overfull \hbox (53.01772pt too wide) in paragraph at lines 801--813
+Overfull \hbox (53.01772pt too wide) in paragraph at lines 803--815
 [][] 
  []
 
 [32
 
 ] [33]
-Overfull \hbox (34.21385pt too wide) in paragraph at lines 824--836
+Overfull \hbox (34.21385pt too wide) in paragraph at lines 826--838
  [][] 
  []
 
@@ -877,10 +877,10 @@ Poglavlje 6.
 <homePage.png, id=176, 2565.585pt x 907.39pt>
 File: homePage.png Graphic file (type png)
 <use homePage.png>
-Package pdftex.def Info: homePage.png  used on input line 843.
+Package pdftex.def Info: homePage.png  used on input line 845.
 (pdftex.def)             Requested size: 513.10793pt x 181.47478pt.
 
-Overfull \hbox (45.91748pt too wide) in paragraph at lines 842--844
+Overfull \hbox (45.91748pt too wide) in paragraph at lines 844--846
 []|  [] 
  []
 
@@ -890,66 +890,66 @@ Overfull \hbox (45.91748pt too wide) in paragraph at lines 842--844
 <tablica.png, id=180, 2568.59625pt x 1315.91624pt>
 File: tablica.png Graphic file (type png)
 <use tablica.png>
-Package pdftex.def Info: tablica.png  used on input line 854.
+Package pdftex.def Info: tablica.png  used on input line 856.
 (pdftex.def)             Requested size: 513.71016pt x 263.17859pt.
 
-Overfull \hbox (46.51971pt too wide) in paragraph at lines 853--855
+Overfull \hbox (46.51971pt too wide) in paragraph at lines 855--857
 []|  [] 
  []
 
 <select.png, id=181, 443.6575pt x 482.80376pt>
 File: select.png Graphic file (type png)
 <use select.png>
-Package pdftex.def Info: select.png  used on input line 869.
+Package pdftex.def Info: select.png  used on input line 871.
 (pdftex.def)             Requested size: 106.47997pt x 115.87526pt.
 [36 <./tablica.png>]
 <search.png, id=185, 2568.59625pt x 1027.84pt>
 File: search.png Graphic file (type png)
 <use search.png>
-Package pdftex.def Info: search.png  used on input line 885.
+Package pdftex.def Info: search.png  used on input line 887.
 (pdftex.def)             Requested size: 539.42114pt x 215.85277pt.
 
-Overfull \hbox (72.2307pt too wide) in paragraph at lines 884--886
+Overfull \hbox (72.2307pt too wide) in paragraph at lines 886--888
 []|  [] 
  []
 
 <sort1.png, id=186, 2568.59625pt x 1318.9275pt>
 File: sort1.png Graphic file (type png)
 <use sort1.png>
-Package pdftex.def Info: sort1.png  used on input line 899.
+Package pdftex.def Info: sort1.png  used on input line 901.
 (pdftex.def)             Requested size: 539.42114pt x 276.98294pt.
 
-Overfull \hbox (72.2307pt too wide) in paragraph at lines 898--900
+Overfull \hbox (72.2307pt too wide) in paragraph at lines 900--902
 []|  [] 
  []
 
 <stranica.png, id=187, 223.83624pt x 79.29625pt>
 File: stranica.png Graphic file (type png)
 <use stranica.png>
-Package pdftex.def Info: stranica.png  used on input line 921.
+Package pdftex.def Info: stranica.png  used on input line 923.
 (pdftex.def)             Requested size: 67.15138pt x 23.78905pt.
 <brojstranica.png, id=188, 982.67125pt x 376.40625pt>
 File: brojstranica.png Graphic file (type png)
 <use brojstranica.png>
-Package pdftex.def Info: brojstranica.png  used on input line 931.
+Package pdftex.def Info: brojstranica.png  used on input line 933.
 (pdftex.def)             Requested size: 294.80365pt x 112.92273pt.
 <navigiranje.png, id=189, 421.575pt x 205.76875pt>
 File: navigiranje.png Graphic file (type png)
 <use navigiranje.png>
-Package pdftex.def Info: navigiranje.png  used on input line 938.
+Package pdftex.def Info: navigiranje.png  used on input line 940.
 (pdftex.def)             Requested size: 168.627pt x 82.30603pt.
 <loading.png, id=190, 2358.8125pt x 772.8875pt>
 File: loading.png Graphic file (type png)
 <use loading.png>
-Package pdftex.def Info: loading.png  used on input line 951.
+Package pdftex.def Info: loading.png  used on input line 953.
 (pdftex.def)             Requested size: 495.36525pt x 162.31116pt.
 
-Overfull \hbox (28.1748pt too wide) in paragraph at lines 950--952
+Overfull \hbox (28.1748pt too wide) in paragraph at lines 952--954
 []|  [] 
  []
 
 
-Overfull \hbox (2.33073pt too wide) in paragraph at lines 876--956
+Overfull \hbox (2.33073pt too wide) in paragraph at lines 878--958
 \T1/ptm/m/n/12 vrijednost za-jedno s tre-nut-nim bro-jem stra-nice pre-nose se kao pa-ra-me-tri pri-li-kom HTTP
  []
 
@@ -957,30 +957,30 @@ Overfull \hbox (2.33073pt too wide) in paragraph at lines 876--956
 <unipage.png, id=201, 2568.59625pt x 908.39375pt>
 File: unipage.png Graphic file (type png)
 <use unipage.png>
-Package pdftex.def Info: unipage.png  used on input line 964.
+Package pdftex.def Info: unipage.png  used on input line 966.
 (pdftex.def)             Requested size: 539.42114pt x 190.76831pt.
 
-Overfull \hbox (72.2307pt too wide) in paragraph at lines 963--965
+Overfull \hbox (72.2307pt too wide) in paragraph at lines 965--967
 []|  [] 
  []
 
 <uni1.png, id=202, 2567.5925pt x 1279.78125pt>
 File: uni1.png Graphic file (type png)
 <use uni1.png>
-Package pdftex.def Info: uni1.png  used on input line 978.
+Package pdftex.def Info: uni1.png  used on input line 980.
 (pdftex.def)             Requested size: 436.48495pt x 217.55994pt.
 
-Overfull \hbox (23.91998pt too wide) in paragraph at lines 978--979
+Overfull \hbox (23.91998pt too wide) in paragraph at lines 980--981
  [][] 
  []
 
 
-Overfull \hbox (2.05673pt too wide) in paragraph at lines 958--982
+Overfull \hbox (2.05673pt too wide) in paragraph at lines 960--984
 \T1/ptm/m/n/12 6.10[]. Stra-nica sa slike na-lazi se na pu-ta-nji $\T1/pcr/m/n/12 /rankingUni ? uni = Massachusetts \
  []
 
 
-Overfull \hbox (5.73076pt too wide) in paragraph at lines 958--982
+Overfull \hbox (5.73076pt too wide) in paragraph at lines 960--984
 \T1/pcr/m/n/12 %20Institute \ %20of \ %20Technology \ %20(MIT ) \ & category = CSE$\T1/ptm/m/n/12 . Pa-
  []
 
@@ -988,26 +988,26 @@ Overfull \hbox (5.73076pt too wide) in paragraph at lines 958--982
 <svi.png, id=207, 1131.22626pt x 717.68124pt>
 File: svi.png Graphic file (type png)
 <use svi.png>
-Package pdftex.def Info: svi.png  used on input line 988.
+Package pdftex.def Info: svi.png  used on input line 990.
 (pdftex.def)             Requested size: 339.3705pt x 215.30603pt.
  [41 <./unipage.png>]
 <uni3.png, id=211, 2567.5925pt x 1142.2675pt>
 File: uni3.png Graphic file (type png)
 <use uni3.png>
-Package pdftex.def Info: uni3.png  used on input line 1003.
+Package pdftex.def Info: uni3.png  used on input line 1005.
 (pdftex.def)             Requested size: 539.21034pt x 239.88326pt.
 
-Overfull \hbox (72.0199pt too wide) in paragraph at lines 1002--1004
+Overfull \hbox (72.0199pt too wide) in paragraph at lines 1004--1006
 []|  [] 
  []
 
 <uni4.png, id=212, 1324.95pt x 1071.00125pt>
 File: uni4.png Graphic file (type png)
 <use uni4.png>
-Package pdftex.def Info: uni4.png  used on input line 1010.
+Package pdftex.def Info: uni4.png  used on input line 1012.
 (pdftex.def)             Requested size: 225.23853pt x 182.0678pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 996--1014
+Underfull \hbox (badness 10000) in paragraph at lines 998--1016
 
  []
 
@@ -1015,25 +1015,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 996--1014
 <upload.png, id=219, 2568.59625pt x 668.4975pt>
 File: upload.png Graphic file (type png)
 <use upload.png>
-Package pdftex.def Info: upload.png  used on input line 1037.
+Package pdftex.def Info: upload.png  used on input line 1039.
 (pdftex.def)             Requested size: 513.71016pt x 133.69713pt.
 
-Overfull \hbox (46.51971pt too wide) in paragraph at lines 1036--1038
+Overfull \hbox (46.51971pt too wide) in paragraph at lines 1038--1040
 []|  [] 
  []
 
 <error.png, id=220, 1100.11pt x 185.69376pt>
 File: error.png Graphic file (type png)
 <use error.png>
-Package pdftex.def Info: error.png  used on input line 1043.
+Package pdftex.def Info: error.png  used on input line 1045.
 (pdftex.def)             Requested size: 220.0181pt x 37.13809pt.
 <real.png, id=221, 1576.89125pt x 266.9975pt>
 File: real.png Graphic file (type png)
 <use real.png>
-Package pdftex.def Info: real.png  used on input line 1056.
+Package pdftex.def Info: real.png  used on input line 1058.
 (pdftex.def)             Requested size: 473.07103pt x 80.09985pt.
 
-Overfull \hbox (28.64287pt too wide) in paragraph at lines 1055--1058
+Overfull \hbox (28.64287pt too wide) in paragraph at lines 1057--1060
 []  [] 
  []
 
@@ -1051,7 +1051,7 @@ Poglavlje 8.
 Here is how much of TeX's memory you used:
  10346 strings out of 478287
  164413 string characters out of 5849289
- 478036 words of memory out of 5000000
+ 478034 words of memory out of 5000000
  28328 multiletter control sequences out of 15000+600000
  536693 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
