@@ -20,7 +20,7 @@
     "nodemon": "^2.0.22",
     "pg": "^8.10.0",
     "puppeteer": "^19.8.2",
-    "puppeteer-core": "^19.8.1",
+    "puppeteer-core": "^22.11.2",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "read-excel-file": "^5.6.1"
